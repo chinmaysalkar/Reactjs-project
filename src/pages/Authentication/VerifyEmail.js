@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React from 'react'
 import img1 from '../../assets/images/slider1.svg'
 import img2 from '../../assets/images/slider2.svg'
 import img3 from '../../assets/images/slider3.svg'

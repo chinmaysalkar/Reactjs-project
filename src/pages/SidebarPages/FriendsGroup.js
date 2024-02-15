@@ -4,7 +4,6 @@ import Footer from '../../layouts/Footer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGear,faAlignRight,faPlus,faRefresh,faCamera,faVideoCamera,faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import avatar1 from '../../assets/images/avatar1.jpg'
-import { Link } from 'react-router-dom';
 import Sidebar from '../../layouts/Sidebar';
 
 

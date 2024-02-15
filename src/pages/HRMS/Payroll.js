@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { Button,Form } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import Header from '../../layouts/Header';
 import Footer from '../../layouts/Footer';
-import { Link } from 'react-router-dom';
 import Paylist from '../../components/Payroll/Paylist';
 import Payslip from '../../components/Payroll/Payslip';
 import Sidebar from '../../layouts/Sidebar';
-
+import Modal from 'react-bootstrap/Modal';
 
 export default function Payroll() {
     const [activeButton, setActiveButton] = useState('paylist');
@@ -17,6 +16,13 @@ export default function Payroll() {
         setCurrentComponent(componentName);
         setActiveButton(componentName);
     };
+
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
 
   
   return (
@@ -36,8 +42,8 @@ export default function Payroll() {
       </div>
 
       <div className='d-flex pt-2'>
-        <Button variant="primary" className='mx-3 btn-top'>
-          +Add
+        <Button variant="primary" className='mx-3 btn-top' onClick={handleShow}>
+          + Add Salary
         </Button>
       </div>
     </div>
@@ -52,6 +58,51 @@ export default function Payroll() {
         
     </div>
     </div>
+
+
+    <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Add Salary</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+
+       <div>
+          <div className="mb-3">
+            <label htmlFor="userid" className="form-label">User ID</label>
+            <input type="email" className="form-control" id="userid" placeholder=""/>
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="name" className="form-label">Name</label>
+            <input type="name" className="form-control" id="name" placeholder=""/>
+          </div>
+          
+          <div className="mb-3">
+            <label htmlFor="email" className="form-label">Email Address</label>
+            <input type="email" className="form-control" id="email" placeholder="name@example.com"/>
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="salary" className="form-label">Salary</label>
+            <input type="text" className="form-control" id="salary" placeholder=""/>
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="userid" className="form-label">Role</label>
+            <input type="role" className="form-control" id="role" placeholder=""/>
+          </div>
+       </div>
+
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" className='btn-top'>
+            Add
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 }

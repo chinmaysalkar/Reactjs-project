@@ -1,5 +1,4 @@
-import React, {useState, useRef, useEffect } from 'react'
-import { CKEditor } from 'ckeditor4-react';
+import React from 'react'
 import Header from '../../layouts/Header'
 import Footer from '../../layouts/Footer'
 import avatar1 from '../../assets/images/avatar1.jpg'

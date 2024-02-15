@@ -96,6 +96,30 @@ background: #f1f1f1 !important;
     }
     
 }
+
+/* For CheckBox */
+
+.checkbox-custom {
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+    background-color: #fff; 
+    border: 1px solid #999;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  .checkbox-custom:checked {
+    background-color: #2C2945; 
+    border: 1px solid #2C2945;
+  }
+  
+  
+
+
+
 /*------------------------- 
        HRMS DashBoard
 --------------------------- */
@@ -565,7 +589,7 @@ a.sidebar-link {
 }
 
 /*-------------------------------- 
-My Profile 
+    My Profile 
 -----------------------------------*/
 .list-inline-item:not(:last-child) {
     margin-right: 0.5rem;
@@ -583,8 +607,7 @@ My Profile
 }
 
 .social-links li a:hover{
-    color: black;
-    border: 1px solid black;
+    color: lightgreen;
     background: white;
 }
 .btn-outline-primary {

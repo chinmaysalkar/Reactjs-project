@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../../layouts/Header'
 import Footer from '../../layouts/Footer'
-import { Tab, Tabs, Card, InputGroup, FormControl } from 'react-bootstrap';
+import { Card, InputGroup, FormControl } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faList,faPlus, faTrash, faEnvelope, faPhone, faStar } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';

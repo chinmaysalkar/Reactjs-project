@@ -12,7 +12,7 @@ export default function ProjectDashboard() {
   const [ongoingProjects] = useState(23);
   const [pendingProjects] = useState(8);
 
-  const [progressBars,setProgressBars] = useState([
+  const [progressBars] = useState([
     { label: 'Design Team', value: 35,  },
     { label: 'Developer Team', value: 25,  },
     { label: 'Marketing', value: 15,  },

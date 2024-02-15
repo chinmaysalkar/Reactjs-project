@@ -9,18 +9,36 @@ import Sidebar from '../../layouts/Sidebar';
 
 export default function Employee() {
   const [activeButton, setActiveButton] = useState('employeelist');
+  const [currentComponent, setCurrentComponent] = useState('employeelist');
+  const [show1, setShow1] = useState(false);
+  const [show2, setShow2] = useState(false);
 
-    const [currentComponent, setCurrentComponent] = useState('employeelist');
+    
+  const handleButtonClick = (componentName) => {
+    setCurrentComponent(componentName);
+    setActiveButton(componentName);
+    // Close modals when switching components
+    setShow1(false);
+    setShow2(false);
+  };
 
-    const handleButtonClick = (componentName) => {
-        setCurrentComponent(componentName);
-        setActiveButton(componentName);
-    };
+    
+  const handleClose1 = () => setShow1(false);
+  const handleShow1 = () => setShow1(true);
 
-    const [show, setShow] = useState(false);
+  const handleClose2 = () => setShow2(false);
+  const handleShow2 = () => setShow2(true);
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+  const handleAddButtonClick = () => {
+    if (currentComponent === 'employeelist') {
+      handleShow1();
+    } else if (currentComponent === 'leaveemployee') {
+      handleShow2();
+    }
+  };
+
+
+
 
   return (
     <>
@@ -36,11 +54,13 @@ export default function Employee() {
         <button onClick={() => handleButtonClick('leaveemployee')} className={`top-bar-btn mx-2 ${activeButton === 'leaveemployee' ? 'text-secondary border-top-2' : ''}`}>Leave</button>
       </div>
 
-      <div className='d-flex pt-2'>
-        <Button variant="primary" className='mx-1 btn-top' onClick={handleShow}>
-          +Add
-        </Button>
-      </div>
+      {(currentComponent === 'employeelist' || currentComponent === 'leaveemployee') && (
+        <div className='d-flex pt-2'>
+          <Button variant="primary" className='mx-3 btn-top' onClick={handleAddButtonClick}>
+            +Add
+          </Button>
+        </div>
+      )}
     </div>
 
 
@@ -51,7 +71,7 @@ export default function Employee() {
     </div>
 
 
-    <Modal show={show} onHide={handleClose}>
+    <Modal show={show1} onHide={handleClose1}>
       <Modal.Header closeButton>
       <Modal.Title>Add Employee</Modal.Title>
       </Modal.Header>
@@ -59,25 +79,25 @@ export default function Employee() {
       <Modal.Body>
       <div className='row'>
           <div className='col-md-6'>
-              <div class="mb-3">
-              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Employee ID "/>
+              <div className="mb-3">
+              <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Employee ID "/>
               </div>
-              <div class="mb-3">
-              <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Name "/>
+              <div className="mb-3">
+              <input type="text" className="form-control" id="exampleFormControlInput2" placeholder="Name "/>
               </div>
-              <div class="mb-3">
-              <input type="email" class="form-control" id="exampleFormControlInput3" placeholder="Email ID "/>
+              <div className="mb-3">
+              <input type="email" className="form-control" id="exampleFormControlInput3" placeholder="Email ID "/>
               </div>
           </div>
           <div className='col-md-6'>
-              <div class="mb-3">
-              <input type="text" class="form-control" id="exampleFormControlInput4" placeholder="Phone Number "/>
+              <div className="mb-3">
+              <input type="text" className="form-control" id="exampleFormControlInput4" placeholder="Phone Number "/>
               </div>
-              <div class="mb-3">
-              <input type="text" class="form-control" id="exampleFormControlInput5" placeholder="Start Date* "/>
+              <div className="mb-3">
+              <input type="text" className="form-control" id="exampleFormControlInput5" placeholder="Start Date* "/>
               </div>
-              <div class="mb-3">
-              <input type="text" class="form-control" id="exampleFormControlInput6" placeholder="Role "/>
+              <div className="mb-3">
+              <input type="text" className="form-control" id="exampleFormControlInput6" placeholder="Role "/>
               </div>
           </div>
       </div>
@@ -91,17 +111,17 @@ export default function Employee() {
 
 
       <div>
-          <div class="mb-3">
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Facebook "/>
+          <div className="mb-3">
+          <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Facebook "/>
           </div>
-          <div class="mb-3">
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Twitter "/>
+          <div className="mb-3">
+          <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Twitter "/>
           </div>
-          <div class="mb-3">
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Linkedin"/>
+          <div className="mb-3">
+          <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Linkedin"/>
           </div>
-          <div class="mb-3">
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Instagram"/>
+          <div className="mb-3">
+          <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Instagram"/>
           </div>
       </div>   
       
@@ -109,11 +129,68 @@ export default function Employee() {
       </Modal.Body>
 
       <Modal.Footer>
-      <Button variant="secondary" onClick={handleClose}>
+      <Button variant="secondary" onClick={handleClose1}>
           Close
       </Button>
-      <Button variant="primary btn-top" onClick={handleClose}>
+      <Button variant="primary btn-top" onClick={handleClose1}>
           Save Changes
+      </Button>
+      </Modal.Footer>       
+    </Modal>
+
+
+
+    <Modal show={show2} onHide={handleClose2}>
+      <Modal.Header closeButton>
+      <Modal.Title>Leave Employee</Modal.Title>
+      </Modal.Header>
+
+      <Modal.Body>
+      <div className='row'>
+          <div className='col-md-6'>
+              <div className="mb-3">
+              <label htmlFor="" className="form-label">Employee ID <span className='text-danger'>*</span></label>
+              <input type="text" className="form-control" id="employeeid" placeholder="Employee ID "/>
+              </div>
+
+              <div className="mb-3">
+              <label htmlFor="" className="form-label">Name</label>
+              <input type="text" className="form-control" id="username" placeholder="Name "/>
+              </div>
+
+              <div className="mb-3">
+              <label htmlFor="" className="form-label">From <span className='text-danger'>*</span></label>
+              <input type="date" className="form-control" id="startdate" placeholder="Start Date* "/>
+              </div>
+
+              <div className="mb-3">
+              <label htmlFor="" className="form-label">To <span className='text-danger'>*</span></label>
+              <input type="date" className="form-control" id="enddate" placeholder="End Date* "/>
+              </div>
+          </div>
+          <div className='col-md-6'>
+              
+             
+              <div className="mb-3">
+              <label htmlFor="" className="form-label">Numbers of days <span className='text-danger'>*</span></label>
+              <input type="text" className="form-control" id="numberofdays" placeholder=" "/>
+              </div>
+
+              <div className="mb-3">
+              <label htmlFor="" className="form-label">Leave Type <span className='text-danger'>*</span></label>
+              <textarea className="form-control" placeholder="" id="leavereason"></textarea>
+              </div>
+          </div>
+      </div>  
+
+      </Modal.Body>
+
+      <Modal.Footer>
+      <Button variant="secondary" onClick={handleClose2}>
+          Close
+      </Button>
+      <Button variant="primary btn-top" onClick={handleClose2}>
+          Add
       </Button>
       </Modal.Footer>       
     </Modal>

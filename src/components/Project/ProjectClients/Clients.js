@@ -1,47 +1,12 @@
-import React,{useState} from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faSlack, faLinkedin, faTwitter, faDribbble, faPinterest, faSkype, faInstagram, faFlickr, faDropbox, faApple } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faLinkedin, faTwitter, faInstagram, } from '@fortawesome/free-brands-svg-icons';
 import avatar1 from '../../../assets/images/avatar1.jpg'
 import avatar2 from '../../../assets/images/avatar2.jpg'
 import { Link } from 'react-router-dom';
 
 const Clients = () => {
 
-
-    const [formData, setFormData] = useState({
-
-        imgclient: avatar1,
-        name: '',
-        email: '',
-        socialLinks: [
-            { icon: faFacebook, link: '/#' },
-            { icon: faSlack, link: '/#' },
-            { icon: faLinkedin, link: '/#' }
-        ],
-        projects: 7,
-        dealAmount:2228,
-        ribbonText: 'New',
-        ribbonColor: 'green'
-    });
-
-
-
-    const handleInputChange = (e) => {
-        const { id, value } = e.target;
-        setFormData({ ...formData, [id]: value });
-    };
-
-    const handleSocialLinkChange = (index, value) => {
-        const updatedLinks = [...formData.socialLinks];
-        updatedLinks[index] = value;
-        setFormData({ ...formData, socialLinks: updatedLinks });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Add logic to update cardsData with formData
-        // setShowModal(false); 
-    };
 
     const cardsData = [
         {
@@ -50,8 +15,9 @@ const Clients = () => {
             email: 'jason-porter@info.com',
             socialLinks: [
                 { icon: faFacebook, link: '/#' },
-                { icon: faSlack, link: '/#' },
-                { icon: faLinkedin, link: '/#' }
+                { icon: faTwitter, link: '/#' },
+                { icon: faLinkedin, link: '/#' },
+                { icon: faInstagram, link: '/#' }
             ],
             projects: 7,
             dealAmount: 2510,
@@ -65,9 +31,9 @@ const Clients = () => {
             email: 'Michelle@info.com',
             socialLinks: [
                 { icon: faTwitter, link: '/#' },
-                { icon: faDribbble, link: '/#' },
-                { icon: faSlack, link: '/#' },
-                { icon: faLinkedin, link: '/#' }
+                { icon: faFacebook, link: '/#' },
+                { icon: faLinkedin, link: '/#' },
+                { icon: faInstagram, link: '/#' }
             ],
             projects: 14,
             dealAmount: 7510,
@@ -95,7 +61,7 @@ const Clients = () => {
                         ))}
                     </ul>
                     <button className="btn btn-default btn-sm client-view-btn">View Profile</button>
-                    <button className="btn btn-default btn-sm client-view-btn mx-2">Message</button>
+                    <button className="btn btn-default btn-sm client-view-btn mx-2" href={`mailto:${email}`}>Email</button>
                     <div className="row text-center mt-4">
                         <div className="col-lg-6 border-right">
                             <label className="mb-0">Project</label>

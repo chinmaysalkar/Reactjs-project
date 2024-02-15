@@ -5,6 +5,7 @@ import EditorComponent from '../../components/Editor';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faComments } from '@fortawesome/free-solid-svg-icons';
 import Sidebar from '../../layouts/Sidebar';
+import img from '../../assets/images/avatar1.jpg'
 
 export default function Activities() {
   return (
@@ -31,9 +32,10 @@ export default function Activities() {
               <p>The toolbar can be customized and it also supports various callbacks such as <code>oninit</code>, <code>onfocus</code>, <code>onpaste</code> and many more.</p>
               <p>Please try <b>paste some texts</b> here</p>
             </div>
+
             <div className="timeline-item">
-              <img className="tl_avatar" src="" alt="" />
-              <span>
+              <img className="tl_avatar rounded-circle" src={img} alt="" />
+              <span className='mx-1'>
                 <a href="fake_url">Elisse Joson</a> San Francisco, CA{' '}
                 <small className=" d-flex justify-content-end">20-April-2019 - Today</small>
               </span>
@@ -91,8 +93,8 @@ export default function Activities() {
             </div>
              
             <div className="timeline-item">
-              <img className="tl_avatar" src="" alt="" />
-              <span>
+              <img className="tl_avatar rounded-circle" src={img} alt="" />
+              <span className='mx-1'>
                 <a href="fake_url">Dessie Park</a> Oakland, CA{' '}
                 <small className=" d-flex justify-content-end">20-April-2019 - Yesterday</small>
               </span>
@@ -155,8 +157,8 @@ export default function Activities() {
             </div>
 
             <div className="timeline-item">
-              <img className="tl_avatar" src="" alt="" />
-              <span>
+              <img className="tl_avatar rounded-circle" src={img} alt="" />
+              <span className='mx-1'>
                 <a href="fake_url">Rochelle Barton</a> San Francisco, CA{' '}
                 <small className=" d-flex justify-content-end">20-April-2019</small>
               </span>
@@ -212,6 +214,7 @@ export default function Activities() {
                 </div>
               </div>
             </div>
+
           </div>
         </div>
         <div>

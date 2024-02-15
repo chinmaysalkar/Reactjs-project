@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faThumbsUp, faCalendarDays, faCreditCard, faCalculator, faChartPie, faFilePdf } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faThumbsUp, faCreditCard, faCalculator, faChartPie, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 export default function IndexProject() {

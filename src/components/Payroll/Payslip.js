@@ -1,6 +1,6 @@
 import React from 'react'
 import avatar2 from '../../assets/images/avatar2.jpg'
-import { Button, Badge } from 'react-bootstrap';
+import { Badge } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPrint } from '@fortawesome/free-solid-svg-icons';
 import Payrollindex from './Payrollindex';

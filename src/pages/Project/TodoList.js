@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import avatar1 from '../../assets/images/avatar1.jpg';
 import avatar2 from '../../assets/images/avatar2.jpg';
-import { Link } from 'react-router-dom';
 import Sidebar from '../../layouts/Sidebar';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';

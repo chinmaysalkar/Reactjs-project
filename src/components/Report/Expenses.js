@@ -1,5 +1,4 @@
 import React,{useState} from 'react'
-import { Button } from 'react-bootstrap'
 import avatar1 from '../../assets/images/avatar1.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaypal, faCcMastercard } from '@fortawesome/free-brands-svg-icons';

@@ -32,12 +32,12 @@ export default function ProjectClients() {
                         <div className='card-body'>
                             <div className="row">
                                 
-                                <div className="col-lg-4 col-md-4 col-sm-6">
+                                <div className="col-lg-4 col-md-4 col-sm-6  mb-2">
                                     <div className="input-group mx-2">
                                     <input type="text" className="form-control" placeholder="Client Name" />
                                     </div>
                                 </div>
-                                <div className="col-lg-4 col-md-4 col-sm-6">
+                                <div className="col-lg-4 col-md-4 col-sm-6 mb-2">
                                     <div className="input-group mx-2">
                                     <input type="text" className="form-control" placeholder="Project" />
                                     </div>
@@ -47,7 +47,7 @@ export default function ProjectClients() {
                                     <Link to="" className="btn btn-sm btn-primary btn-block btn-top mx-2">
                                     Search
                                     </Link>
-
+                                    
                                     <Link to="" className="btn btn-sm btn-primary btn-block btn-top" onClick={handleShow}>
                                     Add New
                                     </Link>
@@ -72,63 +72,7 @@ export default function ProjectClients() {
 
     {/* Modal For Add Clients */}
 
-      {/* <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title className='text-center'>Add Client</Modal.Title>
-        </Modal.Header>
-
-
-        <Modal.Body>
-            <form onSubmit={handleSubmit}>
-
-                <div className="form-group mb-3">
-                    <label htmlFor="inputGroupFile01">Upload Image</label>
-                    <input type="file" className="form-control" id="clientimg" onChange={handleChange} />
-                </div>
-
-                <div className="form-group mb-3">
-                    <label htmlFor="name">Name</label>
-                    <input type="text" id="name" className='form-control' value={formData.name} onChange={handleChange} />
-                </div>
-                
-            
-
-                <div className="form-group mb-3">
-                    <label htmlFor="email">Email</label>
-                    <input id="email" value={formData.email} className='form-control' onChange={handleChange}></input>
-                </div>
-
-               
-                <div className="form-group mb-3">
-                    <label htmlFor="companyname">Company Name</label>
-                    <input id="companyname" value={formData.companyname} className='form-control' onChange={handleChange}></input>
-                </div>
-
-                <div className="form-group mb-3">
-                    <label>Social Links</label>
-                    {formData.socialLinks.map((link, index) => (
-                        <div key={index} className='mb-3'>
-                            <input type="text" value={link.link} className='form-control' onChange={e => handleSocialLinkChange(index, e.target.value)} />
-                        </div>
-                    ))}
-                </div>
-            </form>
-        </Modal.Body>
-
-
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button type='submit' variant="primary" className='btn-top'>
-            Add
-          </Button>
-        </Modal.Footer>
-      </Modal> */}
-
-
-
-
+     
         <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title className='text-center'>Add Client</Modal.Title>
@@ -161,14 +105,23 @@ export default function ProjectClients() {
                     <input id="companyname" className='form-control'></input>
                 </div>
 
+
                 <div className="form-group mb-3">
                     <label>Social Links</label>
-                    
-                        <div  className='mb-3'>
-                            <input type="text" className='form-control' />
-                        </div>
-                    
+                    <div class="mb-3 mt-1">
+                    <input type="email" class="form-control" id="facebook" placeholder="Facebook "/>
+                    </div>
+                    <div class="mb-3">
+                    <input type="email" class="form-control" id="twitter" placeholder="Twitter "/>
+                    </div>
+                    <div class="mb-3">
+                    <input type="email" class="form-control" id="linkedin" placeholder="Linkedin"/>
+                    </div>
+                    <div class="mb-3">
+                    <input type="email" class="form-control" id="instagram" placeholder="Instagram"/>
+                    </div>
                 </div>
+                   
             </form>
         </Modal.Body>
 
@@ -181,7 +134,7 @@ export default function ProjectClients() {
             Add
           </Button>
         </Modal.Footer>
-      </Modal> 
+        </Modal> 
     </>
   )
 }

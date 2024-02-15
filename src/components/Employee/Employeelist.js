@@ -1,9 +1,8 @@
 import React,{useState} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash, faSearch , faEye} from '@fortawesome/free-solid-svg-icons';
-import { Form, Button, Modal  } from 'react-bootstrap';
+import { Form, Button  } from 'react-bootstrap';
 import Employeeindex from './Employeeindex';
-import { Link } from 'react-router-dom';
 
 export default function Employeelist() {
     const [userList, setUserList] = useState([

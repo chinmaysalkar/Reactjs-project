@@ -3,11 +3,9 @@ import Header from '../../layouts/Header'
 import Footer from '../../layouts/Footer'
 import Sidebar from '../../layouts/Sidebar'
 import img1 from '../../assets/images/avatar1.jpg'
-import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook, faTwitter, faSkype, } from '@fortawesome/free-brands-svg-icons';
 import { faPhone } from '@fortawesome/free-solid-svg-icons'
-import { Button } from 'react-bootstrap'
 import Calender from '../../components/Profile/Calender';
 import Profile from '../../components/Profile/Timeline';
 import Timeline from '../../components/Profile/Timeline';

@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Form from 'react-bootstrap/Form';
 import Navbar from 'react-bootstrap/Navbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope,faBell, faUser,faGear,faPaperPlane,faCircleQuestion,faArrowRightFromBracket, faAlignLeft } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope,faBell, faUser,faGear,faPaperPlane,faCircleQuestion,faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import ReactCountryFlag from "react-country-flag"
 import { Dropdown } from 'react-bootstrap';
 import { FaCheck, FaUser, FaThumbsUp, FaQuestionCircle, FaShoppingCart } from 'react-icons/fa';
@@ -13,12 +13,12 @@ import avatar1 from '../assets/images/avatar1.jpg'
 export default function Header() {
 
 
-    const [isDropdownOpen, setDropdownOpen] = useState(false);
+    // const [isDropdownOpen, setDropdownOpen] = useState(false);
     const [selectedLanguage, setSelectedLanguage] = useState(null);
 
-    const handleIconClick = () => {
-        setDropdownOpen(!isDropdownOpen);
-    };
+    // const handleIconClick = () => {
+    //     setDropdownOpen(!isDropdownOpen);
+    // };
 
     const handleLanguageSelect = (languageCode) => {
         setSelectedLanguage(languageCode);

@@ -5,7 +5,6 @@ import { Form, Button } from 'react-bootstrap';
 import avatar1 from '../../assets/images/avatar1.jpg'
 import avatar2 from '../../assets/images/avatar2.jpg'
 import avatar3 from '../../assets/images/avatar3.jpg'
-import { Link } from 'react-router-dom';
 
 const Userlist = () => {
   const [userList, setUserList] = useState([

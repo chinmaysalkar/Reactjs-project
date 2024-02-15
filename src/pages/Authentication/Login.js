@@ -13,7 +13,7 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword] = useState(false);
   const [passwordError, setPasswordError] = useState('');
 
 
@@ -65,7 +65,7 @@ export default function Login() {
       errors.push("Password must contain at least one number.");
     }
 
-    if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) {
+    if (!/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(password)) {
       errors.push("Password must contain at least one symbol.");
     }
 

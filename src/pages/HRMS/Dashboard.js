@@ -26,9 +26,6 @@ export default function Dashboard() {
 
         <Dashbordindex/>
 
-        {/* <Salarystatistics/> */}
-
-        {/* <Revenue/> */}
 
         <Projectsummary/>
 

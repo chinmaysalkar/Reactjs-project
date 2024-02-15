@@ -1,29 +1,11 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronUp, faX, faEye ,faEllipsisVertical, faTrash, faEdit,faShare, faDownload, faFilePdf, faFolder } from '@fortawesome/free-solid-svg-icons';
+import { faChevronUp, faX, faEye ,faEllipsisVertical, faTrash, faEdit,faShare, faDownload, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import avatar1 from '../../../assets/images/avatar1.jpg'
 import { FaFolder } from 'react-icons/fa';
 
 export default function GridView() {
-    const [dropdownOpen1, setDropdownOpen1] = useState(false);
-    const [dropdownOpen2, setDropdownOpen2] = useState(false);
-    const [dropdownOpen3, setDropdownOpen3] = useState(false);
-
-    const toggleDropdown = (cardNumber) => {
-        switch (cardNumber) {
-        case 1:
-            setDropdownOpen1(!dropdownOpen1);
-            break;
-        case 2:
-            setDropdownOpen2(!dropdownOpen2);
-            break;
-        case 3:
-            setDropdownOpen3(!dropdownOpen3);
-            break;
-        default:
-            break;
-        }
-    };
+    
   return (
     <div className='pagewidth'>
         <div className='row mx-2 mt-4'>
