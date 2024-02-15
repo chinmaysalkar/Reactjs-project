@@ -9,7 +9,7 @@ import { faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 export default function OnGoing() {
     const projectData = [
         {
-          title: "NEW ADMIN DESIGN",
+          title: "New Admin Design",
           tag: "Web Design",
           description: "Aperiam deleniti fugit incidunt, iste, itaque minima neque pariatur perferendis temporibus!",
           created: "09 Jun 2019 11:32AM",
@@ -22,7 +22,7 @@ export default function OnGoing() {
           progressColor: "bg-red"
         },
         {
-          title: "JOB PORTAL WEB APP",
+          title: "Job Portal Web App",
           tag: "Angular",
           description: "Aperiam deleniti fugit incidunt, iste, itaque minima neque pariatur perferendis temporibus!",
           created: "09 Jun 2019 11:32AM",
@@ -36,7 +36,7 @@ export default function OnGoing() {
         },
     
         {
-            title: "APP DESIGN AND DEVELOPMENT",           
+            title: "App Design and Development",           
             tag: "Android",
             description: "Aperiam deleniti fugit incidunt, iste, itaque minima neque pariatur perferendis temporibus!",
             created: "09 Jun 2019 11:32AM",
@@ -50,7 +50,7 @@ export default function OnGoing() {
           },
     
           {
-            title: "ONE PAGE LANDING",
+            title: "One  Page Landing",
             tag: "Wordpress",
             description: "Aperiam deleniti fugit incidunt, iste, itaque minima neque pariatur perferendis temporibus!",
             created: "09 Jun 2019 11:32AM",
@@ -64,7 +64,7 @@ export default function OnGoing() {
           },
     
           {
-            title: "JOB PORTAL WEB APP",
+            title: "Job Portal Web App",
             tag: "iOS App",
             description: "Aperiam deleniti fugit incidunt, iste, itaque minima neque pariatur perferendis temporibus!",
             created: "09 Jun 2019 11:32AM",

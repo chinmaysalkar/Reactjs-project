@@ -26,7 +26,7 @@ export default function Invoice() {
   const getStatusColor = (status) => {
     switch (status.toLowerCase()) {
       case 'approved':
-        return '#F67EDB  '; 
+        return '#6add10'; 
       case 'pending':
         return '#FFC107'; 
       
@@ -143,8 +143,8 @@ export default function Invoice() {
                 <td>{user.date}</td>
                 <td>{renderPaidByIcon(user.type)}</td>
                 <td>
-                  <span style={{ backgroundColor: getStatusColor(user.status), padding: '3px', borderRadius: '5px', color: 'white' }}>
-                    {user.status}
+                  <span style={{ backgroundColor: getStatusColor(user.status), padding: '4px', borderRadius: '5px', color: 'white' }}>
+                    <small>{user.status}</small>
                   </span>
                 </td>
                 <td>{user.amount}</td>

@@ -3,6 +3,7 @@ import avatar1 from '../../assets/images/avatar1.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaypal, faCcMastercard } from '@fortawesome/free-brands-svg-icons';
 
+import { faEdit, faTrash, } from '@fortawesome/free-solid-svg-icons';
 
 export default function Expenses() {
 
@@ -10,19 +11,19 @@ export default function Expenses() {
   const [currentPage] = useState(1);
 
   const [userList] = useState([
-    {  date: '07 March, 2018',item: 'HP Laptop',imageSrc:  avatar1,orderby: 'Marshall Nichols',amount: '$200', status: 'Pending',    paidby:'Paypal', from: 'Paytm' },
-    {  date: '25 Jun, 2018',item: 'iMack Desktop ',imageSrc:  avatar1,orderby: ' Marshall Nichols', amount: '$378', status: 'Pending',   paidby:'Paypal', from: 'ebay USA' },
-    {  date: '12 July, 2018',item: 'Logitech USB Mouse, Keyboard ',imageSrc:  avatar1,orderby: ' Debra Stewart',amount: '$653', status: 'Approved',   paidby:'Paypal', from: 'Amazon' },
-    {  date: '13 July, 2018',item: 'MacBook Pro Air',imageSrc:  avatar1,orderby: ' Marshall Nichols',amount: ' $451', status: 'Approved',  paidby:'MasterCard', from: 'Amazon' },
-    {  date: '27 July, 2018',item: 'Dell Monitor 28 inch',imageSrc:  avatar1,orderby: ' Ava Alexander',amount: ' $989', status: 'Approved',  paidby:'Paypal', from: 'Flipkart Uk' },
-    {  date: '07 March, 2018',item: 'Logitech USB Mouse, Keyboard',imageSrc:  avatar1,orderby: ' Marshall Nichols',amount: ' $343', status: 'Approved',   paidby:'Paypal', from: 'Amazon' },
-    {  date: '25 Jun, 2018',item: 'MacBook Pro Air',imageSrc:  avatar1,orderby: ' Debra Stewart',amount: ' $653', status: 'Approved',   paidby:'MasterCard', from: 'Amazon' },
+    {  purchasedate: '07 March, 2018',item: 'HP Laptop',imageSrc:  avatar1,orderby: 'Marshall Nichols',amount: '$200', status: 'Pending',    paidby:'Paypal', purchasefrom: 'Paytm',action: '' },
+    {  purchasedate: '25 Jun, 2018',item: 'iMack Desktop ',imageSrc:  avatar1,orderby: ' Marshall Nichols', amount: '$378', status: 'Pending',   paidby:'Paypal', purchasefrom: 'ebay USA',action: '' },
+    {  purchasedate: '12 July, 2018',item: 'Logitech USB Mouse, Keyboard ',imageSrc:  avatar1,orderby: ' Debra Stewart',amount: '$653', status: 'Approved',   paidby:'Paypal', purchasefrom: 'Amazon',action: '' },
+    {  purchasedate: '13 July, 2018',item: 'MacBook Pro Air',imageSrc:  avatar1,orderby: ' Marshall Nichols',amount: ' $451', status: 'Approved',  paidby:'MasterCard', purchasefrom: 'Amazon',action: '' },
+    {  purchasedate: '27 July, 2018',item: 'Dell Monitor 28 inch',imageSrc:  avatar1,orderby: ' Ava Alexander',amount: ' $989', status: 'Approved',  paidby:'Paypal', purchasefrom: 'Flipkart Uk',action: '' },
+    {  purchasedate: '07 March, 2018',item: 'Logitech USB Mouse, Keyboard',imageSrc:  avatar1,orderby: ' Marshall Nichols',amount: ' $343', status: 'Approved',   paidby:'Paypal', purchasefrom: 'Amazon',action: '' },
+    {  purchasedate: '25 Jun, 2018',item: 'MacBook Pro Air',imageSrc:  avatar1,orderby: ' Debra Stewart',amount: ' $653', status: 'Approved',   paidby:'MasterCard', purchasefrom: 'Amazon',action: '' },
   ]);
 
   const getStatusColor = (status) => {
     switch (status.toLowerCase()) {
       case 'approved':
-        return '#F67EDB  '; 
+        return '#6add10 '; 
       case 'pending':
         return '#FFC107'; 
       
@@ -128,39 +129,51 @@ export default function Expenses() {
           </div>
 
           <div className='p-3 employeeli'>
-      <div className='table-responsive'>
-        <table className='table table-striped p-2'>
-          <thead>
-            <tr>
-              <th>ITEM</th>
-              <th>ORDER BY</th>
-              <th>FROM</th>
-              <th>DATE</th>
-              <th>PAID BY</th>
-              <th>STATUS</th>
-              <th>AMOUNT</th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentPageItems.map((user) => (
-              <tr key={user.orderby}>
-                <td>{user.item}</td>
-                <td>{user.orderby}</td>  
-                <td>{user.from}</td>  
-                <td>{user.date}</td>
-                <td>{renderPaidByIcon(user.paidby)}</td>
-                <td>
-                  <span style={{ backgroundColor: getStatusColor(user.status), padding: '3px', borderRadius:'5px', color:'white' }}>
-                    {user.status}
-                  </span>
-                </td>
-                <td>{user.amount}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
+            <div className='table-responsive'>
+              <table className='table table-striped p-2'>
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Order By</th>
+                    <th>Purchase From</th>
+                    <th>Purchase Date</th>
+                    <th>Paid By</th>
+                    <th>Status</th>
+                    <th>Amount</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {currentPageItems.map((user) => (
+                    <tr key={user.orderby}>
+                      <td>{user.item}</td>
+                      <td>{user.orderby}</td>  
+                      <td>{user.purchasefrom}</td>  
+                      <td>{user.purchasedate}</td>
+                      <td>{renderPaidByIcon(user.paidby)}</td>
+                      <td>
+                        <span style={{ backgroundColor: getStatusColor(user.status), padding: '4px', borderRadius:'5px', color:'white' }}>
+                          <small>{user.status}</small>
+                        </span>
+                      </td>
+                      <td>{user.amount}</td>
+                      <td>{(
+                        <>
+                          <button className='btn btn-sm mx-1'>
+                            <FontAwesomeIcon icon={faEdit} />
+                          </button>
+                          <button className='btn btn-sm mx-1'>
+                            <FontAwesomeIcon icon={faTrash} />
+                          </button>
+                        </>
+                        )}
+                    </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
       </div>
 
 
