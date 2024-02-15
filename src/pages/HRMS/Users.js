@@ -94,28 +94,28 @@ export default function Users() {
     
             <div className='row'>
                 <div className='col-lg-6 col-md-6 col-sm-12'>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">                  
-                    <Form.Control type="email" placeholder="First Name*" />
+                <Form.Group className="mb-3" controlId="firstname">                  
+                    <Form.Control type="text" placeholder="First Name*" />
                 </Form.Group>
                 </div>
                     
                 <div className='col-lg-6 col-md-6 col-sm-12'>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">                  
-                    <Form.Control type="email" placeholder="Last Name" />
+                <Form.Group className="mb-3" controlId="lastname">                  
+                    <Form.Control type="text" placeholder="Last Name" />
                 </Form.Group>
                 </div>
             </div>
 
             <div className='row'>
                 <div className='col-lg-6 col-md-6 col-sm-6'>
-                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">                  
+                    <Form.Group className="mb-3" controlId="email">                  
                         <Form.Control type="email" placeholder="Eamil ID" />
                     </Form.Group>
                 </div>
                 <hr />
                 <div className='col-lg-6 col-md-6 col-sm-6'>
-                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">                  
-                        <Form.Control type="email" placeholder="Mobile No" />
+                    <Form.Group className="mb-3" controlId="mobileno">                  
+                        <Form.Control type="text" placeholder="Mobile No" />
                     </Form.Group>
                 </div>
 
@@ -132,20 +132,26 @@ export default function Users() {
             
             <div className='row'>
                 <div className='col-lg-6 col-md-6 col-sm-6'>
-                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">                  
-                        <Form.Control type="email" placeholder="Username*" />
+                    <Form.Group className="mb-3" controlId="username">                  
+                        <Form.Control type="text" placeholder="Username*" />
                     </Form.Group>
                 </div>
 
                 <div className='col-lg-6 col-md-6 col-sm-6'>
-                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">                  
-                        <Form.Control type="email" placeholder="Password" />
+                    <Form.Group className="mb-3" controlId="password">                  
+                        <Form.Control type="password" placeholder="Password" />
                     </Form.Group>
                 </div>
 
                 <div className='col-lg-6 col-md-6 col-sm-6'>
-                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">                  
-                        <Form.Control type="email" placeholder="Confirm Password" />
+                    <Form.Group className="mb-3" controlId="confirmpassword">                  
+                        <Form.Control type="password" placeholder="Confirm Password" />
+                    </Form.Group>
+                </div>
+
+                <div className='col-lg-6 col-md-6 col-sm-6'>
+                    <Form.Group className="mb-3" controlId="date">                  
+                        <Form.Control type="date" placeholder="" />
                     </Form.Group>
                 </div>
             </div>    

@@ -26,9 +26,9 @@ const Userlist = () => {
       case 'admin':
         return '#3C4087';
       case 'employee':
-        return '#CBCCD7';
+        return '#1ddfe2 ';
       case 'hr':
-        return '#D5F47C';
+        return '#69d613 ';
         default:
           return '#ffffff';
     }
