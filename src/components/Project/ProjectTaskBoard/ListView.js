@@ -85,7 +85,7 @@ export default function ListView() {
                         {task.team.slice(0, 1).map((avatar, avatarIndex) => (
                             <img
                             key={avatarIndex}
-                            class="img-thumbnail rounded-circle avatar-sml"
+                            class="img-thumbnail rounded-circle avatar-sml avatar-img-stack"
                             src={avatar}
                             alt={`Team member ${avatarIndex + 1}`}
                             />

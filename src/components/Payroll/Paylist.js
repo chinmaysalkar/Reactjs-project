@@ -97,9 +97,9 @@ export default function Paylist() {
                             <img className="img-thumbnail rounded-circle avatar-sml" src={user.imageSrc} alt=''/>
                             </div>   
                             <div className='col-6'>
-                            <strong>{user.name}</strong>
+                            <strong><small className='d-flex'>{user.name}</small></strong>
                             <br />
-                            {user.email}
+                            <small className='d-flex'>{user.email}</small>
                             </div>
                         </div> 
                         </td>

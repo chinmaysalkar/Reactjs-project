@@ -65,15 +65,15 @@ const Clients = () => {
                             <FontAwesomeIcon icon={faEllipsisVertical} onClick={() => toggleDropdown(index)} style={{ cursor: 'pointer', zIndex: '1' }} />
                             {isOpenDropdown[index] && (
                                 <div className='p-4 mx-2 d-flex' style={{ position: 'absolute', top: '100%', left: '100%', transform: 'translateX(-100%)', zIndex: '1' }}>
-                                    <Dropdown.Item href="" className='mb-2 mx-2'><FontAwesomeIcon icon={faEdit} className='mx-1' /></Dropdown.Item>
-                                    <Dropdown.Item href="" className='mb-2'><FontAwesomeIcon icon={faTrash} className='mx-1' /></Dropdown.Item>
+                                    <Dropdown.Item href="" className='mb-2 mx-2'><FontAwesomeIcon icon={faEdit} className='mx-1 text-success' /></Dropdown.Item>
+                                    <Dropdown.Item href="" className='mb-2'><FontAwesomeIcon icon={faTrash} className='mx-1 text-danger' /></Dropdown.Item>
                                 </div>
                             )}
                         </div>
                     </div>
 
                     <div className={`ribbon-box ${ribbonColor}`}>{ribbonText}</div>
-                    <img className="rounded-circle img-thumbnail w100" src={imgclient} alt="fake_url" />
+                    <img className="rounded-circle  w100" src={imgclient} alt="fake_url" />
                     <h6 className="mt-3 mb-0">{name}</h6>
                     <span>{email}</span>
                     <ul className="mt-3 list-unstyled d-flex justify-content-center">

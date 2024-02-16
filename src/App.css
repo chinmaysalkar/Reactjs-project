@@ -1259,7 +1259,7 @@ table th span{
 
 
 .avatar-container {
-    position: relative; /* Required for positioning the 'more' text */
+    position: relative;
 }
 
 .img-thumbnail {
@@ -1270,7 +1270,7 @@ table th span{
     margin-bottom: 5px; 
 }
 
-.avatar-sml {
+.avatar-img-stack {
     margin-bottom: 5px;
 }
 

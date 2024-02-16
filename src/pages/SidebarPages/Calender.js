@@ -126,14 +126,16 @@ export default function Calender() {
                     <div><h6 className='text-secondary'>SARA HOPKINS</h6></div>
                     <div></div>      
                     </div>
-                <Calendar
-                    localizer={localizer}
-                    className='col-md-12 col-sm-6 col-xsm-3'
-                    // events={events}
-                    startAccessor="start"
-                    endAccessor="end"
-                    style={{ height: 600 }}
-                />
+                    <div className='table-responsive'>
+                    <Calendar
+                        localizer={localizer}
+                        className='col-md-12 col-sm-6 col-xsm-3'
+                        // events={events}
+                        startAccessor="start"
+                        endAccessor="end"
+                        style={{ height: 600 }}
+                    />
+                    </div>
                 </div>
                 </div>
             </div>

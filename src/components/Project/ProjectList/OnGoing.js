@@ -214,7 +214,7 @@ export default function OnGoing() {
                         {project.team.slice(0, 3).map((avatar, avatarIndex) => (
                             <img
                             key={avatarIndex}
-                            class="img-thumbnail rounded-circle avatar-sml"
+                            class="img-thumbnail rounded-circle avatar-sml avatar-img-stack"
                             src={avatar}
                             alt={`Team member ${avatarIndex + 1}`}
                             />

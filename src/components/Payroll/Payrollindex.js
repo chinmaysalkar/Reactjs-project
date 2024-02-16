@@ -14,7 +14,7 @@ export default function Payrollindex() {
     <div>
     <div className="row clearfix mx-1">
       {data.map((item, index) => (
-        <div key={index} className="col-lg-3 col-md-6">
+        <div key={index} className="col-lg-3 col-md-6 mb-2">
           <div className="card">
             <div className="card-body">
               <h6>{item.title}</h6>
