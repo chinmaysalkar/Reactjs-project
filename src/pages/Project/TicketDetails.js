@@ -22,7 +22,7 @@ export default function TicketDetails() {
     <div className='main d-flex'>
         <Sidebar/>
         <div className='pagewidth px-3'>
-    <Header/>
+        <Header/>
         <div className='section-body mt-3'>
             <div className='container-fluid'>
                 <div className='row d-flex flex-wrap'>
@@ -335,8 +335,8 @@ export default function TicketDetails() {
 
 
 
-    <Footer/>
-    </div>
+        <Footer/>
+        </div>
     </div>
     </>
   )

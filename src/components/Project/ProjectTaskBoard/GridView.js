@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronUp, faX, faEye ,faEllipsisVertical, faTrash, faEdit,faShare, faDownload, faFilePdf } from '@fortawesome/free-solid-svg-icons';
+import { faChevronUp, faChevronDown, faX, faEye ,faEllipsisVertical, faTrash, faEdit,faShare, faDownload, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import avatar1 from '../../../assets/images/avatar1.jpg'
 import Dropdown from 'react-bootstrap/Dropdown';
 
@@ -24,23 +24,70 @@ export default function GridView() {
     const toggleDropdown3 = () => {
         setIsDropdownOpen3(!isDropdownOpen3);
     };
+
+
+// Card Collaspe Function
+
+    const [isCardCollapsed, setCardCollapsed] = useState(false);
+
+    const toggleCardCollapse = () => {
+        setCardCollapsed(!isCardCollapsed);
+    };
+
+    const [isCardCollapsed2, setCardCollapsed2] = useState(false);
+
+    const toggleCardCollapse2 = () => {
+        setCardCollapsed2(!isCardCollapsed2);
+    };
+
+    const [isCardCollapsed3, setCardCollapsed3] = useState(false);
+
+    const toggleCardCollapse3 = () => {
+        setCardCollapsed3(!isCardCollapsed3);
+    };
+
+// Card remove
+    const [isCardBodyVisible, setCardBodyVisible] = useState(true);
+
+    const handleRemoveCardBody = () => {
+        setCardBodyVisible(false);
+    };
+
+
+    const [isCardBodyVisible2, setCardBodyVisible2] = useState(true);
+
+    const handleRemoveCardBody2 = () => {
+        setCardBodyVisible2(false);
+    };
+
+
+    const [isCardBodyVisible3, setCardBodyVisible3] = useState(true);
+
+    const handleRemoveCardBody3 = () => {
+        setCardBodyVisible3(false);
+    };
     
   return (
     <div className='pagewidth'>
         <div className='row mx-2 mt-4'>
+        {isCardBodyVisible && (
             <div className="col-lg-4 col-md-12 mb-2">
                 <div className="card planned_task p-3">
                     <div className="card-header bg-white border-0 d-flex justify-content-between">
                         <h5 className="card-title">PLANNED</h5>
                         <div className="card-options d-flex">
-                            <span className="card-options-collapse" data-toggle="card-collapse">
-                                <FontAwesomeIcon icon={faChevronUp} />
-                            </span>
-                            <span className="card-options-remove mx-2" data-toggle="card-remove">
+                                <span className="card-options-collapse mx-2" data-toggle="card-collapse" onClick={toggleCardCollapse}>
+                                    {isCardCollapsed ? (
+                                        <FontAwesomeIcon icon={faChevronDown} />
+                                    ) : (
+                                        <FontAwesomeIcon icon={faChevronUp} />
+                                    )}
+                                </span>
+                            <span className="card-options-remove mx-2" data-toggle="card-remove" onClick={handleRemoveCardBody}>
                                 <FontAwesomeIcon icon={faX} />
                             </span>
 
-                            <div style={{ position: 'relative', display: 'inline-block' }}>
+                            <div style={{ position: 'relative', display: 'inline-block' }} className='mx-3'>
                                 <FontAwesomeIcon icon={faEllipsisVertical} onClick={toggleDropdown} style={{ cursor: 'pointer', zIndex:'1' }} />
 
                                 {isDropdownOpen && (
@@ -58,6 +105,7 @@ export default function GridView() {
 
                         </div>
                     </div>
+                    {!isCardCollapsed && (
                     <div className="card-body">
                         <div className="dd" data-plugin="nestable">
                             <ol className="dd-list">
@@ -107,22 +155,31 @@ export default function GridView() {
                             </ol>
                         </div>
                     </div>
+                    )}
                 </div>
             </div>
+        )}
 
+
+
+        {isCardBodyVisible2 && (
             <div className="col-lg-4 col-md-12 mb-2">
                 <div className="card planned_task p-3">
                     <div className="card-header bg-white border-0 d-flex justify-content-between">
                         <h5 className="card-title">IN PROGRESS</h5>
                         <div className="card-options d-flex">
-                            <span className="card-options-collapse" data-toggle="card-collapse">
-                                <FontAwesomeIcon icon={faChevronUp} />
-                            </span>
-                            <span className="card-options-remove mx-2" data-toggle="card-remove">
+                                <span className="card-options-collapse mx-1" data-toggle="card-collapse" onClick={toggleCardCollapse2}>
+                                    {isCardCollapsed2 ? (
+                                        <FontAwesomeIcon icon={faChevronDown} />
+                                    ) : (
+                                        <FontAwesomeIcon icon={faChevronUp} />
+                                    )}
+                                </span>
+                            <span className="card-options-remove mx-2" data-toggle="card-remove" onClick={handleRemoveCardBody2}>
                                 <FontAwesomeIcon icon={faX} />
                             </span>
 
-                            <div style={{ position: 'relative', display: 'inline-block' }}>
+                            <div style={{ position: 'relative', display: 'inline-block' }} className='mx-3'>
                                 <FontAwesomeIcon icon={faEllipsisVertical} onClick={toggleDropdown2} style={{ cursor: 'pointer', zIndex:'1' }} />
 
                                 {isDropdownOpen2 && (
@@ -140,6 +197,7 @@ export default function GridView() {
 
                         </div>
                     </div>
+                    {!isCardCollapsed2 && (
                     <div className="card-body">
                         <div className="dd" data-plugin="nestable">
                             <ol className="dd-list">
@@ -191,22 +249,29 @@ export default function GridView() {
                             </ol>
                         </div>
                     </div>
+                    )}
                 </div>
             </div>
+        )}
 
+        {isCardBodyVisible3 && (
             <div className="col-lg-4 col-md-12 mb-2">
                 <div className="card planned_task p-3">
                     <div className="card-header bg-white border-0 d-flex justify-content-between">
                         <h5 className="card-title">COMPLETED</h5>
                         <div className="card-options d-flex">
-                            <span className="card-options-collapse" data-toggle="card-collapse">
-                                <FontAwesomeIcon icon={faChevronUp} />
-                            </span>
-                            <span className="card-options-remove mx-2" data-toggle="card-remove">
+                                <span className="card-options-collapse mx-1" data-toggle="card-collapse" onClick={toggleCardCollapse3}>
+                                    {isCardCollapsed3 ? (
+                                        <FontAwesomeIcon icon={faChevronDown} />
+                                    ) : (
+                                        <FontAwesomeIcon icon={faChevronUp} />
+                                    )}
+                                </span>     
+                            <span className="card-options-remove mx-2" data-toggle="card-remove" onClick={handleRemoveCardBody3}>
                                 <FontAwesomeIcon icon={faX} />
                             </span>
 
-                            <div style={{ position: 'relative', display: 'inline-block' }}>
+                            <div style={{ position: 'relative', display: 'inline-block' }} className='mx-3'>
                                 <FontAwesomeIcon icon={faEllipsisVertical} onClick={toggleDropdown3} style={{ cursor: 'pointer', zIndex:'1' }} />
 
                                 {isDropdownOpen3 && (
@@ -224,6 +289,7 @@ export default function GridView() {
 
                         </div>
                     </div>
+                    {!isCardCollapsed3 && (
                     <div className="card-body">
                         <div className="dd" data-plugin="nestable">
                             <ol className="dd-list">
@@ -265,9 +331,10 @@ export default function GridView() {
                             </ol>
                         </div>
                     </div>
+                    )}
                 </div>
             </div>
-
+        )}
         </div>
     </div>
   )
