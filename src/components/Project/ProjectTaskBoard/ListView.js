@@ -82,7 +82,7 @@ export default function ListView() {
                         <span>It is a long established fact that a reader will be distracted...</span>
                     </td>
                     <td class="avatar-container d-flex">
-                        {task.team.slice(0, 2).map((avatar, avatarIndex) => (
+                        {task.team.slice(0, 1).map((avatar, avatarIndex) => (
                             <img
                             key={avatarIndex}
                             class="img-thumbnail rounded-circle avatar-sml"
@@ -90,7 +90,7 @@ export default function ListView() {
                             alt={`Team member ${avatarIndex + 1}`}
                             />
                         ))}
-                        {task.team.length > 2 && (
+                        {task.team.length > 1 && (
                             <span class="remaining-count">{task.team.length - 3} more</span>
                         )}
                     </td>
