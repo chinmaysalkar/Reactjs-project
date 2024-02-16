@@ -151,7 +151,7 @@ export default function Users() {
 
                 <div className='col-lg-6 col-md-6 col-sm-6'>
                     <Form.Group className="mb-3" controlId="date">                  
-                        <Form.Control type="date" placeholder="" />
+                        <Form.Control type="date" placeholder="00/00/0000" />
                     </Form.Group>
                 </div>
             </div>    
