@@ -75,7 +75,7 @@ export default function GridView() {
                 <div className="card planned_task p-3">
                     <div className="card-header bg-white border-0 d-flex justify-content-between">
                         <h5 className="card-title">PLANNED</h5>
-                        <div className="card-options d-flex">
+                        <div className="card-options d-flex flex-column">
                                 <span className="card-options-collapse mx-2" data-toggle="card-collapse" onClick={toggleCardCollapse}>
                                     {isCardCollapsed ? (
                                         <FontAwesomeIcon icon={faChevronDown} />

@@ -5,7 +5,7 @@ import { Button, Form } from 'react-bootstrap';
 import ListView from '../../components/Project/ProjectTaskBoard/ListView';
 import GridView from '../../components/Project/ProjectTaskBoard/GridView';
 import Sidebar from '../../layouts/Sidebar';
-
+import Modal from 'react-bootstrap/Modal';
 
 export default function TaskBoard() {
   const [activeButton, setActiveButton] = useState('listview');
@@ -26,6 +26,14 @@ export default function TaskBoard() {
         { status: 'Completed', percentage: 83 },
         { status: 'In Completed', percentage: 12 },
       ];
+
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+
   return (
     <>
     <div className='main d-flex'>
@@ -46,7 +54,7 @@ export default function TaskBoard() {
             className='me-2'
             aria-label='Search'
           />
-          <Button variant="primary" className='mx-1 btn-top'>
+          <Button variant="primary" className='mx-1 btn-top' onClick={handleShow}>
             +Add
           </Button>
         </div>
@@ -103,6 +111,61 @@ export default function TaskBoard() {
         <Footer/>
     </div>
     </div>
+
+
+
+
+    <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Add Task</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        <div>
+        <form>
+          <div className="mb-3">
+            <label htmlFor="taskName" className="form-label">Task Name</label>
+            <input type="text" className="form-control" id="taskName" required />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="teamMembers" className="form-label">Team Members (separated by comma)</label>
+            <input type="text" className="form-control" id="teamMembers" />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="duration" className="form-label">Start Date</label>
+            <input type="date" className="form-control" id="duration"  required />
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="duration" className="form-label">End Date</label>
+            <input type="date" className="form-control" id="duration"  required />
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="status" className="form-label">Status</label>
+            <select className="form-select" id="status" required>
+              <option value="Planned">Planned</option>
+              <option value="Completed">Completed</option>
+              <option value="In Progress">In Progress</option>
+            </select>
+          </div>
+          
+          <div className="mb-3">
+            <label htmlFor="progress" className="form-label">Progress (%)</label>
+            <input type="number" className="form-control" id="progress"  required />
+          </div>
+          
+        </form>
+        </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" className='btn-top'>
+            Add
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   )
 }

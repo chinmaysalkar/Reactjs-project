@@ -3,7 +3,13 @@ import avatar1 from '../../../assets/images/avatar1.jpg'
 import avatar2 from '../../../assets/images/avatar2.jpg'
 import avatar3 from '../../../assets/images/avatar3.jpg'
 
+
+
+
 export default function ListView() {
+
+    
+
     const tasks = [
         {
           id: '01',
@@ -52,6 +58,7 @@ export default function ListView() {
         }
       };
   return (
+    <>
     <div className='pagewidth'>
         
         <div className="table-responsive mx-3 mt-3">
@@ -125,5 +132,9 @@ export default function ListView() {
         </div>
         
     </div>
+
+
+      
+    </>
   )
 }
