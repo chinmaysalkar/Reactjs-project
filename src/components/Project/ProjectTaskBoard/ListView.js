@@ -1,7 +1,7 @@
 import React from 'react'
 import avatar1 from '../../../assets/images/avatar1.jpg'
-import avatar2 from '../../../assets/images/avatar2.jpg'
-import avatar3 from '../../../assets/images/avatar3.jpg'
+// import avatar2 from '../../../assets/images/avatar2.jpg'
+// import avatar3 from '../../../assets/images/avatar3.jpg'
 
 
 
@@ -14,7 +14,7 @@ export default function ListView() {
         {
           id: '01',
           task: 'New code Update on github',
-          team: [avatar1],
+          team: [avatar1, avatar1, avatar1, avatar1,avatar1],
           start: '3 Jun 2019',
           end: '15 Jun 2019',
           status: 'Planned',
@@ -81,15 +81,18 @@ export default function ListView() {
                         <h6 className="mb-0">{task.task}</h6>
                         <span>It is a long established fact that a reader will be distracted...</span>
                     </td>
-                    <td>
-                        {task.team.map((avatar, avatarIndex) => (
+                    <td class="avatar-container d-flex">
+                        {task.team.slice(0, 2).map((avatar, avatarIndex) => (
                             <img
                             key={avatarIndex}
-                            className="img-thumbnail rounded-circle avatar-sml"
+                            class="img-thumbnail rounded-circle avatar-sml"
                             src={avatar}
                             alt={`Team member ${avatarIndex + 1}`}
                             />
                         ))}
+                        {task.team.length > 2 && (
+                            <span class="remaining-count">{task.team.length - 3} more</span>
+                        )}
                     </td>
                     <td>
                         <div className="text-black">Start: {task.start}</div>

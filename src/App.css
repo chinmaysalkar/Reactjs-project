@@ -1258,7 +1258,34 @@ table th span{
 
 
 
-/*----------------------------- 
+.avatar-container {
+    position: relative; /* Required for positioning the 'more' text */
+}
+
+.img-thumbnail {
+   
+    width: 50px; 
+    height: 50px; 
+    display: block; 
+    margin-bottom: 5px; 
+}
+
+.avatar-sml {
+    margin-bottom: 5px;
+}
+
+.remaining-count {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 2px 5px; 
+    font-size: 12px; 
+    border-radius: 3px; 
+}
+
+
+/*----------------------------- F
         Ticket List 
 -------------------------------*/
 .ticket-table{
