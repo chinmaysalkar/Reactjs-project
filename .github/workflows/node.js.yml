@@ -27,5 +27,5 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: build-artifact
-        path: /var/www/actions-runner/_work/Reactjs-project/Reactjs-project/build
+        path: ./build
   
