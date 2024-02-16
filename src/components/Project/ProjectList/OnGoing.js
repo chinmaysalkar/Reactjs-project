@@ -220,7 +220,7 @@ export default function OnGoing() {
                             />
                         ))}
                         {project.team.length > 3 && (
-                            <span class="remaining-count">{project.team.length - 3} more</span>
+                          <span class="remaining-count">{project.team.length - 3} more</span>
                         )}
                     </div>
                   </div>
