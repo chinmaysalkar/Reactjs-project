@@ -193,7 +193,8 @@ export default function OnGoing() {
 
                   <div className="py-1"><strong>Team:</strong></div>
                   <div className="col-7 py-1">
-                  <div className="avatar-list avatar-list-stacked avatar-marg">
+
+                  {/* <div className="avatar-list avatar-list-stacked avatar-marg">
                     {project.team.map((avatar, avatarIndex) => (
                       <img
                         key={avatarIndex}
@@ -206,7 +207,22 @@ export default function OnGoing() {
                       />
                     ))}
                     <span className="avatar avatar-sm">{`+${project.team.length}`}</span>
-                  </div>
+                  </div> */}
+
+
+                    <div class="avatar-container d-flex">
+                        {project.team.slice(0, 3).map((avatar, avatarIndex) => (
+                            <img
+                            key={avatarIndex}
+                            class="img-thumbnail rounded-circle avatar-sml"
+                            src={avatar}
+                            alt={`Team member ${avatarIndex + 1}`}
+                            />
+                        ))}
+                        {project.team.length > 3 && (
+                            <span class="remaining-count">{project.team.length - 3} more</span>
+                        )}
+                    </div>
                   </div>
                 </div>
                 </div>
