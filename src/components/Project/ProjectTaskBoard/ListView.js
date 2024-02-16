@@ -14,7 +14,7 @@ export default function ListView() {
         {
           id: '01',
           task: 'New code Update on github',
-          team: [avatar1, avatar2, avatar3],
+          team: [avatar1],
           start: '3 Jun 2019',
           end: '15 Jun 2019',
           status: 'Planned',
@@ -24,7 +24,7 @@ export default function ListView() {
         {
             id: '02',
             task: 'New code Update on github',
-            team: [avatar1, avatar2, avatar3],
+            team: [avatar1],
             start: '3 Jun 2019',
             end: '15 Jun 2019',
             status: 'Completed',
@@ -34,7 +34,7 @@ export default function ListView() {
           {
             id: '03',
             task: 'New code Update on github',
-            team: [avatar1, avatar2, avatar3],
+            team: [avatar1],
             start: '3 Jun 2019',
             end: '15 Jun 2019',
             status: 'In progress',
