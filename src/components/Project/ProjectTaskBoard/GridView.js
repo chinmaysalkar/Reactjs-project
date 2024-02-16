@@ -1,16 +1,35 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp, faX, faEye ,faEllipsisVertical, faTrash, faEdit,faShare, faDownload, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import avatar1 from '../../../assets/images/avatar1.jpg'
-import { FaFolder } from 'react-icons/fa';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 export default function GridView() {
+
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen);
+    };
+
+    const [isDropdownOpen2, setIsDropdownOpen2] = useState(false);
+
+    const toggleDropdown2 = () => {
+        setIsDropdownOpen2(!isDropdownOpen2);
+    };
+
+
+    const [isDropdownOpen3, setIsDropdownOpen3] = useState(false);
+
+    const toggleDropdown3 = () => {
+        setIsDropdownOpen3(!isDropdownOpen3);
+    };
     
   return (
     <div className='pagewidth'>
         <div className='row mx-2 mt-4'>
             <div className="col-lg-4 col-md-12 mb-2">
-                <div className="card planned_task">
+                <div className="card planned_task p-3">
                     <div className="card-header bg-white border-0 d-flex justify-content-between">
                         <h5 className="card-title">PLANNED</h5>
                         <div className="card-options d-flex">
@@ -21,34 +40,20 @@ export default function GridView() {
                                 <FontAwesomeIcon icon={faX} />
                             </span>
 
-                            <div className="item-action dropdown ml-2 mx-2">
-                                <a href="fake_url" data-toggle="dropdown">
-                                    <FontAwesomeIcon icon={faEllipsisVertical} />
-                                </a>
-                                
-                                <div className="dropdown-menu dropdown-menu-right">
-                                    <a href="fake_url" className="dropdown-item">
-                                        <FontAwesomeIcon  icon={faEye} />View Details
-                                    </a>
-                                    <a href="fake_url" className="dropdown-item">
-                                        <FontAwesomeIcon  icon={faShare} />Share
-                                    </a>
-                                    <a href="fake_url" className="dropdown-item">
-                                        <FontAwesomeIcon  icon={faDownload} />Download
-                                    </a>
-                                    <a href="fake_url" className="dropdown-item">
-                                        <FontAwesomeIcon  icon={faFilePdf} />Copy to
-                                    </a>
-                                    <a href="fake_url" className="dropdown-item">
-                                        <FontAwesomeIcon  icon={FaFolder} />Move to
-                                    </a>
-                                    <a href="fake_url" className="dropdown-item">
-                                        <FontAwesomeIcon  icon={faEdit} />Rename
-                                    </a>
-                                    <a href="fake_url" className="dropdown-item">
-                                        <FontAwesomeIcon  icon={faTrash} />Delete
-                                    </a>
-                                </div>
+                            <div style={{ position: 'relative', display: 'inline-block' }}>
+                                <FontAwesomeIcon icon={faEllipsisVertical} onClick={toggleDropdown} style={{ cursor: 'pointer', zIndex:'1' }} />
+
+                                {isDropdownOpen && (
+                                    <div className='card p-4 mx-2' style={{ position: 'absolute', top: '100%', left: '50%', transform: 'translateX(-100%)', zIndex:'1' }}>
+                                        <Dropdown.Item href="#/action-1" className='mb-2'><FontAwesomeIcon icon={faEye}  className='mx-1'/> View Details</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-1" className='mb-2'><FontAwesomeIcon icon={faShare} className='mx-1'/> Share</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-1" className='mb-2'><FontAwesomeIcon icon={faDownload} className='mx-1'/> Download</Dropdown.Item>
+                                        <hr />
+                                        <Dropdown.Item href="#/action-1" className='mb-2'><FontAwesomeIcon icon={faFilePdf} className='mx-1'/> Copy to</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-1" className='mb-2'><FontAwesomeIcon icon={faEdit} className='mx-1'/> Edit</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-1" className='mb-2'><FontAwesomeIcon icon={faTrash} className='mx-1'/> Delete</Dropdown.Item>
+                                    </div>
+                                )}
                             </div>
 
                         </div>
@@ -106,7 +111,7 @@ export default function GridView() {
             </div>
 
             <div className="col-lg-4 col-md-12 mb-2">
-                <div className="card planned_task">
+                <div className="card planned_task p-3">
                     <div className="card-header bg-white border-0 d-flex justify-content-between">
                         <h5 className="card-title">IN PROGRESS</h5>
                         <div className="card-options d-flex">
@@ -117,33 +122,20 @@ export default function GridView() {
                                 <FontAwesomeIcon icon={faX} />
                             </span>
 
-                            <div className="item-action dropdown ml-2 mx-2">
-                                <a href="fake_url" data-toggle="dropdown">
-                                    <FontAwesomeIcon icon={faEllipsisVertical} />
-                                </a>
-                                <div className="dropdown-menu dropdown-menu-right">
-                                    <a href="fake_url" className="dropdown-item">
-                                        <FontAwesomeIcon  icon={faEye} />View Details
-                                    </a>
-                                    <a href="fake_url" className="dropdown-item">
-                                        <FontAwesomeIcon  icon={faShare} />Share
-                                    </a>
-                                    <a href="fake_url" className="dropdown-item">
-                                        <FontAwesomeIcon  icon={faDownload} />Download
-                                    </a>
-                                    <a href="fake_url" className="dropdown-item">
-                                        <FontAwesomeIcon  icon={faFilePdf} />Copy to
-                                    </a>
-                                    <a href="fake_url" className="dropdown-item">
-                                        <FontAwesomeIcon  icon={FaFolder} />Move to
-                                    </a>
-                                    <a href="fake_url" className="dropdown-item">
-                                        <FontAwesomeIcon  icon={faEdit} />Rename
-                                    </a>
-                                    <a href="fake_url" className="dropdown-item">
-                                        <FontAwesomeIcon  icon={faTrash} />Delete
-                                    </a>
-                                </div>
+                            <div style={{ position: 'relative', display: 'inline-block' }}>
+                                <FontAwesomeIcon icon={faEllipsisVertical} onClick={toggleDropdown2} style={{ cursor: 'pointer', zIndex:'1' }} />
+
+                                {isDropdownOpen2 && (
+                                    <div className='card p-4 mx-2' style={{ position: 'absolute', top: '100%', left: '50%', transform: 'translateX(-100%)', zIndex:'1' }}>
+                                        <Dropdown.Item href="#/action-1" className='mb-2'><FontAwesomeIcon icon={faEye}  className='mx-1'/> View Details</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-1" className='mb-2'><FontAwesomeIcon icon={faShare} className='mx-1'/> Share</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-1" className='mb-2'><FontAwesomeIcon icon={faDownload} className='mx-1'/> Download</Dropdown.Item>
+                                        <hr />
+                                        <Dropdown.Item href="#/action-1" className='mb-2'><FontAwesomeIcon icon={faFilePdf} className='mx-1'/> Copy to</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-1" className='mb-2'><FontAwesomeIcon icon={faEdit} className='mx-1'/> Edit</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-1" className='mb-2'><FontAwesomeIcon icon={faTrash} className='mx-1'/> Delete</Dropdown.Item>
+                                    </div>
+                                )}
                             </div>
 
                         </div>
@@ -203,7 +195,7 @@ export default function GridView() {
             </div>
 
             <div className="col-lg-4 col-md-12 mb-2">
-                <div className="card planned_task">
+                <div className="card planned_task p-3">
                     <div className="card-header bg-white border-0 d-flex justify-content-between">
                         <h5 className="card-title">COMPLETED</h5>
                         <div className="card-options d-flex">
@@ -214,33 +206,20 @@ export default function GridView() {
                                 <FontAwesomeIcon icon={faX} />
                             </span>
 
-                            <div className="item-action dropdown ml-2 mx-2">
-                                <a href="fake_url" data-toggle="dropdown">
-                                    <FontAwesomeIcon icon={faEllipsisVertical} />
-                                </a>
-                                <div className="dropdown-menu dropdown-menu-right">
-                                    <a href="fake_url" className="dropdown-item">
-                                        <FontAwesomeIcon  icon={faEye} />View Details
-                                    </a>
-                                    <a href="fake_url" className="dropdown-item">
-                                        <FontAwesomeIcon  icon={faShare} />Share
-                                    </a>
-                                    <a href="fake_url" className="dropdown-item">
-                                        <FontAwesomeIcon  icon={faDownload} />Download
-                                    </a>
-                                    <a href="fake_url" className="dropdown-item">
-                                        <FontAwesomeIcon  icon={faFilePdf} />Copy to
-                                    </a>
-                                    <a href="fake_url" className="dropdown-item">
-                                        <FontAwesomeIcon  icon={FaFolder} />Move to
-                                    </a>
-                                    <a href="fake_url" className="dropdown-item">
-                                        <FontAwesomeIcon  icon={faEdit} />Rename
-                                    </a>
-                                    <a href="fake_url" className="dropdown-item">
-                                        <FontAwesomeIcon  icon={faTrash} />Delete
-                                    </a>
-                                </div>
+                            <div style={{ position: 'relative', display: 'inline-block' }}>
+                                <FontAwesomeIcon icon={faEllipsisVertical} onClick={toggleDropdown3} style={{ cursor: 'pointer', zIndex:'1' }} />
+
+                                {isDropdownOpen3 && (
+                                    <div className='card p-4 mx-2' style={{ position: 'absolute', top: '100%', left: '50%', transform: 'translateX(-100%)', zIndex:'1' }}>
+                                        <Dropdown.Item href="#/action-1" className='mb-2'><FontAwesomeIcon icon={faEye}  className='mx-1'/> View Details</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-1" className='mb-2'><FontAwesomeIcon icon={faShare} className='mx-1'/> Share</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-1" className='mb-2'><FontAwesomeIcon icon={faDownload} className='mx-1'/> Download</Dropdown.Item>
+                                        <hr />
+                                        <Dropdown.Item href="#/action-1" className='mb-2'><FontAwesomeIcon icon={faFilePdf} className='mx-1'/> Copy to</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-1" className='mb-2'><FontAwesomeIcon icon={faEdit} className='mx-1'/> Edit</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-1" className='mb-2'><FontAwesomeIcon icon={faTrash} className='mx-1'/> Delete</Dropdown.Item>
+                                    </div>
+                                )}
                             </div>
 
                         </div>

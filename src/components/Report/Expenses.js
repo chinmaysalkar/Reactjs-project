@@ -52,76 +52,56 @@ export default function Expenses() {
   // Get the items for the current page
   const currentPageItems = userList.slice(startIndex, endIndex);
 
-  return (
-    <div>
-      
-      <div className="row mx-2 mt-3">
-        <div className="col-lg-3 col-md-6 mb-2">
-          <div className="card">
-            <div className="card-body">
-              <div className="card-value d-flex justify-content-end text-primary">23%</div>
+
+
+
+
+  const data = [
+    { id: 1, amount: 552, category: 'Computer', percentage: 23, color: 'bg-azure' },
+    { id: 2, amount: 2450, category: 'Laptop', percentage: 52, color: 'bg-cyan' },
+    { id: 3, amount: 1258, category: 'Accessories', percentage: 27, color: 'bg-danger' },
+    { id: 4, amount: 562, category: 'Others', percentage: 12, color: 'bg-pink' }
+  ];
+  
+  const Card = ({ amount, category, percentage, color }) => (
+    <div className="col-lg-3 col-md-6 mb-2">
+      <div className="card">
+        <div className="card-body">
+          <div className='d-flex justify-content-between'>
+            <div>
               <h4 className="mb-1">
-                $<span className="counter"><span>552</span></span>
+                $<span className="counter"><span>{amount}</span></span>
               </h4>
-              <div>Computer</div>
-              <div className="mt-4">
-                <div className="progress progress-xs">
-                  <div className="progress-bar bg-azure" style={{ width: '23%' }}></div>
-                </div>
-              </div>
+              <div>{category}</div>
             </div>
+            <div className={`card-value d-flex justify-content-end`}>{percentage}%</div>
           </div>
-        </div>
-        <div className="col-lg-3 col-md-6 mb-2">
-          <div className="card">
-            <div className="card-body">
-              <div className="card-value d-flex justify-content-end text-primary">52%</div>
-              <h4 className="mb-1">
-                $<span className="counter"><span>2450</span></span>
-              </h4>
-              <div>Laptop</div>
-              <div className="mt-4">
-                <div className="progress progress-xs">
-                  <div className="progress-bar bg-cyan" style={{ width: '52%' }}></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-lg-3 col-md-6 mb-2">
-          <div className="card">
-            <div className="card-body">
-              <div className="card-value d-flex justify-content-end">27%</div>
-              <h4 className="mb-1">
-                $<span className="counter"><span>1258</span></span>
-              </h4>
-              <div>Accessories</div>
-              <div className="mt-4">
-                <div className="progress progress-xs">
-                  <div className="progress-bar bg-danger" style={{ width: '27%' }}></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-lg-3 col-md-6">
-          <div className="card">
-            <div className="card-body">
-              <div className="card-value d-flex justify-content-end text-danger">12%</div>
-              <h4 className="mb-1">
-                $<span className="counter"><span>562</span></span>
-              </h4>
-              <div>Others</div>
-              <div className="mt-4">
-                <div className="progress progress-xs">
-                  <div className="progress-bar bg-pink" style={{ width: '12%' }}></div>
-                </div>
-              </div>
+          <div className="mt-4">
+            <div className="progress progress-xs">
+              <div className={`progress-bar ${color}`} style={{ width: `${percentage}%` }}></div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  );
 
+
+
+  return (
+    <div>
+      
+      <div className="row mx-2 mt-3">
+        {data.map(item => (
+          <Card
+            key={item.id}
+            amount={item.amount}
+            category={item.category}
+            percentage={item.percentage}
+            color={item.color}
+          />
+        ))}
+      </div>
 
       <div className='card mt-4 mx-3'>
           <div className='d-flex justify-content-between mx-2'>
@@ -160,10 +140,10 @@ export default function Expenses() {
                       <td>{(
                         <>
                           <button className='btn btn-sm mx-1'>
-                            <FontAwesomeIcon icon={faEdit} />
+                            <FontAwesomeIcon icon={faEdit} className='text-success'/>
                           </button>
                           <button className='btn btn-sm mx-1'>
-                            <FontAwesomeIcon icon={faTrash} />
+                            <FontAwesomeIcon icon={faTrash} className='text-danger'/>
                           </button>
                         </>
                         )}

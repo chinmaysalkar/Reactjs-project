@@ -4,7 +4,11 @@ import avatar2 from '../../../assets/images/avatar2.jpg'
 import avatar1 from '../../../assets/images/avatar1.jpg'
 import avatar3 from '../../../assets/images/avatar3.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faChevronUp, faChevronDown, faEllipsisVertical, faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
+import Dropdown from 'react-bootstrap/Dropdown';
+
+
+
 
 export default function OnGoing() {
     const projectData = [
@@ -111,21 +115,30 @@ export default function OnGoing() {
         });
       };
 
+
+      const [isOpenDropdown, setIsOpenDropdown] = useState(Array(projectData.length).fill(false));
+
+      const toggleDropdown = (index) => {
+          const newDropdownState = [...isOpenDropdown];
+          newDropdownState[index] = !newDropdownState[index];
+          setIsOpenDropdown(newDropdownState);
+      };
+
   return (
     <div className='pagewidth'> 
         <div className="row mt-3 mx-1">
         {projectData.map((project, index) => (
-          <div key={index} className="col-lg-4 col-md-12">
+          <div key={index} className="col-lg-3 col-md-4 col-sm-12">
             <div className="card mb-3">
               <div className="card-header d-flex justify-content-between bg-white border-0 mt-3">
                 <h6 className="card-title">{project.title}</h6>
-                <div className="card-options d-flex mx-2">
+                <div className="card-options d-flex">
                     <Form.Check
                         type="switch"
                         id="custom-switch"         
                     />
                   <span
-                    className="card-options-collapse mx-1"
+                    className="card-options-collapse mx-2"
                     onClick={() => toggleCardCollapse(index)}
                     style={{ cursor: 'pointer' }}
                   >
@@ -135,6 +148,17 @@ export default function OnGoing() {
                       <FontAwesomeIcon icon={faChevronUp} />
                     )}
                   </span>
+
+                  <div style={{ position: 'relative', display: 'inline-block' }}>
+                    <FontAwesomeIcon icon={faEllipsisVertical} onClick={() => toggleDropdown(index)} style={{ cursor: 'pointer', zIndex: '1' }} />
+                    {isOpenDropdown[index] && (
+                        <div className='p-4 mx-2 d-flex' style={{ position: 'absolute', top: '100%', left: '100%', transform: 'translateX(-100%)', zIndex: '1' }}>
+                            <Dropdown.Item href="" className='mb-2 mx-2'><FontAwesomeIcon icon={faEdit} className='mx-1' /></Dropdown.Item>
+                            <Dropdown.Item href="" className='mb-2'><FontAwesomeIcon icon={faTrash} className='mx-1' /></Dropdown.Item>
+                        </div>
+                    )}
+                  </div>
+
                 </div>
               </div>
 
@@ -156,16 +180,18 @@ export default function OnGoing() {
 
                   {/* ... (other project details) */}
 
-                  <div className="d-flex justify-content-between"><strong>Created:</strong>
-                  <p className='text-secondary'>{project.created}</p></div>
-                  <div className="d-flex justify-content-between"><strong>Creator:</strong>
-                  <p className='text-secondary'>{project.creator}</p></div>
-                  <div className="d-flex justify-content-between"><strong>Questions:</strong><h5>{project.question}</h5></div>
-                  <div className="d-flex justify-content-between"><strong>Comments:</strong><h5>{project.comments}</h5></div>
-                  <div className="d-flex justify-content-between"><strong>Bug:</strong><h5>{project.bug}</h5></div>
+                  <div className=""><strong>Created:</strong>
+                  <p className='text-secondary'>{project.created}</p>
+                  </div>
+                  <div className=""><strong>Creator:</strong>
+                  <p className='text-secondary'>{project.creator}</p>
+                  </div>
+                  {/* <div className=""><strong>Questions:</strong><h5>{project.question}</h5></div>
+                  <div className=""><strong>Comments:</strong><h5>{project.comments}</h5></div>
+                  <div className=""><strong>Bug:</strong><h5>{project.bug}</h5></div> */}
 
 
-                  <div className="col-5 py-1"><strong>Team:</strong></div>
+                  <div className="py-1"><strong>Team:</strong></div>
                   <div className="col-7 py-1">
                   <div className="avatar-list avatar-list-stacked avatar-marg">
                     {project.team.map((avatar, avatarIndex) => (

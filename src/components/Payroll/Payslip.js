@@ -34,8 +34,8 @@ export default function Payslip() {
                         <p>795 Folsom Ave, Suite 546 San Francisco, CA 54656</p>
                     </div>
                     <nav className="d-flex text-muted">
-                    <a href="fake_url" className="icon mr-3"><FontAwesomeIcon icon={faEnvelope} /></a>
-                    <a href="fake_url" className="icon mr-3"><FontAwesomeIcon icon={faPrint} /></a>
+                    <a href="fake_url" className="icon mr-3"><FontAwesomeIcon icon={faEnvelope} className='text-warning'/></a>
+                    <a href="fake_url" className="icon mr-3"><FontAwesomeIcon icon={faPrint} className='text-info'/></a>
                     </nav>
                 </div>
                 <div className='col'><h5 className='d-flex justify-content-end'><Badge bg="primary">Jun 15, 2019</Badge></h5></div>
@@ -75,7 +75,7 @@ export default function Payslip() {
                     </tr>
                 </tfoot>
                 </table>
-                <button className="btn btn-info float-right"><i className="icon-printer"></i> Print</button>
+                <button className="btn btn-top float-right text-white"><i className="icon-printer"></i> Print</button>
                 </div>
 
                 

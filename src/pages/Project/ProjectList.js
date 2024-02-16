@@ -74,6 +74,10 @@ export default function ProjectList() {
               </div>
 
               <div class="mb-3">
+              <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Technology "/>
+              </div>
+
+              <div class="mb-3">
               <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="Work "/>
               </div>
 
@@ -92,7 +96,7 @@ export default function ProjectList() {
               </div>
 
               <div class="mb-3">
-                <input type="text" class="form-control" id="exampleFormControlInput8" placeholder="Creator "/>
+                <input type="text" class="form-control" id="exampleFormControlInput8" placeholder="Creator Name"/>
               </div>
 
               <div class="mb-3">

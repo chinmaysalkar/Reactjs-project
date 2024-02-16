@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faLinkedin, faTwitter, faInstagram, } from '@fortawesome/free-brands-svg-icons';
 import avatar1 from '../../../assets/images/avatar1.jpg'
 import avatar2 from '../../../assets/images/avatar2.jpg'
 import { Link } from 'react-router-dom';
+import { faEllipsisVertical, faTrash, faEdit} from '@fortawesome/free-solid-svg-icons';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 const Clients = () => {
+
 
 
     const cardsData = [
@@ -43,10 +46,32 @@ const Clients = () => {
         
     ];
 
-    const Card = ({ imgclient, name, email, socialLinks, projects, dealAmount, ribbonText, ribbonColor }) => (
+    const [isOpenDropdown, setIsOpenDropdown] = useState(Array(cardsData.length).fill(false));
+
+    const toggleDropdown = (index) => {
+        const newDropdownState = [...isOpenDropdown];
+        newDropdownState[index] = !newDropdownState[index];
+        setIsOpenDropdown(newDropdownState);
+    };
+
+
+
+    const Card = ({ index, imgclient, name, email, socialLinks, projects, dealAmount, ribbonText, ribbonColor }) => (
         <div className="col-xl-3 col-lg-4 col-md-6 mt-3 mb-3">
             <div className="card">
                 <div className="card-body text-center ribbon">
+                    <div className='d-flex justify-content-end'>
+                        <div style={{ position: 'relative', display: 'inline-block' }}>
+                            <FontAwesomeIcon icon={faEllipsisVertical} onClick={() => toggleDropdown(index)} style={{ cursor: 'pointer', zIndex: '1' }} />
+                            {isOpenDropdown[index] && (
+                                <div className='p-4 mx-2 d-flex' style={{ position: 'absolute', top: '100%', left: '100%', transform: 'translateX(-100%)', zIndex: '1' }}>
+                                    <Dropdown.Item href="" className='mb-2 mx-2'><FontAwesomeIcon icon={faEdit} className='mx-1' /></Dropdown.Item>
+                                    <Dropdown.Item href="" className='mb-2'><FontAwesomeIcon icon={faTrash} className='mx-1' /></Dropdown.Item>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+
                     <div className={`ribbon-box ${ribbonColor}`}>{ribbonText}</div>
                     <img className="rounded-circle img-thumbnail w100" src={imgclient} alt="fake_url" />
                     <h6 className="mt-3 mb-0">{name}</h6>
@@ -80,9 +105,8 @@ const Clients = () => {
     return (
         <div className="row">
             {cardsData.map((card, index) => (
-                <Card key={index} {...card} />
+                <Card key={index} index={index} {...card} />
             ))}
-
         </div>
     );
 };

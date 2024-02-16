@@ -69,7 +69,7 @@ export default function ListView() {
                 <tbody>
                 {tasks.map((task, index) => (
                     <tr key={task.id}>
-                    <td>{index + 1}</td>
+                    <td><div className='mt-2'>{index + 1}</div></td>
                     <td>
                         <h6 className="mb-0">{task.task}</h6>
                         <span>It is a long established fact that a reader will be distracted...</span>

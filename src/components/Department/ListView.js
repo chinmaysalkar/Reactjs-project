@@ -67,10 +67,10 @@ export default function ListView() {
                       {(
                         <>
                           <button className='btn btn-sm mx-1'>
-                            <FontAwesomeIcon icon={faEdit} />
+                            <FontAwesomeIcon icon={faEdit} className='text-success'/>
                           </button>
                           <button className='btn btn-sm mx-1' onClick={() => handleDeleteUser(index)}>
-                            <FontAwesomeIcon icon={faTrash} />
+                            <FontAwesomeIcon icon={faTrash} className='text-danger'/>
                           </button>
                         </>
                       )}

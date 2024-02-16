@@ -41,20 +41,22 @@ export default function LeaveEmployee() {
                 {userList.map((user, index) => (
                   <tr key={user.name}>
                     <td><img className="img-thumbnail rounded-circle avatar-sml" src={user.imageSrc} alt=''/></td>
-                    <td>{user.name}</td>
-                    <td>{user.employeeid}</td>
-                    <td>{user.leavetype}</td>
-                    <td>{user.date}</td>
-                    <td>{user.reason}</td>
+                    <td><div className='mt-3'>{user.name}</div></td>
+                    <td><div className='mt-3'>{user.employeeid}</div></td>
+                    <td><div className='mt-3'>{user.leavetype}</div></td>
+                    <td><div className='mt-3'>{user.date}</div></td>
+                    <td><div className='mt-3'>{user.reason}</div></td>
                     <td>
                       {(
                         <>
+                          <div className='mt-2'>
                           <button className='btn btn-sm mx-1'>
-                            <FontAwesomeIcon icon={faCheck} />
+                            <FontAwesomeIcon icon={faCheck} className='text-success'/>
                           </button>
                           <button className='btn btn-sm mx-1'>
-                            <FontAwesomeIcon icon={faTrash} />
+                            <FontAwesomeIcon icon={faTrash} className='text-danger'/>
                           </button>
+                          </div>
                         </>
                       )}
                     </td>

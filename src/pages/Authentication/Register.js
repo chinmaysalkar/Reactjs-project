@@ -7,12 +7,14 @@ import logo from '../../assets/images/logo1.png'
 import { Link } from 'react-router-dom'
 
 export default function Register() {
-    const [name, setName] = useState('');
+    const [firstname, setFirstName] = useState('');
+    const [lastname, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [agreeTerms, setAgreeTerms] = useState(false);
 
-    const handleNameChange = (e) => setName(e.target.value);
+    const handleFirstNameChange = (e) => setFirstName(e.target.value);
+    const handleLastNameChange = (e) => setLastName(e.target.value);
     const handleEmailChange = (e) => setEmail(e.target.value);
     const handlePasswordChange = (e) => setPassword(e.target.value);
     const handleAgreeTermsChange = () => setAgreeTerms(!agreeTerms);
@@ -26,24 +28,45 @@ export default function Register() {
         <div className="auth">
             <div className="auth_left">
                 <div className="card">
-                <div className="text-center mb-5">
+                <div className="text-center mb-2">
                     <Link className="header-brand" to="/">
                     <img src={logo} alt="" className='avatar-sml logo-login'/>
                     </Link>
                 </div>
                 <div className="card-body">
-                    <div className="card-title">CREATE NEW ACCOUNT</div>
+                    <div className="card-title mb-2">CREATE NEW ACCOUNT</div>
                     <form onSubmit={handleSubmit}>
-                    <div className="form-group mb-3">
-                        <label className="form-label">Name <span className='text-danger'>*</span></label>
-                        <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Enter name"
-                        value={name}
-                        onChange={handleNameChange}
-                        />
-                    </div>
+
+                        <div className='row'>
+                            <div className='col-lg-6 col-sm-12'>
+                                <div className="form-group mb-3">
+                                    <label className="form-label">First Name <span className='text-danger'>*</span></label>
+                                    <input
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="First name"
+                                    value={firstname}
+                                    onChange={handleFirstNameChange}
+                                    />
+                                </div>
+                            </div>
+
+                            <div className='col-lg-6 col-sm-12'>
+                                <div className="form-group mb-3">
+                                    <label className="form-label">Last Name <span className='text-danger'>*</span></label>
+                                    <input
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="Last name"
+                                    value={lastname}
+                                    onChange={handleLastNameChange}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    
+                    
+
                     <div className="form-group mb-3">
                         <label className="form-label">Email address <span className='text-danger'>*</span></label>
                         <input

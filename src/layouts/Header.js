@@ -369,13 +369,13 @@ export default function Header() {
                                 <FontAwesomeIcon icon={faUser}  />
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu style={{ position: 'absolute', left: '50%', transform: 'translateX(-100%)' }}>                               
-                               <Dropdown.Item> <Link to="/myprofile"><FontAwesomeIcon  icon={faUser} className="dropdown-icon"/> Profile</Link></Dropdown.Item>
-                                <Dropdown.Item><FontAwesomeIcon  icon={faGear} className="dropdown-icon"/> Settings</Dropdown.Item>
-                                <Dropdown.Item><FontAwesomeIcon  icon={faEnvelope} className="dropdown-icon"/> Inbox</Dropdown.Item>
-                                <Dropdown.Item><FontAwesomeIcon  icon={faPaperPlane} className="dropdown-icon"/> Message</Dropdown.Item>
+                                <Dropdown.Item className='mb-2'> <Link to="/myprofile" className='text-black '><FontAwesomeIcon  icon={faUser} className="dropdown-icon"/> Profile</Link></Dropdown.Item>
+                                <Dropdown.Item className='mb-2'><FontAwesomeIcon  icon={faGear} className="dropdown-icon"/> Settings</Dropdown.Item>
+                                <Dropdown.Item className='mb-2'><FontAwesomeIcon  icon={faEnvelope} className="dropdown-icon"/> Inbox</Dropdown.Item>
+                                <Dropdown.Item className='mb-2'><FontAwesomeIcon  icon={faPaperPlane} className="dropdown-icon"/> Message</Dropdown.Item>
                                 <Dropdown.Divider />
-                                <Dropdown.Item><FontAwesomeIcon  icon={faCircleQuestion} className="dropdown-icon"/> Need help?</Dropdown.Item>
-                                <Dropdown.Item href="/"><FontAwesomeIcon  icon={faArrowRightFromBracket} className="dropdown-icon"/> Sign out</Dropdown.Item>
+                                <Dropdown.Item className='mb-2'><FontAwesomeIcon  icon={faCircleQuestion} className="dropdown-icon"/> Need help?</Dropdown.Item>
+                                <Dropdown.Item href="/" className='mb-2'><FontAwesomeIcon  icon={faArrowRightFromBracket} className="dropdown-icon"/> Sign out</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
                         </div>

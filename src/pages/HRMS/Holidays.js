@@ -73,11 +73,11 @@ export default function Holidays() {
                     <td>{holiday.holiday}</td>
                     <td>
                         <button className='btn btn-sm mx-1' onClick={() => handleEdit(index)}>
-                            <FontAwesomeIcon icon={faEdit} />
+                            <FontAwesomeIcon icon={faEdit} className='text-success'/>
                         </button>
 
                         <button className='btn btn-sm mx-1' onClick={() => handleDelete(index)}>
-                            <FontAwesomeIcon icon={faTrash} />
+                            <FontAwesomeIcon icon={faTrash} className='text-danger'/>
                         </button>
                     </td>
                     </tr>

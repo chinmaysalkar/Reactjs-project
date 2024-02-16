@@ -59,7 +59,7 @@ background: #f1f1f1 !important;
 
     .pagewidth{
         max-width: 100%;
-        width: 300px;
+        width: 270px !important;
         padding: 0 !important;
     }
 
@@ -96,6 +96,27 @@ background: #f1f1f1 !important;
     }
     
 }
+
+@media (max-width: 760px){
+    .switch-top{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .pagewidth{
+        max-width: 100%;
+        width: 500px;
+        padding: 0 !important;
+    }
+
+    .top-change-btn{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+}
+
 
 /* For CheckBox */
 
@@ -218,7 +239,7 @@ background: #f1f1f1 !important;
 @media (max-width: 430px){
     .dashboard-main{
         max-width: 100%;
-        width: 310px;
+        width: 270px;
         padding: 0 !important;
     }
    
@@ -228,7 +249,7 @@ background: #f1f1f1 !important;
 @media (max-width: 330px){
     .dashboard-main{
         max-width: 100%;
-        width: 280px;
+        width: 200px;
         padding: 0 !important;
     }
    
@@ -668,7 +689,7 @@ a.sidebar-link {
 @media (max-width: 430px){
     .users-main{
         max-width: 100%;
-        width: 310px;
+        width: 270px;
         padding: 0 !important;
     }
 }
@@ -676,7 +697,7 @@ a.sidebar-link {
 @media (max-width: 330px){
     .users-main{
         max-width: 100%;
-        width: 280px;
+        width: 200px;
         padding: 0 !important;
     }
 }
@@ -713,7 +734,7 @@ a.sidebar-link {
 @media (max-width: 430px){
     .report-main{
         max-width: 100%;
-        width: 310px;
+        width: 270px;
         padding: 0 !important;
     }
 }
@@ -722,7 +743,7 @@ a.sidebar-link {
 @media (max-width: 330px){
     .report-main{
         max-width: 100%;
-        width: 280px;
+        width: 200px;
         padding: 0 !important;
     }
 }
@@ -753,7 +774,7 @@ a.sidebar-link {
 @media (max-width: 430px){
     .department-main{
         max-width: 100%;
-        width: 310px;
+        width: 270px;
         padding: 0 !important;
     }
 }
@@ -762,7 +783,7 @@ a.sidebar-link {
 @media (max-width: 330px){
     .department-main{
         max-width: 100%;
-        width: 280px;
+        width: 200px;
     }
 }
 /*--------------------------- 
@@ -802,14 +823,14 @@ a.sidebar-link {
 @media (max-width: 430px){
     .holiday-main{
         max-width: 100%;
-        width: 310px;
+        width: 270px;
     }
 }
 
 @media (max-width: 330px){
     .holiday-main{
         max-width: 100%;
-        width: 280px;
+        width: 200px;
         padding: 0 !important;
     }
 }
@@ -824,7 +845,7 @@ a.sidebar-link {
 @media (max-width: 430px){
     .payroll-main{
         max-width: 100%;
-        width: 310px;
+        width: 270px;
         padding: 0 !important;
     }
 }
@@ -834,7 +855,7 @@ a.sidebar-link {
 @media (max-width: 330px){
     .payroll-main{
         max-width: 100%;
-        width: 280px;
+        width: 200px;
         padding: 0 !important;
     }
 }
@@ -859,7 +880,7 @@ a.sidebar-link {
 @media (max-width: 430px){
     .activities-main{
         max-width: 100%;
-        width: 310px;
+        width: 270px;
         padding: 0 !important;
     }
 }
@@ -868,7 +889,7 @@ a.sidebar-link {
 @media (max-width: 330px){
     .activities-main{
         max-width: 100%;
-        width: 280px;
+        width: 200px;
         padding: 0 !important;
     }
 }
@@ -896,7 +917,7 @@ a.sidebar-link {
 @media (max-width: 430px){
     .account-main{
         max-width: 100%;
-        width: 310px;
+        width: 270px;
         padding: 0 !important;
     }
 }
@@ -905,7 +926,7 @@ a.sidebar-link {
 @media (max-width: 330px){
     .account-main{
         max-width: 100%;
-        width: 280px;
+        width: 200px;
         padding: 0 !important;
     }
 }
@@ -923,7 +944,7 @@ a.sidebar-link {
 @media (max-width: 430px){
     .employee-main{
         max-width: 100%;
-        width: 310px;
+        width: 270px;
         padding: 0 !important;
     }
 }
@@ -932,7 +953,7 @@ a.sidebar-link {
 @media (max-width: 330px){
     .employee-main{
         max-width: 100%;
-        width: 280px;
+        width: 200px;
         padding: 0 !important;
     }
 }
@@ -962,7 +983,7 @@ a.sidebar-link {
 @media (max-width: 430px){
     .calender-main{
         max-width: 100%;
-        width: 310px;
+        width: 270px;
         padding: 0 !important;
     }
 }
@@ -971,7 +992,7 @@ a.sidebar-link {
 @media (max-width: 330px){
     .calender-main{
         max-width: 100%;
-        width: 280px;
+        width: 200px;
         padding: 0 !important;
     }
 }
@@ -1716,6 +1737,7 @@ input[type=radio] {
 --------------------------------*/  
 .footer {
     bottom: 0;
+    
 }
 
 
@@ -1724,3 +1746,4 @@ input[type=radio] {
       text-align: end !important;
     }
 }
+

@@ -119,13 +119,13 @@ export default function Invoices() {
                     {(
                     <>
                         <button className='btn btn-sm mx-1'>
-                        <FontAwesomeIcon icon={faEnvelope} />
+                        <FontAwesomeIcon icon={faEnvelope} className='text-warning'/>
                         </button>
                         <button className='btn btn-sm mx-1'>
-                        <FontAwesomeIcon icon={faPrint} />
+                        <FontAwesomeIcon icon={faPrint} className='text-info'/>
                         </button>
                         <button className='btn btn-sm mx-1'>
-                        <FontAwesomeIcon icon={faTrash} />
+                        <FontAwesomeIcon icon={faTrash} className='text-danger'/>
                         </button>
                     </>
                     )}
