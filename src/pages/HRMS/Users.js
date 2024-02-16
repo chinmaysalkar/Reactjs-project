@@ -188,8 +188,8 @@ export default function Users() {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
+          <Button variant="primary" className='btn-top'>
+            Add
           </Button>
         </Modal.Footer>
       </Modal>
