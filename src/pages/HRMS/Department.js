@@ -114,7 +114,7 @@ export default function Department() {
                   </Modal.Body>
                   <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose} className='bg-danger border-0'>
-                      Close
+                      Cancel
                     </Button>
                     <Button variant="primary btn-top" type="submit" className='border-0'>
                       Add

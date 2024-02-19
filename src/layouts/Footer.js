@@ -9,7 +9,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <div className='footer mt-4 pb-3 mx-3'>
+    <div className='footer mt-5'>
       <div className='col-lg-12 text-center'>
         <h6 className='mb-0 mt-2'>Copyright © {currentYear} <Link to="/">RakSofTech.</Link></h6>
       </div>  
