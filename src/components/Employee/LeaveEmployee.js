@@ -1,5 +1,4 @@
 import React,{useState} from 'react'
-import Employeeindex from './Employeeindex'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faTrash, faCheck} from '@fortawesome/free-solid-svg-icons';
 import avatar1 from '../../assets/images/avatar1.jpg'
@@ -19,9 +18,6 @@ export default function LeaveEmployee() {
   return (
     <div>
         
-        <Employeeindex/>
-
-
         <div className='card mt-3 p-3'>
         <div className='p-3 employeeli'>
           <div className='table-responsive'>

@@ -1,9 +1,9 @@
-import React, {useState} from 'react'
-import Form from 'react-bootstrap/Form';
+import React from 'react'
+// import Form from 'react-bootstrap/Form';
 import Navbar from 'react-bootstrap/Navbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope,faBell, faUser,faGear,faPaperPlane,faCircleQuestion,faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
-import ReactCountryFlag from "react-country-flag"
+// import ReactCountryFlag from "react-country-flag"
 import { Dropdown } from 'react-bootstrap';
 import { FaCheck, FaUser, FaThumbsUp, FaQuestionCircle, FaShoppingCart } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom';
@@ -14,15 +14,16 @@ export default function Header() {
 
 
     // const [isDropdownOpen, setDropdownOpen] = useState(false);
-    const [selectedLanguage, setSelectedLanguage] = useState(null);
+
+    // const [selectedLanguage, setSelectedLanguage] = useState(null);
 
     // const handleIconClick = () => {
     //     setDropdownOpen(!isDropdownOpen);
     // };
 
-    const handleLanguageSelect = (languageCode) => {
-        setSelectedLanguage(languageCode);
-    };
+    // const handleLanguageSelect = (languageCode) => {
+    //     setSelectedLanguage(languageCode);
+    // };
 
 
     const users = [
@@ -221,7 +222,7 @@ export default function Header() {
                     </button> */}
                     <Navbar.Brand href="#" className='mt-1'>{username}</Navbar.Brand>
 
-                <div className='d-flex mx-2'>
+                {/* <div className='d-flex mx-2'>
                     <div className='mx-2'>
                         <select className="custom-select p-2">
                             <option>Year</option>
@@ -240,13 +241,13 @@ export default function Header() {
                             />   
                         </Form>
                     </div>
-                </div>
+                </div> */}
                 </div>
                   
                 <div className='d-flex header-right mx-3'>                 
                     <div className='d-flex xs-hide'>
                         <div className='d-flex mx-2'>                       
-                            <li className="nav-item dropdown mx-2">
+                            {/* <li className="nav-item dropdown mx-2">
                                 <a className="nav-link dropdown-toggle" href="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Language
                                 </a>
@@ -270,10 +271,10 @@ export default function Header() {
                                     </li>
                                 </ul>
 
-                            </li>
+                            </li> */}
 
 
-                            <li className="nav-item dropdown mx-2">
+                            {/* <li className="nav-item dropdown mx-2">
                                 <a className="nav-link dropdown-toggle" href="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Report
                                 </a>
@@ -282,7 +283,7 @@ export default function Header() {
                                     <li><a className="dropdown-item" href="/action">Ms Word</a></li>
                                     <li><a className="dropdown-item" href="/action">PDF</a></li>
                                 </ul>
-                            </li>
+                            </li> */}
 
 
 

@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Header from '../../layouts/Header';
 import Footer from '../../layouts/Footer';
 import ListView from '../../components/Department/ListView';
-import Gridlist from '../../components/Department/Gridlist';
+// import Gridlist from '../../components/Department/Gridlist';
 import { Button, Modal } from 'react-bootstrap';
 import Sidebar from '../../layouts/Sidebar';
 
@@ -32,7 +32,7 @@ export default function Department() {
     <div className='d-flex justify-content-between top-change-btn'>
       <div className='all-top'>
         <button onClick={() => handleButtonClick('listview')} className={`top-bar-btn mx-2 ${activeButton === 'listview' ? 'text-secondary border-top-2' : ''}`}>ListView</button>
-        <button onClick={() => handleButtonClick('gridlist')} className={`top-bar-btn mx-2 ${activeButton === 'gridlist' ? 'text-secondary border-top-2' : ''}`}>GridView</button>
+        {/* <button onClick={() => handleButtonClick('gridlist')} className={`top-bar-btn mx-2 ${activeButton === 'gridlist' ? 'text-secondary border-top-2' : ''}`}>GridView</button> */}
       </div>
 
       <div className='d-flex pt-2'>
@@ -44,7 +44,7 @@ export default function Department() {
 
     <div>
       {currentComponent === 'listview' && <ListView />}
-      {currentComponent === 'gridlist' && <Gridlist />}
+      {/* {currentComponent === 'gridlist' && <Gridlist />} */}
     </div>
    
     <Modal show={show} onHide={handleClose}>

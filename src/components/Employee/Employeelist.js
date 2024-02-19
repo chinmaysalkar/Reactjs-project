@@ -4,6 +4,7 @@ import { faEdit, faTrash, faSearch , faEye} from '@fortawesome/free-solid-svg-ic
 import { Form, Button  } from 'react-bootstrap';
 import Employeeindex from './Employeeindex';
 
+
 export default function Employeelist() {
     const [userList, setUserList] = useState([
 
@@ -20,19 +21,21 @@ export default function Employeelist() {
         
       ]);
 
-      
+       
 
       const handleDeleteUser = (index) => {
         const updatedUserList = [...userList];
         updatedUserList.splice(index, 1);
         setUserList(updatedUserList);
       };
-    
+
 
   return (
     <div>
         <div>
           <Employeeindex/>
+
+         
 
           <div className='card mt-3 p-3 border-0'>
             <div className='d-flex justify-content-between mx-2 switch-top'>
@@ -50,7 +53,7 @@ export default function Employeelist() {
                 </Form>
             </div>
 
-          <div className='p-3 employeeli mt-2'>
+          <div className='p-3 employeeli mt-2 col-lg-12 col-md-12 col-sm-12'>
             <div className='table-responsive'>
               <table className='table table-striped p-2'>
                 <thead>
@@ -61,7 +64,7 @@ export default function Employeelist() {
                     <th>PHONE</th>
                     <th>JOIN DATE</th>
                     <th>ROLE</th>
-                    <th>ACTION</th>
+                    <th><div className='mx-2'>ACTION</div></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -80,15 +83,17 @@ export default function Employeelist() {
                       <td>
                         {(
                           <>
-                            <button className='btn btn-sm mx-1'>
-                              <FontAwesomeIcon icon={faEye} />
-                            </button>
-                            <button className='btn btn-sm mx-1'>
-                              <FontAwesomeIcon icon={faEdit} className='text-success'/>
-                            </button>
-                            <button className='btn btn-sm mx-1' onClick={() => handleDeleteUser(index)}>
-                              <FontAwesomeIcon icon={faTrash} className='text-danger'/>
-                            </button>
+                            <div className='d-flex'>
+                              <button className='btn btn-sm'>
+                                <FontAwesomeIcon icon={faEye} />
+                              </button>
+                              <button className='btn btn-sm mx-1'>
+                                <FontAwesomeIcon icon={faEdit} className='text-success'/>
+                              </button>
+                              <button className='btn btn-sm mx-1' onClick={() => handleDeleteUser(index)}>
+                                <FontAwesomeIcon icon={faTrash} className='text-danger'/>
+                              </button>
+                            </div>
                           </>
                         )}
                       </td>

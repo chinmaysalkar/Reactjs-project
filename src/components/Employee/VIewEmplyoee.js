@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import Employeeindex from './Employeeindex'
 import avatar1 from '../../assets/images/avatar1.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp, faTimes, faPhone} from '@fortawesome/free-solid-svg-icons'; 
@@ -19,9 +18,6 @@ export default function VIewEmplyoee() {
 
   return (
     <div>
-    
-        <Employeeindex/>
-
         <div className="row mt-3">
           <div className="col-lg-4 col-md-12 mb-3">
               <div className="card border-0">

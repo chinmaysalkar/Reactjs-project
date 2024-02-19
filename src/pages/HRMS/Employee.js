@@ -80,26 +80,62 @@ export default function Employee() {
       <div className='row'>
           <div className='col-md-6'>
               <div className="mb-3">
-              <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Employee ID "/>
-              </div>
-              <div className="mb-3">
-              <input type="text" className="form-control" id="exampleFormControlInput2" placeholder="Name "/>
-              </div>
-              <div className="mb-3">
-              <input type="email" className="form-control" id="exampleFormControlInput3" placeholder="Email ID "/>
+                <label htmlFor="">Employee ID <span className='text-danger'>*</span></label>
+                <input type="text" className="form-control" id="emplyoeeid" placeholder=" "/>
               </div>
           </div>
+
           <div className='col-md-6'>
-              <div className="mb-3">
-              <input type="text" className="form-control" id="exampleFormControlInput4" placeholder="Phone Number "/>
-              </div>
-              <div className="mb-3">
-              <input type="text" className="form-control" id="exampleFormControlInput5" placeholder="Start Date* "/>
-              </div>
-              <div className="mb-3">
-              <input type="text" className="form-control" id="exampleFormControlInput6" placeholder="Role "/>
-              </div>
+            <div className="mb-3">
+              <label htmlFor="">Email ID <span className='text-danger'>*</span></label>
+              <input type="email" className="form-control" id="email" placeholder=" "/>
+            </div>
           </div>
+
+          
+      </div>
+
+      <div className='row'>
+        <div className='col-md-6'>
+          <div className="mb-3">
+            <label htmlFor="">First Name <span className='text-danger'>*</span></label>
+            <input type="text" className="form-control" id="firstname" placeholder=" "/>
+          </div>
+        </div>
+        <div className='col-md-6'>
+          <div className="mb-3">
+            <label htmlFor="">Last Name <span className='text-danger'>*</span></label>
+            <input type="text" className="form-control" id="lastname" placeholder=" "/>
+          </div>
+        </div>
+      </div>
+
+      <div className='row'>
+        <div className='col-md-6'>
+          <div className="mb-3">
+              <label htmlFor="">Phone  No</label>
+              <input type="text" className="form-control" id="phoneno" placeholder=" "/>
+            </div>
+        </div>
+        <div className='col-md-6'>
+          <div className="mb-3">
+              <label htmlFor="">Start Date <span className='text-danger'>*</span></label>
+              <input type="date" className="form-control" id="startdate" placeholder=" "/>
+          </div>
+        </div>
+      </div>
+
+      <div className='col-md-6'>
+        <div className="mb-3">
+          <label htmlFor="role" className="form-label">Role <span className='text-danger'>*</span></label>
+          <select
+            className="form-select"
+            id="role"
+            placeholder="Role"
+          >
+            <option value="">Web Designer</option>
+          </select>
+        </div>
       </div>
 
       <div>
@@ -129,11 +165,11 @@ export default function Employee() {
       </Modal.Body>
 
       <Modal.Footer>
-      <Button variant="secondary" onClick={handleClose1}>
-          Close
+      <Button variant="secondary" onClick={handleClose1} className='bg-danger border-0'>
+          Cancel
       </Button>
-      <Button variant="primary btn-top" onClick={handleClose1}>
-          Save Changes
+      <Button variant="primary btn-top" className='border-0'>
+          Add
       </Button>
       </Modal.Footer>       
     </Modal>
@@ -147,50 +183,61 @@ export default function Employee() {
 
       <Modal.Body>
       <div className='row'>
+            <div className='col-md-6'>
+                <div className="mb-3">
+                <label htmlFor="" className="form-label">Employee ID <span className='text-danger'>*</span></label>
+                <input type="text" className="form-control" id="employeeid" placeholder="Employee ID "/>
+                </div> 
+            </div>
+
+            <div className='col-md-6'>
+             <div className="mb-3">
+                <label htmlFor="" className="form-label">Full Name</label>
+                <input type="text" className="form-control" id="username" placeholder="Name "/>
+              </div>
+            </div>
+      </div>  
+
+      <div className='row'>
           <div className='col-md-6'>
-              <div className="mb-3">
-              <label htmlFor="" className="form-label">Employee ID <span className='text-danger'>*</span></label>
-              <input type="text" className="form-control" id="employeeid" placeholder="Employee ID "/>
-              </div>
-
-              <div className="mb-3">
-              <label htmlFor="" className="form-label">Name</label>
-              <input type="text" className="form-control" id="username" placeholder="Name "/>
-              </div>
-
-              <div className="mb-3">
+            <div className="mb-3">
               <label htmlFor="" className="form-label">From <span className='text-danger'>*</span></label>
               <input type="date" className="form-control" id="startdate" placeholder="Start Date* "/>
-              </div>
+            </div>
+          </div>
 
-              <div className="mb-3">
+          <div className='col-md-6'>
+            <div className="mb-3">
               <label htmlFor="" className="form-label">To <span className='text-danger'>*</span></label>
               <input type="date" className="form-control" id="enddate" placeholder="End Date* "/>
-              </div>
+            </div>
           </div>
-          <div className='col-md-6'>
-              
-             
-              <div className="mb-3">
-              <label htmlFor="" className="form-label">Numbers of days <span className='text-danger'>*</span></label>
-              <input type="text" className="form-control" id="numberofdays" placeholder=" "/>
-              </div>
+      </div>
 
-              <div className="mb-3">
-              <label htmlFor="" className="form-label">Leave Type <span className='text-danger'>*</span></label>
-              <textarea className="form-control" placeholder="" id="leavereason"></textarea>
-              </div>
+      <div className='row'>
+        <div className='col-md-6'>
+            <div className="mb-3">
+              <label htmlFor="" className="form-label">Numbers of Days <span className='text-danger'>*</span></label>
+              <input type="number" className="form-control" id="numberofdays" placeholder=""/>
+            </div>
           </div>
-      </div>  
+
+          <div className='col-md-6'>
+            <div className="mb-3">
+              <label htmlFor="" className="form-label">Leave Types <span className='text-danger'>*</span></label>
+              <textarea type="text" className="form-control" id="leavetype" placeholder=""/>
+            </div>
+          </div>  
+      </div>
 
       </Modal.Body>
 
       <Modal.Footer>
-      <Button variant="secondary" onClick={handleClose2}>
-          Close
+      <Button variant="secondary" onClick={handleClose2} className='bg-danger border-0'>
+          Cancel
       </Button>
-      <Button variant="primary btn-top" onClick={handleClose2}>
-          Add
+      <Button variant="primary btn-top" onClick={handleClose2} className='border-0'>
+          Apply
       </Button>
       </Modal.Footer>       
     </Modal>
