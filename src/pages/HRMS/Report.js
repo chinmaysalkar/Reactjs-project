@@ -77,22 +77,22 @@ export default function Report() {
             <div className='col-lg-6'>
 
               <div className="mb-3">
-                <label htmlFor="item" className="form-label">Item Name</label>
+                <label htmlFor="item" className="form-label">Item Name <span className='text-danger'>*</span></label>
                 <input type="text" className="form-control" id="item" placeholder=""/>
               </div>
 
               <div className="mb-3">
-                <label htmlFor="purchasedate" className="form-label">Purchase Date</label>
+                <label htmlFor="purchasedate" className="form-label">Purchase Date <span className='text-danger'>*</span></label>
                 <input type="date" className="form-control" id="purchasedate" placeholder=""/>
               </div>
 
               <div className="mb-3">
-                <label htmlFor="amount" className="form-label">Amount</label>
+                <label htmlFor="amount" className="form-label">Amount <span className='text-danger'>*</span></label>
                 <input type="text" className="form-control" id="amount" placeholder="$50"/>
               </div>
 
               <div class="mb-3">
-                <label for="option" class="form-label">Status</label>
+                <label for="option" class="form-label">Status <span className='text-danger'>*</span></label>
                 <select class="form-select" id="option">
                     <option value="">Select...</option>
                     <option value="option1">Pending</option>
@@ -104,17 +104,17 @@ export default function Report() {
             <div className='col-lg-6'>
 
               <div className="mb-3">
-                <label htmlFor="purchasefrom" className="form-label">Purchase From</label>
+                <label htmlFor="purchasefrom" className="form-label">Purchase From <span className='text-danger'>*</span></label>
                 <input type="text" className="form-control" id="purchasefrom" placeholder=""/>
               </div>
 
               <div className="mb-3">
-                <label htmlFor="purchasedby" className="form-label">Ordered By</label>
+                <label htmlFor="purchasedby" className="form-label">Ordered By <span className='text-danger'>*</span></label>
                 <input type="text" className="form-control" id="purchasedby" placeholder=""/>
               </div>
 
               <div class="mb-3">
-                <label for="option" class="form-label">Paid By</label>
+                <label for="option" class="form-label">Paid By <span className='text-danger'>*</span></label>
                 <select class="form-select" id="option">
                     <option value="">Select...</option>
                     <option value="option1">Cash</option>
@@ -128,10 +128,10 @@ export default function Report() {
 
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
+          <Button variant="secondary" onClick={handleClose} className='bg-danger border-0'>
+            Cancel
           </Button>
-          <Button variant="primary" className='btn-top' onClick={handleClose}>
+          <Button variant="primary" className='btn-top border-0'>
             Add
           </Button>
         </Modal.Footer>

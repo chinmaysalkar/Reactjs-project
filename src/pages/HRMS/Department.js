@@ -65,10 +65,10 @@ export default function Department() {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
+          <Button variant="secondary" onClick={handleClose} className='bg-danger border-0'>
+            Cancel
           </Button>
-          <Button variant="primary btn-top" onClick={handleClose}>
+          <Button variant="primary btn-top" className='border-0'>
             Add
           </Button>
         </Modal.Footer>
