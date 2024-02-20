@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash, faSearch , faEye} from '@fortawesome/free-solid-svg-icons';
 import { Form, Button  } from 'react-bootstrap';
 import Employeeindex from './Employeeindex';
-
+import Modal from 'react-bootstrap/Modal';
 
 export default function Employeelist() {
     const [userList, setUserList] = useState([
@@ -29,8 +29,15 @@ export default function Employeelist() {
         setUserList(updatedUserList);
       };
 
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+  
+
 
   return (
+   <>
     <div>
         <div>
           <Employeeindex/>
@@ -88,7 +95,7 @@ export default function Employeelist() {
                                 <FontAwesomeIcon icon={faEye} />
                               </button>
                               <button className='btn btn-sm mx-1'>
-                                <FontAwesomeIcon icon={faEdit} className='text-success'/>
+                                <FontAwesomeIcon icon={faEdit} className='text-success'  onClick={handleShow}/>
                               </button>
                               <button className='btn btn-sm mx-1' onClick={() => handleDeleteUser(index)}>
                                 <FontAwesomeIcon icon={faTrash} className='text-danger'/>
@@ -105,7 +112,30 @@ export default function Employeelist() {
           </div>
           </div>
         </div>
-
     </div>
+
+
+
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton className='border-0'>
+        </Modal.Header>
+        <div className='text-center'><FontAwesomeIcon icon={faTrash} className='text-danger delete-popup'/></div>
+        <Modal.Body>            
+          <div className='text-center'><h2>Are you sure?</h2></div>
+          <div className='text-center'><p>Do you really want to delete these records? This process cannot be undone.</p></div>
+        </Modal.Body>
+        <Modal.Footer className='border-0'>
+         <div className='d-flex justify-content-center m-auto'>
+         <Button variant="secondary" className='border-0' onClick={handleClose}>
+            Cancel
+          </Button>
+          <Button variant="danger" className='border-0 mx-1' >
+            Delete
+          </Button>
+         </div>
+        </Modal.Footer>
+      </Modal>
+   </>
   )
 }
