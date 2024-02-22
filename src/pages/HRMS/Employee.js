@@ -6,6 +6,9 @@ import LeaveEmployee from '../../components/Employee/LeaveEmployee';
 import VIewEmplyoee from '../../components/Employee/VIewEmplyoee';
 import { Button, Modal, Form } from 'react-bootstrap';
 import Sidebar from '../../layouts/Sidebar';
+import { Formik, Field, Form as FormikForm, ErrorMessage } from 'formik';
+
+
 
 export default function Employee() {
   const [activeButton, setActiveButton] = useState('employeelist');
@@ -76,102 +79,154 @@ export default function Employee() {
       <Modal.Title>Add Employee</Modal.Title>
       </Modal.Header>
 
-      <Modal.Body>
-      <div className='row'>
-          <div className='col-md-6'>
-              <div className="mb-3">
-                <label htmlFor="">Employee ID <span className='text-danger'>*</span></label>
-                <input type="text" className="form-control" id="emplyoeeid" placeholder=" "/>
+      <Formik
+        initialValues={{
+          employeeId: '',
+          email: '',
+          firstName: '',
+          lastName: '',
+          phoneNo: '',
+          startDate: '',
+          role: '',
+          facebook: '',
+          twitter: '',
+          linkedin: '',
+          instagram: ''
+        }}
+        validate={(values) => {
+          const errors = {};
+          if (!values.employeeId) {
+            errors.employeeId = 'Required';
+          }
+
+          if (!values.email) {
+            errors.email = 'Required';
+          }
+
+          if (!values.firstName) {
+            errors.firstName = 'Required';
+          }
+
+
+          if (!values.lastName) {
+            errors.lastName = 'Required';
+          }
+
+          if (!values.startDate) {
+            errors.startDate = 'Required';
+          }
+
+         
+
+          if (!values.role) {
+            errors.role = 'Required';
+          }
+         
+          return errors;
+        }}
+        onSubmit={(values, { setSubmitting }) => {
+          console.log(values);
+          setSubmitting(false);
+        }}
+      >
+        {({ isSubmitting }) => (
+          <FormikForm>
+            <Modal.Body>
+              <div className='row'>
+                <div className='col-md-6'>
+                  <div className="mb-3">
+                    <label htmlFor="employeeId">Employee ID <span className='text-danger'>*</span></label>
+                    <Field type="text" className="form-control" id="employeeId" name="employeeId" />
+                    <ErrorMessage name="employeeId" component="div" className="text-danger" />
+                  </div>
+                </div>
+                <div className='col-md-6'>
+                  <div className="mb-3">
+                    <label htmlFor="email">Email ID <span className='text-danger'>*</span></label>
+                    <Field type="email" className="form-control" id="email" name="email" />
+                    <ErrorMessage name="email" component="div" className="text-danger" />
+                  </div>
+                </div>
               </div>
-          </div>
 
-          <div className='col-md-6'>
-            <div className="mb-3">
-              <label htmlFor="">Email ID <span className='text-danger'>*</span></label>
-              <input type="email" className="form-control" id="email" placeholder=" "/>
-            </div>
-          </div>
+              <div className='row'>
+                <div className='col-md-6'>
+                  <div className="mb-3">
+                    <label htmlFor="firstName">First Name <span className='text-danger'>*</span></label>
+                    <Field type="text" className="form-control" id="firstName" name="firstName" />
+                    <ErrorMessage name="firstName" component="div" className="text-danger" />
+                  </div>
+                </div>
+                <div className='col-md-6'>
+                  <div className="mb-3">
+                    <label htmlFor="lastName">Last Name <span className='text-danger'>*</span></label>
+                    <Field type="text" className="form-control" id="lastName" name="lastName" />
+                    <ErrorMessage name="lastName" component="div" className="text-danger" />
+                  </div>
+                </div>
+              </div>
 
-          
-      </div>
+              <div className='row'>
+                <div className='col-md-6'>
+                  <div className="mb-3">
+                    <label htmlFor="phoneNo">Phone No</label>
+                    <Field type="text" className="form-control" id="phoneNo" name="phoneNo" />
+                    <ErrorMessage name="phoneNo" component="div" className="text-danger" />
+                  </div>
+                </div>
+                <div className='col-md-6'>
+                  <div className="mb-3">
+                    <label htmlFor="startDate">Start Date <span className='text-danger'>*</span></label>
+                    <Field type="date" className="form-control" id="startDate" name="startDate" />
+                    <ErrorMessage name="startDate" component="div" className="text-danger" />
+                  </div>
+                </div>
+              </div>
 
-      <div className='row'>
-        <div className='col-md-6'>
-          <div className="mb-3">
-            <label htmlFor="">First Name <span className='text-danger'>*</span></label>
-            <input type="text" className="form-control" id="firstname" placeholder=" "/>
-          </div>
-        </div>
-        <div className='col-md-6'>
-          <div className="mb-3">
-            <label htmlFor="">Last Name <span className='text-danger'>*</span></label>
-            <input type="text" className="form-control" id="lastname" placeholder=" "/>
-          </div>
-        </div>
-      </div>
+              <div className='col-md-6'>
+                <div className="mb-3">
+                  <label htmlFor="role" className="form-label">Role <span className='text-danger'>*</span></label>
+                  <Field as="select" className="form-select" id="role" name="role">
+                    <option value="">Web Designer</option>
+                  </Field>
+                  <ErrorMessage name="role" component="div" className="text-danger" />
+                </div>
+              </div>
 
-      <div className='row'>
-        <div className='col-md-6'>
-          <div className="mb-3">
-              <label htmlFor="">Phone  No</label>
-              <input type="text" className="form-control" id="phoneno" placeholder=" "/>
-            </div>
-        </div>
-        <div className='col-md-6'>
-          <div className="mb-3">
-              <label htmlFor="">Start Date <span className='text-danger'>*</span></label>
-              <input type="date" className="form-control" id="startdate" placeholder=" "/>
-          </div>
-        </div>
-      </div>
+              <div>
+                <Form.Group controlId="formFile" className="mb-3">
+                  <Form.Control type="file" />
+                  <Form.Label className='employeeinputbtn'>This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</Form.Label>
+                </Form.Group>
+              </div>
 
-      <div className='col-md-6'>
-        <div className="mb-3">
-          <label htmlFor="role" className="form-label">Role <span className='text-danger'>*</span></label>
-          <select
-            className="form-select"
-            id="role"
-            placeholder="Role"
-          >
-            <option value="">Web Designer</option>
-          </select>
-        </div>
-      </div>
+              <div>
+                <div className="mb-3">
+                  <Field type="text" className="form-control" id="facebook" name="facebook" placeholder="Facebook" />
+                </div>
+                <div className="mb-3">
+                  <Field type="text" className="form-control" id="twitter" name="twitter" placeholder="Twitter" />
+                </div>
+                <div className="mb-3">
+                  <Field type="text" className="form-control" id="linkedin" name="linkedin" placeholder="Linkedin" />
+                </div>
+                <div className="mb-3">
+                  <Field type="text" className="form-control" id="instagram" name="instagram" placeholder="Instagram" />
+                </div>
+              </div>
+            </Modal.Body>
 
-      <div>
-          <Form.Group controlId="formFile" className="mb-3">
-              <Form.Control type="file" />
-              <Form.Label className='employeeinputbtn'>This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</Form.Label>
-          </Form.Group>
-      </div>
-
-
-      <div>
-          <div className="mb-3">
-          <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Facebook "/>
-          </div>
-          <div className="mb-3">
-          <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Twitter "/>
-          </div>
-          <div className="mb-3">
-          <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Linkedin"/>
-          </div>
-          <div className="mb-3">
-          <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Instagram"/>
-          </div>
-      </div>   
-      
-
-      </Modal.Body>
-
-      <Modal.Footer>
-      <Button variant="secondary" onClick={handleClose1} className='bg-danger border-0'>
-          Cancel
-      </Button>
-      <Button variant="primary btn-top" className='border-0'>
-          Add
-      </Button>
-      </Modal.Footer>       
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose1} className='bg-danger border-0'>
+                Cancel
+              </Button>
+              <Button type="submit" variant="primary btn-top" className='border-0' disabled={isSubmitting}>
+                {isSubmitting ? 'Adding...' : 'Add'}
+              </Button>
+            </Modal.Footer>
+          </FormikForm>
+        )}
+      </Formik>      
     </Modal>
 
 
@@ -181,65 +236,118 @@ export default function Employee() {
       <Modal.Title>Leave Employee</Modal.Title>
       </Modal.Header>
 
-      <Modal.Body>
-      <div className='row'>
-            <div className='col-md-6'>
-                <div className="mb-3">
-                <label htmlFor="" className="form-label">Employee ID <span className='text-danger'>*</span></label>
-                <input type="text" className="form-control" id="employeeid" placeholder="Employee ID "/>
-                </div> 
-            </div>
+      <Formik
+        initialValues={{
+          employeeId: '',
+          fullName: '',
+          startDate: '',
+          endDate: '',
+          numberOfDays: '',
+          leaveType: ''
+        }}
+        validate={(values) => {
+          const errors = {};
+          if (!values.employeeId) {
+            errors.employeeId = 'Required';
+          }
 
-            <div className='col-md-6'>
-             <div className="mb-3">
-                <label htmlFor="" className="form-label">Full Name</label>
-                <input type="text" className="form-control" id="username" placeholder="Name "/>
+          if (!values.fullName) {
+            errors.fullName = 'Required';
+          }
+
+          if (!values.startDate) {
+            errors.startDate = 'Required';
+          }
+
+          if (!values.endDate) {
+            errors.endDate = 'Required';
+          }
+
+          if (!values.numberOfDays) {
+            errors.numberOfDays = 'Required';
+          }
+
+          if (!values.leaveType) {
+            errors.leaveType = 'Required';
+          }
+          
+          return errors;
+        }}
+        onSubmit={(values, { setSubmitting }) => {
+          
+          console.log(values);
+          setSubmitting(false);
+        }}
+      >
+        {({ isSubmitting }) => (
+          <FormikForm>
+            <Modal.Body>
+              <div className='row'>
+                <div className='col-md-6'>
+                  <div className="mb-3">
+                    <label htmlFor="employeeId" className="form-label">Employee ID <span className='text-danger'>*</span></label>
+                    <Field type="text" className="form-control" id="employeeId" name="employeeId" />
+                    <ErrorMessage name="employeeId" component="div" className="text-danger" />
+                  </div>
+                </div>
+
+                <div className='col-md-6'>
+                  <div className="mb-3">
+                    <label htmlFor="fullName" className="form-label">Full Name</label>
+                    <Field type="text" className="form-control" id="fullName" name="fullName" />
+                    <ErrorMessage name="fullName" component="div" className="text-danger" />
+                  </div>
+                </div>
               </div>
-            </div>
-      </div>  
 
-      <div className='row'>
-          <div className='col-md-6'>
-            <div className="mb-3">
-              <label htmlFor="" className="form-label">From <span className='text-danger'>*</span></label>
-              <input type="date" className="form-control" id="startdate" placeholder="Start Date* "/>
-            </div>
-          </div>
+              <div className='row'>
+                <div className='col-md-6'>
+                  <div className="mb-3">
+                    <label htmlFor="startDate" className="form-label">From <span className='text-danger'>*</span></label>
+                    <Field type="date" className="form-control" id="startDate" name="startDate" />
+                    <ErrorMessage name="startDate" component="div" className="text-danger" />
+                  </div>
+                </div>
 
-          <div className='col-md-6'>
-            <div className="mb-3">
-              <label htmlFor="" className="form-label">To <span className='text-danger'>*</span></label>
-              <input type="date" className="form-control" id="enddate" placeholder="End Date* "/>
-            </div>
-          </div>
-      </div>
+                <div className='col-md-6'>
+                  <div className="mb-3">
+                    <label htmlFor="endDate" className="form-label">To <span className='text-danger'>*</span></label>
+                    <Field type="date" className="form-control" id="endDate" name="endDate" />
+                    <ErrorMessage name="endDate" component="div" className="text-danger" />
+                  </div>
+                </div>
+              </div>
 
-      <div className='row'>
-        <div className='col-md-6'>
-            <div className="mb-3">
-              <label htmlFor="" className="form-label">Numbers of Days <span className='text-danger'>*</span></label>
-              <input type="number" className="form-control" id="numberofdays" placeholder=""/>
-            </div>
-          </div>
+              <div className='row'>
+                <div className='col-md-6'>
+                  <div className="mb-3">
+                    <label htmlFor="numberOfDays" className="form-label">Numbers of Days <span className='text-danger'>*</span></label>
+                    <Field type="number" className="form-control" id="numberOfDays" name="numberOfDays" />
+                    <ErrorMessage name="numberOfDays" component="div" className="text-danger" />
+                  </div>
+                </div>
 
-          <div className='col-md-6'>
-            <div className="mb-3">
-              <label htmlFor="" className="form-label">Leave Types <span className='text-danger'>*</span></label>
-              <textarea type="text" className="form-control" id="leavetype" placeholder=""/>
-            </div>
-          </div>  
-      </div>
+                <div className='col-md-6'>
+                  <div className="mb-3">
+                    <label htmlFor="leaveType" className="form-label">Leave Types <span className='text-danger'>*</span></label>
+                    <Field as="textarea" className="form-control" id="leaveType" name="leaveType" />
+                    <ErrorMessage name="leaveType" component="div" className="text-danger" />
+                  </div>
+                </div>
+              </div>
+            </Modal.Body>
 
-      </Modal.Body>
-
-      <Modal.Footer>
-      <Button variant="secondary" onClick={handleClose2} className='bg-danger border-0'>
-          Cancel
-      </Button>
-      <Button variant="primary btn-top" onClick={handleClose2} className='border-0'>
-          Apply
-      </Button>
-      </Modal.Footer>       
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose2} className='bg-danger border-0'>
+                Cancel
+              </Button>
+              <Button type="submit" variant="primary btn-top" disabled={isSubmitting} className='border-0'>
+                {isSubmitting ? 'Applying...' : 'Apply'}
+              </Button>
+            </Modal.Footer>
+          </FormikForm>
+        )}
+      </Formik>       
     </Modal>
     
     <Footer/>

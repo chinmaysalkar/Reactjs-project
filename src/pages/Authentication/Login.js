@@ -8,22 +8,24 @@ import img3 from '../../assets/images/slider3.svg';
 import logo from '../../assets/images/logo1.png';
 import { useNavigate } from 'react-router-dom';
 
-
-
-
 const LoginSchema = Yup.object().shape({
-    email: Yup.string().email('Invalid email format').required('Email is required'),
-    password: Yup.string()
-      .required('Password is required')
-      .min(6, 'Password must be at least 6 characters')
-      .max(14, 'Password must be at most 14 characters')
-      .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,14}$/,
-        'Password must contain at least one uppercase,one lowercase, one number, one special character, and be between 6 and 14 characters long'
-      ),
-  });
+  email: Yup.string().email('Invalid email format').required('Email is required'),
+  password: Yup.string()
+    .required('Password is required')
+    .min(6, 'Password must be at least 6 characters')
+    .max(14, 'Password must be at most 14 characters')
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,14}$/,
+      'Password must contain at least one uppercase, one lowercase, one number, one special character, and be between 6 and 14 characters long'
+    ),
+});
+
 export default function Login() {
   const navigate = useNavigate();
+
+  // Set default email and password
+  const defaultEmail = "xyz@123.com";
+  const defaultPassword = "Xyz123@";
 
   return (
     <div className='login-main'>
@@ -39,7 +41,7 @@ export default function Login() {
               <div className="card-body">
                 <div className="card-title">LOGIN TO YOUR ACCOUNT</div>
                 <Formik
-                  initialValues={{ email: '', password: '', rememberMe: false }}
+                  initialValues={{ email: defaultEmail, password: defaultPassword, rememberMe: false }}
                   validationSchema={LoginSchema}
                   onSubmit={(values, { setSubmitting }) => {
                     setTimeout(() => {
