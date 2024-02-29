@@ -56,13 +56,6 @@ export default function Login() {
                 >
                   {({ isSubmitting, errors }) => (
                     <Form>
-                      <div className="form-group mb-3 mt-3">
-                        <select className="form-select">
-                          <option>HR Dashboard</option>
-                          <option>Project Dashboard</option>
-                          <option>Job Portal</option>
-                        </select>
-                      </div>
                       <div className="form-group mb-3">
                         <Field
                           type="email"
@@ -74,7 +67,7 @@ export default function Login() {
                         <ErrorMessage name="email" component="div" className="invalid-feedback" />
                       </div>
                       <div className="form-group mb-3">
-                        <label className="form-label d-flex justify-content-between">
+                        <label htmlFor="password" className="form-label d-flex justify-content-between">
                           Password
                           <Link className="float-right small text-secondary mx-2" to="/forgotpassword">
                             I forgot password
