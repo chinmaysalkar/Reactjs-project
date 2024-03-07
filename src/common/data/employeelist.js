@@ -1,0 +1,100 @@
+
+const employeelist = [
+
+    {  no: ' ',
+    logo: ' ',
+    name: 'Marshall Nichols',
+    email:'marshall-n@gmail.com',
+    employeeid: 'LA-0215 ',
+    phone: '+ 264-625-1526',
+    joindate: '24 Jun, 2015',
+    role: 'Web Designer', 
+    action: '', },
+
+    {  no: ' ',
+    logo: ' ',
+    name: ' Susie Willis',
+    email:'marshall-n@gmail.com',
+    employeeid: ' LA-0215',
+    phone: '+ 264-625-1526',
+    joindate: '24 Jun, 2015',
+    role: 'Web Developer', 
+    action: '', },
+
+
+    {  no: ' ',
+    logo: ' ',
+    name: ' Debra Stewart',
+    email:'marshall-n@gmail.com',
+    employeeid: 'LA-0215 ',
+    phone: '+ 264-625-1526', 
+    joindate: '24 Jun, 2015', 
+    role: 'Team Lead',  
+    action: '', },
+
+    {  no: ' ',
+    logo: ' ',
+    name: ' Erin Gonzales',
+    email:'marshall-n@gmail.com',
+    employeeid: 'LA-0215 ',
+    phone: ' + 264-625-1526', 
+    joindate: '24 Jun, 2015',
+    role: 'Web Developer', 
+    action: '', },
+
+    {  no: ' ',
+    logo: ' ',
+    name: ' Susie Willis',
+    email:'marshall-n@gmail.com',
+    employeeid: 'LA-0215 ',
+    phone: ' + 264-625-1526',
+    joindate: '24 Jun, 2015',
+    role: 'Team Lead',  
+    action: '', },
+
+    {  no: ' ',
+    logo: ' ',
+    name: ' Debra Stewart',
+    email:'marshall-n@gmail.com',
+    employeeid: 'LA-0215 ',
+    phone: ' + 264-625-1526', 
+    joindate: '24 Jun, 2015',
+    role: 'Team Lead', 
+    action: '', },
+
+    {  no: ' ',
+    logo: ' ',
+    name: ' Erin Gonzales',
+    email:'marshall-n@gmail.com',
+    employeeid: ' LA-0215',
+    phone: ' + 264-625-1526', 
+    joindate: '24 Jun, 2015',
+    role: 'Web Developer',
+    action: '', },
+
+    {  no: ' ',
+    logo: ' ',
+    name: ' Ava Alexander',
+    email:'marshall-n@gmail.com',
+    employeeid: 'LA-0215 ',
+    phone: ' + 264-625-1526',
+    joindate: '24 Jun, 2015',
+    role: 'HR', 
+    action: '', },
+
+    {  no: ' ',
+    logo: ' ',
+    name: ' Ava Alexander',
+    email:'marshall-n@gmail.com',
+    employeeid: 'LA-0215 ',
+    phone: '+ 264-625-1526',
+    joindate: '24 Jun, 2015',
+    role: 'HR', 
+    action: '', },  
+   
+  ];
+
+
+  export {employeelist}
+
+

@@ -1,21 +1,24 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash,faPencil } from '@fortawesome/free-solid-svg-icons';
-import avatar1 from '../../assets/images/avatar1.jpg'
-import avatar2 from '../../assets/images/avatar2.jpg'
-import avatar3 from '../../assets/images/avatar3.jpg'
+// import avatar1 from '../../assets/images/avatar1.jpg'
+// import avatar2 from '../../assets/images/avatar2.jpg'
+// import avatar3 from '../../assets/images/avatar3.jpg'
+import { departmentgridlist } from '../../common/data/departmentlist';
+
+
 
 export default function Gridlist() {
-    const [employees, setEmployees] = useState([
-        { name: 'John Smith', role: 'Web Development', employeeCount: 105, earnings: '$3100', imageSrc:  avatar1 },
-        { name: 'Maryam Amiri', role: 'Web Development', employeeCount: 105, earnings: '$3100', imageSrc: avatar2},
-        { name: 'Fidel Tonn ', role: 'Web Development', employeeCount: 12, earnings: '$3100', imageSrc: avatar1 },
-        { name: 'Frank Camly ', role: 'Web Development', employeeCount: 105, earnings: '$3100', imageSrc: avatar3 },
-        { name: 'Maryam Amiri ', role: 'Web Development', employeeCount: 105, earnings: '$3100', imageSrc: avatar1 },
-        { name: 'John Smith ', role: 'Web Development', employeeCount: 55, earnings: '$12,045', imageSrc: avatar2 },
-        { name: 'John Smith ', role: 'Web Development', employeeCount: 23, earnings: '$5100', imageSrc: avatar3 },
+    // const [employees, setEmployees] = useState([
+    //     { name: 'John Smith', role: 'Web Development', employeeCount: 105, earnings: '$3100', imageSrc:  avatar1 },
+    //     { name: 'Maryam Amiri', role: 'Web Development', employeeCount: 105, earnings: '$3100', imageSrc: avatar2},
+    //     { name: 'Fidel Tonn ', role: 'Web Development', employeeCount: 12, earnings: '$3100', imageSrc: avatar1 },
+    //     { name: 'Frank Camly ', role: 'Web Development', employeeCount: 105, earnings: '$3100', imageSrc: avatar3 },
+    //     { name: 'Maryam Amiri ', role: 'Web Development', employeeCount: 105, earnings: '$3100', imageSrc: avatar1 },
+    //     { name: 'John Smith ', role: 'Web Development', employeeCount: 55, earnings: '$12,045', imageSrc: avatar2 },
+    //     { name: 'John Smith ', role: 'Web Development', employeeCount: 23, earnings: '$5100', imageSrc: avatar3 },
         
-    ]);
+    // ]);
 
       const handleEdit = (index) => {
         
@@ -25,17 +28,17 @@ export default function Gridlist() {
 
       const handleDelete = (index) => {
         
-        setEmployees((prevEmployees) => {
-            const updatedEmployees = [...prevEmployees];
-            updatedEmployees.splice(index, 1);
-            return updatedEmployees;
-        });
+        // setEmployees((prevEmployees) => {
+        //     const updatedEmployees = [...prevEmployees];
+        //     updatedEmployees.splice(index, 1);
+        //     return updatedEmployees;
+        // });
     };
   return (
     <div>
         <div className='mt-4 mx-3'>
             <div className="row clearfix">
-            {employees.map((employee, index) => (
+            {(departmentgridlist || []).map((employee, index) => (
                 <div key={index} className="col-lg-3 col-md-6">
                 <div className="card mb-3">
                     <div className="card-body text-center">

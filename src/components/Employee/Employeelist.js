@@ -4,30 +4,19 @@ import { faEdit, faTrash, faSearch , faEye} from '@fortawesome/free-solid-svg-ic
 import { Form, Button  } from 'react-bootstrap';
 import Employeeindex from './Employeeindex';
 import Modal from 'react-bootstrap/Modal';
+import {useDispatch, useSelector} from 'react-redux';
+import {deleteEmployee} from '../../redux/HRMS/Emplyoee/action';
 
-export default function Employeelist() {
-    const [userList, setUserList] = useState([
+const Employeelist=()=> {
+    
+  const dispatch = useDispatch();
+  const employeeList = useSelector(state=>state.employee.employeeList);
 
-        {  no: ' ',logo: ' ',name: 'Marshall Nichols',email:'marshall-n@gmail.com',employeeid: 'LA-0215 ',phone: '+ 264-625-1526', joindate: '24 Jun, 2015', role: 'Web Designer',  action: '', },
-        {  no: ' ',logo: ' ',name: ' Susie Willis',email:'marshall-n@gmail.com', employeeid: ' LA-0215', phone: '+ 264-625-1526', joindate: '24 Jun, 2015', role: 'Web Developer',  action: '', },
-        {  no: ' ',logo: ' ',name: ' Debra Stewart',email:'marshall-n@gmail.com',employeeid: 'LA-0215 ',phone: '+ 264-625-1526', joindate: '24 Jun, 2015', role: 'Team Lead',  action: '', },
-        {  no: ' ',logo: ' ',name: ' Erin Gonzales',email:'marshall-n@gmail.com',employeeid: 'LA-0215 ',phone: ' + 264-625-1526', joindate: '24 Jun, 2015', role: 'Web Developer',  action: '', },
-        {  no: ' ',logo: ' ',name: ' Susie Willis',email:'marshall-n@gmail.com',employeeid: 'LA-0215 ',phone: ' + 264-625-1526', joindate: '24 Jun, 2015', role: 'Team Lead',  action: '', },
-        {  no: ' ',logo: ' ',name: ' Debra Stewart',email:'marshall-n@gmail.com',employeeid: 'LA-0215 ',phone: ' + 264-625-1526', joindate: '24 Jun, 2015', role: 'Team Lead',  action: '', },
-        {  no: ' ',logo: ' ',name: ' Erin Gonzales',email:'marshall-n@gmail.com',employeeid: ' LA-0215',phone: ' + 264-625-1526', joindate: '24 Jun, 2015', role: 'Web Developer',  action: '', },
-        {  no: ' ',logo: ' ',name: ' Ava Alexander',email:'marshall-n@gmail.com',employeeid: 'LA-0215 ',phone: ' + 264-625-1526', joindate: '24 Jun, 2015', role: 'HR',  action: '', },
-        {  no: ' ',logo: ' ',name: ' Ava Alexander',email:'marshall-n@gmail.com',employeeid: 'LA-0215 ',phone: '+ 264-625-1526', joindate: '24 Jun, 2015', role: 'HR',  action: '', },  
-       
-        
-      ]);
-
-       
-
-      const handleDeleteUser = (index) => {
-        const updatedUserList = [...userList];
-        updatedUserList.splice(index, 1);
-        setUserList(updatedUserList);
-      };
+  
+  const handleDeleteEmployee = (index) => {
+    dispatch(deleteEmployee(index));
+  };
+    
 
     const [show, setShow] = useState(false);
 
@@ -43,7 +32,6 @@ export default function Employeelist() {
           <Employeeindex/>
 
          
-
           <div className='card mt-3 p-3 border-0'>
             <div className='d-flex justify-content-between mx-2 switch-top'>
                 <h6 className='mx-2 mt-3'>EMPLOYEE LIST</h6>
@@ -75,7 +63,7 @@ export default function Employeelist() {
                   </tr>
                 </thead>
                 <tbody>
-                  {userList.map((user, index) => (
+                  {(employeeList || []).map((user, index) => (
                     <tr key={user.name}>
                       <td><input className='form-check-input' type="checkbox" /></td>
                       <td>
@@ -97,7 +85,7 @@ export default function Employeelist() {
                               <button className='btn btn-sm mx-1'>
                                 <FontAwesomeIcon icon={faEdit} className='text-success'  onClick={handleShow}/>
                               </button>
-                              <button className='btn btn-sm mx-1' onClick={() => handleDeleteUser(index)}>
+                              <button className='btn btn-sm mx-1' onClick={() => handleDeleteEmployee(index)}>
                                 <FontAwesomeIcon icon={faTrash} className='text-danger'/>
                               </button>
                             </div>
@@ -113,7 +101,6 @@ export default function Employeelist() {
           </div>
         </div>
     </div>
-
 
 
 
@@ -139,3 +126,5 @@ export default function Employeelist() {
    </>
   )
 }
+
+export default Employeelist;

@@ -1,0 +1,1 @@
+export const DELETE_EMPLOYEE= 'DELETE_EMPLOYEE'

@@ -1,24 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Form, Button } from 'react-bootstrap';
-import avatar1 from '../../assets/images/avatar1.jpg'
-import avatar2 from '../../assets/images/avatar2.jpg'
-import avatar3 from '../../assets/images/avatar3.jpg'
+import { deleteUser } from '../../redux/HRMS/UserList/action';
+import { useSelector, useDispatch } from 'react-redux';
+
 
 const Userlist = () => {
-  const [userList, setUserList] = useState([
-    {  imageSrc:  avatar1,name: 'Marshall Nichols', email: 'marshall-n@gmail.com', position: 'Super Admin', createddate: '24 Jun, 2015', role: 'CEO and Founder', action: '' },
-    {  imageSrc:  avatar1,name: ' Susie Willis',email:'marshall-n@gmail.com', position: 'Admin', createddate: '24 Jun, 2015', role: 'Team Lead',  action: '', },
-    {  imageSrc:  avatar2,name: ' Debra Stewart',email:'marshall-n@gmail.com',position: 'Employee', createddate: '24 Jun, 2015', role: 'Team Lead',  action: '', },
-    {  imageSrc:  avatar1,name: ' Erin Gonzales',email:'marshall-n@gmail.com',position: 'Employee', createddate: '24 Jun, 2015', role: 'Web Developer',  action: '', },
-    {  imageSrc:  avatar2,name: ' Susie Willis',email:'marshall-n@gmail.com',position: 'Admin', createddate: '24 Jun, 2015', role: 'Team Lead',  action: '', },
-    {  imageSrc:  avatar3,name: ' Debra Stewart',email:'marshall-n@gmail.com',position: 'Admin', createddate: '24 Jun, 2015', role: 'Team Lead',  action: '', },
-    {  imageSrc:  avatar1,name: ' Erin Gonzales',email:'marshall-n@gmail.com',position: 'Admin', createddate: '24 Jun, 2015', role: 'Web Developer',  action: '', },
-    {  imageSrc:  avatar2,name: ' Ava Alexander',email:'marshall-n@gmail.com',position: 'HR', createddate: '24 Jun, 2015', role: 'HR',  action: '', },
-    {  imageSrc:  avatar1,name: ' Ava Alexander',email:'marshall-n@gmail.com',position: 'HR', createddate: '24 Jun, 2015', role: 'HR',  action: '', },  
-  ]);
-
+  const dispatch = useDispatch();
+  const users = useSelector(state => state.user.userList);
+  
   const getPositionColor = (position) => {
     switch (position.toLowerCase()) {
       case 'super admin':
@@ -29,15 +20,13 @@ const Userlist = () => {
         return '#1ddfe2 ';
       case 'hr':
         return '#69d613 ';
-        default:
-          return '#ffffff';
+      default:
+        return '#ffffff';
     }
   };
 
   const handleDeleteUser = (index) => {
-    const updatedUserList = [...userList];
-    updatedUserList.splice(index, 1);
-    setUserList(updatedUserList);
+    dispatch(deleteUser(index));
   };
 
   return (
@@ -72,7 +61,7 @@ const Userlist = () => {
                 </tr>
               </thead>
               <tbody>
-                {userList.map((user, index) => (
+                {(users || []).map((user, index) => (
                   <tr key={index}>
                     <td>
                       <img
@@ -88,35 +77,35 @@ const Userlist = () => {
                     </td>
                     <td>
                       <div className='mt-3'>
-                      <span
-                        style={{
-                          backgroundColor: getPositionColor(user.position),
-                          padding: '3px',
-                          borderRadius: '5px',
-                          color: 'white',
-                        }}
-                      >
-                        {user.position}
-                      </span>
+                        <span
+                          style={{
+                            backgroundColor: getPositionColor(user.position),
+                            padding: '3px',
+                            borderRadius: '5px',
+                            color: 'white',
+                          }}
+                        >
+                          {user.position}
+                        </span>
                       </div>
                     </td>
                     <td><div className='mt-3'>{user.createddate}</div></td>
                     <td><div className='mt-3'>{user.role}</div></td>
                     <td>
                       <div className='mt-2'>
-                      {index !== 0 && (
-                        <>
-                          <button className='btn btn-sm mx-1'>
-                            <FontAwesomeIcon icon={faEdit} className='text-success'/>
-                          </button>
-                          <button
-                            className='btn btn-sm mx-1'
-                            onClick={() => handleDeleteUser(index)}
-                          >
-                            <FontAwesomeIcon icon={faTrash} className='text-danger'/>
-                          </button>
-                        </>
-                      )}
+                        {index !== 0 && (
+                          <>
+                            <button className='btn btn-sm mx-1'>
+                              <FontAwesomeIcon icon={faEdit} className='text-success'/>
+                            </button>
+                            <button
+                              className='btn btn-sm mx-1'
+                              onClick={() => handleDeleteUser(index)}
+                            >
+                              <FontAwesomeIcon icon={faTrash} className='text-danger'/>
+                            </button>
+                          </>
+                        )}
                       </div>
                     </td>
                   </tr>

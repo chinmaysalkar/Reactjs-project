@@ -1,30 +1,21 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Button, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faSearch } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteDepartment } from '../../redux/HRMS/Department/action';
 
-export default function ListView() {
 
-    const [userList, setUserList] = useState([
+const ListView=()=> {
 
-        {  no: '01 ',departmentname: 'Web Development',departmenthead: 'John Smith', totalemployee: '102',   action: '', },
-        {  no: '02 ',departmentname: ' Marketing', departmenthead: 'Maryam Amiri', totalemployee: '13',   action: '', },
-        {  no: '03 ',departmentname: ' App Development',departmenthead: 'Frank Camly', totalemployee: '21',   action: '', },
-        {  no: '04 ',departmentname: ' Support',departmenthead: ' Gary Camara', totalemployee: '84',  action: '', },
-        {  no: '05 ',departmentname: ' Accounts',departmenthead: ' Fidel Tonn', totalemployee: '11',   action: '', },
-        {  no: '06 ',departmentname: ' PHP Open Source',departmenthead: ' Maryam Amiri', totalemployee: '37',   action: '', },
-        {  no: '07 ',departmentname: ' Design and Printing',departmenthead: ' Maryam Amiri', totalemployee: '17',  action: '', },
-       
-       
-        
-      ]);  
+  const dispatch = useDispatch();
+  const departmentList = useSelector(state=>state.department.departmentList);
 
-      const handleDeleteUser = (index) => {
-        const updatedUserList = [...userList];
-        updatedUserList.splice(index, 1);
-        setUserList(updatedUserList);
-      };
+  const handleDeleteDepartment = (index) => {
+    dispatch(deleteDepartment(index));
+  };
+      
 
   return (
     <div className='mt-4 mx-3'>
@@ -57,8 +48,8 @@ export default function ListView() {
                 </tr>
               </thead>
               <tbody>
-                {userList.map((user, index) => (
-                  <tr key={user.no}>
+                {(departmentList || []).map((user, index) => (
+                  <tr key={user}>
                     <td>{user.no}</td>
                     <td>{user.departmentname}</td>
                     <td>{user.departmenthead}</td>
@@ -69,7 +60,7 @@ export default function ListView() {
                           <button className='btn btn-sm mx-1'>
                             <FontAwesomeIcon icon={faEdit} className='text-success'/>
                           </button>
-                          <button className='btn btn-sm mx-1' onClick={() => handleDeleteUser(index)}>
+                          <button className='btn btn-sm mx-1' onClick={() => handleDeleteDepartment(index)}>
                             <FontAwesomeIcon icon={faTrash} className='text-danger'/>
                           </button>
                         </>
@@ -82,10 +73,11 @@ export default function ListView() {
           </div>
         </div>
     </div>
-
-
-    
-
     </div>
   )
 }
+
+
+
+
+export default ListView;
