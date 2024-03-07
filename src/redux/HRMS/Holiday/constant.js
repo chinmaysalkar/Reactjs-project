@@ -1,0 +1,2 @@
+export const DELETE_HOLIDAY='DELETE_HOLIDAY'
+export const ADD_HOLIDAY='ADD_HOLIDAY'
