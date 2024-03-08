@@ -1,4 +1,6 @@
-const holidaysData = [
+
+
+const holidaysData =[
   {
     day: "Tuesday",
     date: "Jan 01, 2019",

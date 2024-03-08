@@ -7,38 +7,44 @@ import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { Form } from 'react-bootstrap';
+import {useDispatch, useSelector} from 'react-redux';
+import {deleteHoliday, addHoliday} from '../../redux/HRMS/Holiday/action';
 
-export default function Holidays() {
+const Holidays=()=> {
+
+
+    const dispatch = useDispatch();
+    const holidays = useSelector(state => state.holiday.holidayList);
+    const [show, setShow]= useState(false);
+    const [holidayData, setHolidayData] = useState({
+      name: '',
+      date: '',
+      day: '' 
+    });
     
-    const holidaysData = [
-        { day: 'Tuesday', date: 'Jan 01, 2019', holiday: "New Year's Day", action: '' },
-        { day: 'Monday', date: 'Jan 14, 2019', holiday: 'Makar Sankranti / Pongal', action: '' },
-        { day: 'Saturday', date: 'Jan 26, 2019', holiday: 'Republic Day', action: '' },
-        { day: 'Monday', date: 'Mar 04, 2019', holiday: 'Maha Shivaratri', action: '' },
-        { day: 'Thursday', date: 'Mar 21, 2019', holiday: 'Holi', action: '' },
-        { day: 'Friday', date: 'Apr 19, 2019', holiday: 'Good Friday', action: '' },
-        { day: 'Wednesday', date: 'Jun 05, 2019', holiday: 'Eid-ul-Fitar', action: '' },
-        { day: 'Thursday', date: 'Aug 15, 2019', holiday: 'Independence Day', action: '' },
-        { day: 'Wednesday', date: 'Oct 02, 2019', holiday: 'Mathatma Gandhi Jayanti', action: '' },
-        { day: 'Wednesday', date: 'Dec 25, 2019', holiday: 'Christmas', action: '' }
-      ];
-
-
-
-      const handleEdit = (index) => {
-        console.log("Edit holiday at index:", index);
-      };
-    
-      const handleDelete = (index) => {
-        console.log("Delete holiday at index:", index);
-      };
-
-
-    const [show, setShow] = useState(false);
+    const handleDeleteHoliday = (index) =>{
+      dispatch(deleteHoliday(index));
+    }   
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const handleEdit = (index) => {
+      console.log("Edit holiday at index:", index);
+    };
+    
+
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+      setHolidayData({ ...holidayData, [name]: value });
+   };
+
+    const handleSubmit = () => {
+        dispatch(addHoliday(holidayData)); 
+        handleClose(); 
+        setHolidayData({ name: '', date: '', day: '' });
+    };
+   
 
   return (
     <>
@@ -67,7 +73,7 @@ export default function Holidays() {
                 </tr>
                 </thead>
                 <tbody>
-                {holidaysData.map((holiday, index) => (
+                {(holidays || []).map((holiday, index) => (
                     <tr key={index}>
                     <td>{holiday.day}</td>
                     <td>{holiday.date}</td>
@@ -77,7 +83,7 @@ export default function Holidays() {
                             <FontAwesomeIcon icon={faEdit} className='text-success'/>
                         </button>
 
-                        <button className='btn btn-sm mx-1' onClick={() => handleDelete(index)}>
+                        <button className='btn btn-sm mx-1' onClick={() => handleDeleteHoliday(index)}>
                             <FontAwesomeIcon icon={faTrash} className='text-danger'/>
                         </button>
                     </td>
@@ -94,48 +100,45 @@ export default function Holidays() {
     </div>
 
 
-      <Modal show={show} onHide={handleClose}>
+    <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Add Holiday</Modal.Title>
+            <Modal.Title>Add Holiday</Modal.Title>
         </Modal.Header>
-
         <Modal.Body>
-            <div>
-            <div className="mb-3">
-            <label htmlFor="holidayname" className="form-label">Holiday Name</label>
-            <input type="text" className="form-control" id="holidayname" placeholder=""/>
-            </div>
-
-            <div className="mb-3">
-            <label htmlFor="holidaydate" className="form-label">Holiday Date</label>
-            <input type="date" className="form-control" id="holidaydate" placeholder=""/>
-            </div>
-
-            <div className=''>
-              <label htmlFor="mobileno" className="form-label">Holiday Day<span className='text-danger'>*</span></label>
-                <Form.Select aria-label="Custom select example">
-                    <option value="1">Monday</option>
-                    <option value="2">Tuesday</option>
-                    <option value="3">Wednesday</option>
-                    <option value="3">Thursday</option>
-                    <option value="3">Friday</option>
-                    <option value="3">Saturday</option>
-                    <option value="3">Sunday</option>
-                </Form.Select>
-            </div>
-
-            </div>
+            <Form>
+                <Form.Group className="mb-3">
+                    <Form.Label>Holiday Name</Form.Label>
+                    <Form.Control type="text" name="holiday" value={holidayData.holiday} onChange={handleChange} />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Holiday Date</Form.Label>
+                    <Form.Control type="date" name="date" value={holidayData.date} onChange={handleChange} />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Holiday Day</Form.Label>
+                    <Form.Select name="day" value={holidayData.day} onChange={handleChange}>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                    </Form.Select>
+                </Form.Group>
+            </Form>
         </Modal.Body>
-
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose} className='bg-danger boreder-0'>
-            Cancel
-          </Button>
-          <Button variant="primary" className='btn-top boreder-0'>
-            Add
-          </Button>
+            <Button variant="secondary" onClick={handleClose}>
+                Cancel
+            </Button>
+            <Button variant="primary" onClick={handleSubmit}>
+                Add
+            </Button>
         </Modal.Footer>
-      </Modal>
+    </Modal>
     </>
   )
 }
+
+export default Holidays;
