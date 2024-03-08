@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRightFromBracket,faPhone,faAlignLeft, faComment, faFolder, faCalendar, faCreditCard, faSearch,faGear,faRocket,faMugHot, faSuitcase, faLock, faChevronDown, faChevronUp, faTimes} from '@fortawesome/free-solid-svg-icons'; 
+import { faArrowRightFromBracket,faPhone,faAlignLeft, faComment, faFolder, faCalendar, faCreditCard, faSearch,faRocket,faMugHot, faSuitcase, faChevronDown, faChevronUp, faTimes} from '@fortawesome/free-solid-svg-icons'; 
 // import logo from '../assets/images/command-symbol-svgrepo-com.svg';
 import { Link } from 'react-router-dom';
 import avatar from '../assets/images/avatar1.jpg'
@@ -141,9 +141,9 @@ const Sidebar = () => {
             <FontAwesomeIcon icon={faAlignLeft}/>
           </button>
 
-          <Link to="/side" className="sidebar-link">
+          {/* <Link to="/side" className="sidebar-link">
             <FontAwesomeIcon icon={faGear} className='side-setting-icon'/>      
-          </Link>
+          </Link> */}
 
           <div className='px-1'><img src={avatar} alt="" className='sidebar-profile-icon avatar rounded-circle avatar-sml mt-2 mx-3' onClick={toggleSidebar1}/></div>
           
@@ -334,7 +334,7 @@ const Sidebar = () => {
         </ul>
         </li>
 
-        <li className="sidebar-item">
+        {/* <li className="sidebar-item">
         <a
         href="/side"
         className="sidebar-link collapsed has-dropdown"
@@ -377,7 +377,7 @@ const Sidebar = () => {
           </Link>
         </li>
         </ul>
-        </li>
+        </li> */}
 
 
         
