@@ -3,7 +3,7 @@ import avatar1 from '../../../assets/images/avatar1.jpg'
 import avatar3 from '../../../assets/images/avatar3.jpg'
 
 
-const projectonData = [
+const projectondata = [
     {
       title: "New Admin Design",
       tag: "Web Design",
@@ -17,6 +17,7 @@ const projectonData = [
       progress: 15,
       progressColor: "bg-red"
     },
+
     {
       title: "Job Portal Web App",
       tag: "Angular",
@@ -32,52 +33,52 @@ const projectonData = [
     },
 
     {
-        title: "App Design and Development",           
-        tag: "Android",
-        description: "Aperiam deleniti fugit incidunt, iste, itaque minima neque pariatur perferendis temporibus!",
-        created: "09 Jun 2019 11:32AM",
-        creator: "Nathan Guerrero",
-        question: 55,
-        comments: 43,
-        bug: 5,
-        team: [avatar1, avatar2, avatar1, avatar1, avatar3],
-        progress: 75,
-        progressColor: "bg-green"
-      },
+      title: "App Design and Development",           
+      tag: "Android",
+      description: "Aperiam deleniti fugit incidunt, iste, itaque minima neque pariatur perferendis temporibus!",
+      created: "09 Jun 2019 11:32AM",
+      creator: "Nathan Guerrero",
+      question: 55,
+      comments: 43,
+      bug: 5,
+      team: [avatar1, avatar2, avatar1, avatar1, avatar3],
+      progress: 75,
+      progressColor: "bg-green"
+    },
 
-      {
-        title: "One  Page Landing",
-        tag: "Wordpress",
-        description: "Aperiam deleniti fugit incidunt, iste, itaque minima neque pariatur perferendis temporibus!",
-        created: "09 Jun 2019 11:32AM",
-        creator: "Nathan Guerrero",
-        question: 55,
-        comments: 43,
-        bug: 5,
-        team: [avatar1, avatar2, avatar1, avatar1, avatar3],
-        progress: 75,
-        progressColor: "bg-green"
-      },
+    {
+      title: "One  Page Landing",
+      tag: "Wordpress",
+      description: "Aperiam deleniti fugit incidunt, iste, itaque minima neque pariatur perferendis temporibus!",
+      created: "09 Jun 2019 11:32AM",
+      creator: "Nathan Guerrero",
+      question: 55,
+      comments: 43,
+      bug: 5,
+      team: [avatar1, avatar2, avatar1, avatar1, avatar3],
+      progress: 75,
+      progressColor: "bg-green"
+    },
 
-      {
-        title: "Job Portal Web App",
-        tag: "iOS App",
-        description: "Aperiam deleniti fugit incidunt, iste, itaque minima neque pariatur perferendis temporibus!",
-        created: "09 Jun 2019 11:32AM",
-        creator: "Nathan Guerrero",
-        question: 55,
-        comments: 43,
-        bug: 5,
-        team: [avatar1, avatar2, avatar1, avatar1, avatar3],
-        progress: 85,
-        progressColor: "bg-green"
-      },
-  ];
-
-
+    {
+      title: "Job Portal Web App",
+      tag: "iOS App",
+      description: "Aperiam deleniti fugit incidunt, iste, itaque minima neque pariatur perferendis temporibus!",
+      created: "09 Jun 2019 11:32AM",
+      creator: "Nathan Guerrero",
+      question: 55,
+      comments: 43,
+      bug: 5,
+      team: [avatar1, avatar2, avatar1, avatar1, avatar3],
+      progress: 85,
+      progressColor: "bg-green"
+    },
+  ]
 
 
-  const projectupData = [
+
+
+  const projectupdata = [
     {
       owner: 'Isidore Dilao',
       milestone: 'Account receivable',
@@ -150,6 +151,6 @@ const projectonData = [
         action: ''
     }, 
     
-  ];
+  ]
 
-export default (projectonData,projectupData);
+export {projectondata, projectupdata}
