@@ -3,7 +3,6 @@ import Header from '../../layouts/Header';
 import Footer from '../../layouts/Footer';
 import Employeelist from '../../components/Employee/Employeelist';
 import LeaveEmployee from '../../components/Employee/LeaveEmployee';
-import VIewEmplyoee from '../../components/Employee/VIewEmplyoee';
 import { Button, Modal, Form } from 'react-bootstrap';
 import Sidebar from '../../layouts/Sidebar';
 import { Formik, Field, Form as FormikForm, ErrorMessage } from 'formik';
@@ -53,7 +52,6 @@ export default function Employee() {
     <div className='d-flex justify-content-between top-change-btn'>
       <div className='all-top'>
         <button onClick={() => handleButtonClick('employeelist')} className={`top-bar-btn mx-2 ${activeButton === 'employeelist' ? 'text-secondary border-top-2' : ''}`}>All</button>
-        <button onClick={() => handleButtonClick('viewemplyoee')} className={`top-bar-btn mx-2 ${activeButton === 'viewemplyoee' ? 'text-secondary border-top-2' : ''}`}>View</button>
         <button onClick={() => handleButtonClick('leaveemployee')} className={`top-bar-btn mx-2 ${activeButton === 'leaveemployee' ? 'text-secondary border-top-2' : ''}`}>Leave</button>
       </div>
 
@@ -69,7 +67,6 @@ export default function Employee() {
 
     <div className='mt-4 mx-3'>
       {currentComponent === 'employeelist' && <Employeelist />}  
-      {currentComponent === 'viewemplyoee' && <VIewEmplyoee />}
       {currentComponent === 'leaveemployee' && <LeaveEmployee />}
     </div>
 

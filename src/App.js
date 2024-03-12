@@ -6,19 +6,12 @@ import Users from '../src/pages/HRMS/Users';
 import Holidays from '../src/pages/HRMS/Holidays';
 import Department from '../src/pages/HRMS/Department';
 import Employee from '../src/pages/HRMS/Employee';
+import EmployeeView  from './pages/HRMS/Employee/EmployeeView';
 import Events from '../src/pages/HRMS/Events';
 import Accounts from '../src/pages/HRMS/Accounts';
 import Activities from '../src/pages/HRMS/Activities';
 import Payroll from '../src/pages/HRMS/Payroll';
 import Report from '../src/pages/HRMS/Report';
-import Gridlist from './components/Department/Gridlist';
-import Payslip from '../src/components/Payroll/Payslip';
-import VIewEmplyoee from '../src/components/Employee/VIewEmplyoee';
-import LeaveEmployee from '../src/components/Employee/LeaveEmployee';
-import Payments from './components/Accounts/Payments';
-import Expenses from './components/Accounts/Expenses';
-import Invoice from './components/Report/Invoice';
-import Detail from './components/Report/Detail';
 import Calender from './pages/SidebarPages/Calender';
 import FileManager from './pages/SidebarPages/FileManager';
 import FriendsGroup from './pages/SidebarPages/FriendsGroup';
@@ -78,19 +71,12 @@ function App() {
         <Route path="/holidays" element={<Holidays />}/>
         <Route path="/department" element={<Department />}/>
         <Route path="/employee" element={<Employee />}/>
+        <Route path="/employeeview/:employeeId" element={<EmployeeView />} />
         <Route path="/events" element={<Events />}/>
         <Route path="/accounts" element={<Accounts />}/>
         <Route path="/activities" element={<Activities />}/>
         <Route path="/payroll" element={<Payroll />}/>
         <Route path="/report" element={<Report />}/>
-        <Route path="/departmentgv" element={<Gridlist />}/>
-        <Route path="/payslip" element={<Payslip />}/>
-        <Route path="/viewemployee" element={<VIewEmplyoee />}/>
-        <Route path="/leaveemployee" element={<LeaveEmployee />}/>
-        <Route path="/payments" element={<Payments />}/>
-        <Route path="/expenses" element={<Expenses />}/>
-        <Route path="/invoicereport" element={<Invoice />}/>
-        <Route path="/detail" element={<Detail />}/>
         <Route path="/calender" element={<Calender />}/>
         <Route path="/friendgroup" element={<FriendsGroup />}/>
         <Route path="/contact" element={<Contact />}/>

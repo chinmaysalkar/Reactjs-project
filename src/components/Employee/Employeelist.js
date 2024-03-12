@@ -1,4 +1,3 @@
-// Employeelist.js
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,6 +8,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteEmployee } from '../../redux/HRMS/Emplyoee/action';
 import DeletePopUp from '../DeletePopUp';
 import AddModal from './AddModal'; 
+import { Link } from 'react-router-dom';
+
 
 const Employeelist = () => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -23,7 +24,7 @@ const Employeelist = () => {
   };
 
   const handleShowDeleteModal = (index) => {
-    setSelectedEmployee(employeeList[index]); // Set selected employee for deletion
+    setSelectedEmployee(employeeList[index]); 
     setShowDeleteModal(true);
   };
 
@@ -99,7 +100,9 @@ const Employeelist = () => {
                               <FontAwesomeIcon icon={faEdit} className='text-success' />
                             </button>
                             <button className='btn btn-sm'>
+                            <Link to={`/employeeview/${user.employeeid}`}>
                               <FontAwesomeIcon icon={faEye} className='text-muted' />
+                            </Link>
                             </button>
                             <button className='btn btn-sm' onClick={() => handleShowDeleteModal(index)}>
                               <FontAwesomeIcon icon={faTrash} className='text-danger' />

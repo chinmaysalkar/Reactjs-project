@@ -2,7 +2,16 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp, faTimes, } from "@fortawesome/free-solid-svg-icons";
 import { faTwitter, } from "@fortawesome/free-brands-svg-icons";
-import { employeelist } from '../../common/data/employeelist';
+import { employeelist } from '../../../common/data/employeelist';
+import Header from "../../../layouts/Header";
+import Footer from "../../../layouts/Footer";
+import Sidebar from "../../../layouts/Sidebar";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import {useDispatch, useSelector} from 'react-redux';
+import { useParams } from "react-router-dom";
+
+
 
 const ViewEmployee = () => {
   // Statistics
@@ -13,6 +22,18 @@ const ViewEmployee = () => {
   };
 
   return (
+    <>
+    <div  className='main d-flex'>
+      <Sidebar/>
+    <div className='employee-main px-3'>
+    <Header/>  
+    <div>
+        <Link to="/employee">
+            <Button variant="primary" className='mx-3 btn-top'>
+            Go Back
+            </Button>
+        </Link>
+    </div> 
     <div>
       {employeelist.map(employee => (
         <div className="row mt-3" key={employee.id}>
@@ -156,6 +177,10 @@ const ViewEmployee = () => {
         </div>
       </div>
     </div>
+    <Footer/>
+    </div>
+    </div>
+    </>
   );
 };
 
