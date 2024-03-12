@@ -1,23 +1,14 @@
-import { useState } from 'react';
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTrash} from '@fortawesome/free-solid-svg-icons';
 
 
-export default function DeletePopUp() {
+const DeletePopUp=({ show, handleClose, handleDelete })=> {
 
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-  
   return (
     <>
-     <Button variant="primary" onClick={handleShow}>
-        <FontAwesomeIcon icon={faTrash} className='text-danger'/>
-      </Button>
-
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton className='border-0'>
         </Modal.Header>
@@ -31,7 +22,7 @@ export default function DeletePopUp() {
          <Button variant="secondary" className='border-0' onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="danger" className='border-0 mx-1' >
+          <Button variant="danger" className='border-0 mx-1' onClick={handleDelete} >
             Delete
           </Button>
          </div>
@@ -40,3 +31,5 @@ export default function DeletePopUp() {
     </>
   )
 }
+
+export default DeletePopUp;

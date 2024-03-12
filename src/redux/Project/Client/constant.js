@@ -1,0 +1,1 @@
+export const DELETE_CLIENT='DELETE_CLIENT'

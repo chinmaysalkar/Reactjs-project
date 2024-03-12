@@ -88,6 +88,7 @@ export default function Employee() {
           phoneNo: '',
           startDate: '',
           role: '',
+          gender: '',
           facebook: '',
           twitter: '',
           linkedin: '',
@@ -116,10 +117,12 @@ export default function Employee() {
             errors.startDate = 'Required';
           }
 
-         
-
           if (!values.role) {
             errors.role = 'Required';
+          }
+
+          if (!values.gender) {
+            errors.gender = 'Required';
           }
          
           return errors;
@@ -183,30 +186,56 @@ export default function Employee() {
                 </div>
               </div>
 
+              <div className='row'>
               <div className='col-md-6'>
                 <div className="mb-3">
                   <label htmlFor="role" className="form-label">Role <span className='text-danger'>*</span></label>
                   <Field as="select" className="form-select" id="role" name="role">
                     <option value="">Web Designer</option>
+                    <option value="">Team Lead</option>
+                    <option value="">HR</option>
                   </Field>
                   <ErrorMessage name="role" component="div" className="text-danger" />
                 </div>
               </div>
 
-              <div>
+              <div className='col-md-6'>
+              <label htmlFor="gender" className="form-label mb-2">Gender <span className='text-danger'>*</span></label>
+                <Form>
+                  {['radio'].map((type) => (
+                    <div key={`gender-${type}`} className="mb-3 d-flex">
+                      <Form.Check
+                        type={type}
+                        id={`male-${type}`}
+                        name="gender"
+                        label={`Male`}
+      
+                      />
+                      <Form.Check 
+                        type={type}
+                        id={`female-${type}`}
+                        name="gender"
+                        label={`Female`}
+                        className='mx-2'
+                      /> 
+                    <ErrorMessage name="gender" component="div" className="text-danger" />   
+                    </div>
+                  ))}
+                </Form>
+              </div>
+              </div>
+
+
+              {/* <div>
                 <Form.Group controlId="formFile" className="mb-3">
                   <Form.Control type="file" />
                   <Form.Label className='employeeinputbtn'>This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</Form.Label>
                 </Form.Group>
-              </div>
+              </div> */}
 
               <div>
-                <div className="mb-3">
-                  <Field type="text" className="form-control" id="facebook" name="facebook" placeholder="Facebook" />
-                </div>
-                <div className="mb-3">
-                  <Field type="text" className="form-control" id="twitter" name="twitter" placeholder="Twitter" />
-                </div>
+              <label htmlFor="sociallinks" className="form-label mb-2">Social Links</label>
+                
                 <div className="mb-3">
                   <Field type="text" className="form-control" id="linkedin" name="linkedin" placeholder="Linkedin" />
                 </div>

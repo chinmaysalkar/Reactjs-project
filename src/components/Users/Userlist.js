@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Form, Button } from 'react-bootstrap';
 import { deleteUser } from '../../redux/HRMS/UserList/action';
 import { useSelector, useDispatch } from 'react-redux';
-
-
+import DeletePopUp from '../DeletePopUp'; 
 const Userlist = () => {
   const dispatch = useDispatch();
   const users = useSelector(state => state.user.userList);
+
   
+  const [showDeletePopup, setShowDeletePopup] = useState(false);
+  const [deleteIndex, setDeleteIndex] = useState(null);
+
   const getPositionColor = (position) => {
     switch (position.toLowerCase()) {
       case 'super admin':
@@ -26,7 +29,18 @@ const Userlist = () => {
   };
 
   const handleDeleteUser = (index) => {
-    dispatch(deleteUser(index));
+    setShowDeletePopup(true); 
+    setDeleteIndex(index); 
+  };
+
+  const handleCloseDeletePopup = () => {
+    setShowDeletePopup(false); 
+    setDeleteIndex(null); 
+  };
+
+  const handleConfirmDelete = () => {
+    dispatch(deleteUser(deleteIndex)); 
+    handleCloseDeletePopup(); 
   };
 
   return (
@@ -115,6 +129,13 @@ const Userlist = () => {
           </div>
         </div>
       </div>
+
+      {/* DeletePopUp component */}
+      <DeletePopUp
+        show={showDeletePopup}
+        handleClose={handleCloseDeletePopup}
+        handleDelete={handleConfirmDelete}
+      />
     </div>
   );
 };

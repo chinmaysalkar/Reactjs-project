@@ -1,112 +1,199 @@
-import React, {useState} from 'react'
-import avatar1 from '../../assets/images/avatar1.jpg'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faChevronUp, faTimes, faPhone} from '@fortawesome/free-solid-svg-icons'; 
-import { faFacebook, faTwitter, faSkype } from '@fortawesome/free-brands-svg-icons';
+import React, { useState } from "react";
+import avatar1 from "../../assets/images/avatar1.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronDown,
+  faChevronUp,
+  faTimes,
+  faPhone,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  faFacebook,
+  faTwitter,
+  faSkype,
+} from "@fortawesome/free-brands-svg-icons";
 
-export default function VIewEmplyoee() {
+import {} from '../../common/data/employeelist';
 
 
-  
-  //Statistics  
+
+const VIewEmplyoee=()=> {
+  //Statistics
   const [isCardCollapsed, setCardCollapsed] = useState(false);
 
   const toggleCardCollapse = () => {
     setCardCollapsed(!isCardCollapsed);
   };
 
-
   return (
     <div>
-        <div className="row mt-3">
-          <div className="col-lg-4 col-md-12 mb-3">
-              <div className="card border-0">
-              <div className="card-body">
-                  <div className="media mb-4">
-                  <img className="avatar avatar-xl mr-3 img-rounded" src={avatar1} alt="avatar" />
-                  <div className="media-body">
-                      <h5 className="m-0">Sara Hopkins</h5>
-                      <p className="text-muted mb-0">Webdeveloper</p>
-                      <ul className="social-links list-inline mb-0 mt-2">
-                      <li className="list-inline-item "><a href="fake_url" data-toggle="tooltip" data-original-title="Facebook"><FontAwesomeIcon icon={faFacebook} /></a></li>
-                      <li className="list-inline-item"><a href="fake_url" data-toggle="tooltip" data-original-title="Twitter"><FontAwesomeIcon icon={faTwitter} /></a></li>
-                      <li className="list-inline-item"><a href="fake_url" data-toggle="tooltip" data-original-title="1234567890"><FontAwesomeIcon icon={faPhone} /></a></li>
-                      <li className="list-inline-item"><a href="fake_url" data-toggle="tooltip" data-original-title="@skypename"><FontAwesomeIcon icon={faSkype} /></a></li>
-                      </ul>
-                  </div>
-                  </div>
-                  <p className="mb-4 text-muted">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
-                  <button className="btn btn-outline-primary btn-sm"><span><FontAwesomeIcon icon={faTwitter} /></span> Follow</button>
+      <div className="row mt-3">
+        <div className="col-lg-12 col-md-12 mb-3">
+          <div className="card border-0">
+            <div className="card-body">
+              <div className="media mb-4">
+                <img
+                  className="mr-3 border rounded"
+                  src={avatar1}
+                  alt="avatar"
+                />
+                <div className="media-body">
+                  <h5 className="m-0">Sara Hopkins</h5>
+                  <p className="text-muted mb-0">Web Developer</p>
+                  <ul className="social-links list-inline mb-0 mt-2">
+                    <li className="list-inline-item ">
+                      <a
+                        href="fake_url"
+                        data-toggle="tooltip"
+                        data-original-title="Facebook"
+                      >
+                        <FontAwesomeIcon icon={faFacebook} />
+                      </a>
+                    </li>
+                    <li className="list-inline-item">
+                      <a
+                        href="fake_url"
+                        data-toggle="tooltip"
+                        data-original-title="Twitter"
+                      >
+                        <FontAwesomeIcon icon={faTwitter} />
+                      </a>
+                    </li>
+                    <li className="list-inline-item">
+                      <a
+                        href="fake_url"
+                        data-toggle="tooltip"
+                        data-original-title="1234567890"
+                      >
+                        <FontAwesomeIcon icon={faPhone} />
+                      </a>
+                    </li>
+                    <li className="list-inline-item">
+                      <a
+                        href="fake_url"
+                        data-toggle="tooltip"
+                        data-original-title="@skypename"
+                      >
+                        <FontAwesomeIcon icon={faSkype} />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <p className="mb-4 text-muted">
+                Contrary to popular belief, Lorem Ipsum is not simply random
+                text. It has roots in a piece of classical Latin literature from
+                45 BC, making it over 2000 years old.
+              </p>
+              <button className="btn btn-outline-primary btn-sm">
+                <span>
+                  <FontAwesomeIcon icon={faTwitter} />
+                </span>{" "}
+                Follow
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div className="col-lg-6 col-md-12">
+          <div className="card card-collapsed mt-3 border-0">
+            <div className="card-header border-0 bg-white d-flex justify-content-between">
+              <div>
+                <h6 className="card-title">STATISTICS</h6>
               </div>
 
-
-
-              </div>
-            <div className="card card-collapsed mt-3 border-0">
-
-              <div className="card-header border-0 bg-white d-flex justify-content-between" >
-              <div><h6 className="card-title">STATISTICS</h6></div>
-          
               <div className="card-options">
-                <span className="card-options-collapse mx-3" data-toggle="card-collapse" onClick={toggleCardCollapse}>
+                <span
+                  className="card-options-collapse mx-3"
+                  data-toggle="card-collapse"
+                  onClick={toggleCardCollapse}
+                >
                   {isCardCollapsed ? (
                     <FontAwesomeIcon icon={faChevronDown} />
                   ) : (
                     <FontAwesomeIcon icon={faChevronUp} />
                   )}
                 </span>
-                <span className="card-options-remove " data-toggle="card-remove">
-                <FontAwesomeIcon icon={faTimes} />
+                <span
+                  className="card-options-remove "
+                  data-toggle="card-remove"
+                >
+                  <FontAwesomeIcon icon={faTimes} />
                 </span>
               </div>
-              </div>
+            </div>
 
-              {!isCardCollapsed && (
-                <div className="card-body">
-                  <div className="text-center">
+            {!isCardCollapsed && (
+              <div className="card-body">
+                <div className="text-center">
                   <div className="row">
-                      <div className="col-6 pb-3">
+                    <div className="col-6 pb-3">
                       <label className="mb-0">Project</label>
                       <h4 className="font-30 font-weight-bold">45</h4>
-                      </div>
-                      <div className="col-6 pb-3">
+                    </div>
+                    <div className="col-6 pb-3">
                       <label className="mb-0">Growth</label>
                       <h4 className="font-30 font-weight-bold">87%</h4>
-                      </div>
+                    </div>
                   </div>
-                  </div>
+                </div>
 
-                  {/* Laravel Progress */}
-                  <div className="form-group mb-3">
-                  <label className="d-block">Laravel<span className="float-right">77%</span></label>
+                {/* Laravel Progress */}
+                <div className="form-group mb-3">
+                  <label className="d-block">
+                    Laravel<span className="float-right">77%</span>
+                  </label>
                   <div className="progress progress-xs">
-                      <div className="progress-bar bg-blue" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100" style={{ width: '77%' }}></div>
+                    <div
+                      className="progress-bar bg-blue"
+                      role="progressbar"
+                      aria-valuenow="77"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      style={{ width: "77%" }}
+                    ></div>
                   </div>
-                  </div>
+                </div>
 
-                  {/* HTML Progress */}
-                  <div className="form-group mb-3">
-                  <label className="d-block">HTML<span className="float-right">50%</span></label>
+                {/* HTML Progress */}
+                <div className="form-group mb-3">
+                  <label className="d-block">
+                    HTML<span className="float-right">50%</span>
+                  </label>
                   <div className="progress progress-xs">
-                      <div className="progress-bar bg-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style={{ width: '50%' }}></div>
+                    <div
+                      className="progress-bar bg-danger"
+                      role="progressbar"
+                      aria-valuenow="50"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      style={{ width: "50%" }}
+                    ></div>
                   </div>
-                  </div>
+                </div>
 
-                  {/* Photoshop Progress */}
-                  <div className="form-group mb-3">
-                  <label className="d-block">Photoshop <span className="float-right">23%</span></label>
+                {/* Photoshop Progress */}
+                <div className="form-group mb-3">
+                  <label className="d-block">
+                    Photoshop <span className="float-right">23%</span>
+                  </label>
                   <div className="progress progress-xs">
-                      <div className="progress-bar bg-green" role="progressbar" aria-valuenow="23" aria-valuemin="0" aria-valuemax="100" style={{ width: '23%' }}></div>
+                    <div
+                      className="progress-bar bg-green"
+                      role="progressbar"
+                      aria-valuenow="23"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      style={{ width: "23%" }}
+                    ></div>
                   </div>
-                  </div>
+                </div>
               </div>
-              )}
-              
-              
-            </div>
+            )}
           </div>
+        </div>
 
-          <div className="col-lg-8 col-md-12">
+        {/* <div className="col-lg-8 col-md-12">
             <div className="card border-0">
               <div className="card-body">
                 <ul className="new_timeline mt-3">
@@ -186,9 +273,10 @@ export default function VIewEmplyoee() {
                 </ul>
               </div>
             </div>
-          </div>
-        </div>
-
+          </div> */}
+      </div>
     </div>
-  )
+  );
 }
+
+export default  VIewEmplyoee;

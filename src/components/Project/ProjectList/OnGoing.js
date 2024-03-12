@@ -1,17 +1,20 @@
-import React, {useEffect} from 'react';
+// OnGoing.js
+import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp, faChevronDown, faEllipsisVertical, faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteProjectlist, toggleCardCollapse, toggleDropdown } from '../../../redux/Project/ProjectList/ProjectOnGoing/action';
+import DeletePopUp from '../../DeletePopUp';
 
 const OnGoing = () => {
+  const [deleteIndex, setDeleteIndex] = useState(null);
+
   const projectData = useSelector(state => state.project.projectList);
   const isCardCollapsed = useSelector(state => state.project.isCardCollapsed || []);
   const isOpenDropdown = useSelector(state => state.project.isOpenDropdown || []);
   const dispatch = useDispatch();
-
 
   const getTechColor = (tag) => {
     if (!tag) return '#ffffff'; 
@@ -31,9 +34,8 @@ const OnGoing = () => {
     }
   };
 
-  
   const handleDeleteProject = index => {
-    dispatch(deleteProjectlist(index));
+    setDeleteIndex(index);
   };
 
   const handleToggleCardCollapse = index => {
@@ -44,10 +46,10 @@ const OnGoing = () => {
     dispatch(toggleDropdown(index));
   };
 
-  useEffect(() => {
-    console.log('Project Data:', projectData);
-  }, [projectData]);
-
+  const confirmDelete = () => {
+    dispatch(deleteProjectlist(deleteIndex));
+    setDeleteIndex(null);
+  };
 
   return (
     <div className='pagewidth'>
@@ -74,8 +76,8 @@ const OnGoing = () => {
                     <FontAwesomeIcon icon={faEllipsisVertical} onClick={() => handleToggleDropdown(index)} style={{ cursor: 'pointer', zIndex: '1' }} />
                     {isOpenDropdown[index] && (
                       <div className='p-4 mx-2 d-flex' style={{ position: 'absolute', top: '100%', left: '100%', transform: 'translateX(-100%)', zIndex: '1' }}>
-                        <Dropdown.Item href="" className='mb-2 mx-2'><FontAwesomeIcon icon={faEdit} className='mx-1' /></Dropdown.Item>
-                        <Dropdown.Item href="" className='mb-2' onClick={() => handleDeleteProject(index)}><FontAwesomeIcon icon={faTrash} className='mx-1' /></Dropdown.Item>
+                        <Dropdown.Item href="" className='mb-2 mx-2'><FontAwesomeIcon icon={faEdit} className='mx-1 text-success' /></Dropdown.Item>
+                        <Dropdown.Item href="" className='mb-2' onClick={() => handleDeleteProject(index)}><FontAwesomeIcon icon={faTrash} className='mx-1 text-danger' /></Dropdown.Item>
                       </div>
                     )}
                   </div>
@@ -102,7 +104,6 @@ const OnGoing = () => {
                       <div className="py-1"><strong>Team:</strong></div>
                       <div className="col-7 py-1">
 
-                    
                         <div class="avatar-container d-flex">
                             {project.team.slice(0, 3).map((avatar, avatarIndex) => (
                                 <img
@@ -118,8 +119,7 @@ const OnGoing = () => {
                         </div>
                       </div>
                     </div>
-                
-                    
+
                   </div>
                   <div className="card-footer bg-white mb-3">
                     <div className="d-flex justify-content-between">
@@ -136,6 +136,11 @@ const OnGoing = () => {
           </div>
         ))}
       </div>
+      <DeletePopUp
+        show={deleteIndex !== null}
+        handleClose={() => setDeleteIndex(null)}
+        handleDelete={confirmDelete}
+      />
     </div>
   );
 }
