@@ -82,28 +82,28 @@ const Employeelist = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {(employeeList || []).map((user, index) => (
-                      <tr key={user.name}>
+                    {(employeeList || []).map((employee, index) => (
+                      <tr key={employee.id}>
                         <td><input className='form-check-input' type="checkbox" /></td>
                         <td>
-                          <strong>{user.firstName} {user.lastName}</strong>
+                          <strong>{employee.firstName} {employee.lastName}</strong>
                           <br />
-                          {user.email}
+                          {employee.email}
                         </td>
-                        <td>{user.employeeid}</td>
-                        <td>{user.phone}</td>
-                        <td>{formatDate(user.joindate)}</td>
-                        <td>{user.role}</td>
+                        <td>{employee.employeeid}</td>
+                        <td>{employee.phone}</td>
+                        <td>{formatDate(employee.joindate)}</td>
+                        <td>{employee.role}</td>
                         <td>
                           <div className='d-flex'>
                             <button className='btn btn-sm' onClick={() => handleEditEmployee(index)}>
                               <FontAwesomeIcon icon={faEdit} className='text-success' />
                             </button>
-                            <button className='btn btn-sm'>
-                            <Link to={`/employeeview/${user.employeeid}`}>
-                              <FontAwesomeIcon icon={faEye} className='text-muted' />
+                            <Link to={`/employeeview/${employee.id}`}>
+                              <button className='btn btn-sm'>
+                                <FontAwesomeIcon icon={faEye} className='text-muted' />
+                              </button>
                             </Link>
-                            </button>
                             <button className='btn btn-sm' onClick={() => handleShowDeleteModal(index)}>
                               <FontAwesomeIcon icon={faTrash} className='text-danger' />
                             </button>

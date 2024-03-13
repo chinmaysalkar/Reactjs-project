@@ -86,7 +86,6 @@ export default function Employee() {
           startDate: '',
           role: '',
           gender: '',
-          facebook: '',
           twitter: '',
           linkedin: '',
           instagram: ''

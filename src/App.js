@@ -71,7 +71,7 @@ function App() {
         <Route path="/holidays" element={<Holidays />}/>
         <Route path="/department" element={<Department />}/>
         <Route path="/employee" element={<Employee />}/>
-        <Route path="/employeeview/:employeeId" element={<EmployeeView />} />
+        <Route path="/employeeview/:id" element={<EmployeeView />} />
         <Route path="/events" element={<Events />}/>
         <Route path="/accounts" element={<Accounts />}/>
         <Route path="/activities" element={<Activities />}/>
