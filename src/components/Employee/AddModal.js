@@ -2,7 +2,7 @@ import React from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import { Formik, Field, ErrorMessage, Form as FormikForm } from "formik";
 import { useDispatch } from "react-redux";
-import { updateEmployee } from "../../redux/HRMS/Emplyoee/action";
+import { addEmployee, updateEmployee } from "../../redux/HRMS/Emplyoee/action";
 
 const AddModal = ({ show, handleClose, selectedEmployee }) => {
   const dispatch = useDispatch();
@@ -54,7 +54,11 @@ const AddModal = ({ show, handleClose, selectedEmployee }) => {
           return errors;
         }}
         onSubmit={(values, { setSubmitting }) => {
-          dispatch(updateEmployee(values)); 
+          if (selectedEmployee){
+            dispatch(updateEmployee(values)); 
+          } else {
+            dispatch(addEmployee(values));
+          }  
           setSubmitting(false);
           handleClose();
         }}

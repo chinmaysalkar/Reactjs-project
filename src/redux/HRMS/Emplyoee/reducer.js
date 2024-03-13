@@ -1,5 +1,6 @@
-import { DELETE_EMPLOYEE, UPDATE_EMPLOYEE } from '../Emplyoee/constant';
+import { ADD_EMPLOYEE, DELETE_EMPLOYEE, UPDATE_EMPLOYEE } from '../Emplyoee/constant';
 import { employeelist } from '../../../common/data/employeelist';
+
 
 const initialState = {
   employeeList: employeelist,
@@ -29,9 +30,16 @@ const employeelistReducer = (state = initialState, action) => {
         employeeList: updatedList,
       };
 
+    case ADD_EMPLOYEE:
+      return {
+        ...state,
+        employeeList: [...state.employeeList, action.payload],
+      };
+
     default:
       return state;
   }
 };
 
-export default employeelistReducer;
+
+export default employeelistReducer ;

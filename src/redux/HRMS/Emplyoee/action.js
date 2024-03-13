@@ -1,4 +1,11 @@
-import { DELETE_EMPLOYEE, UPDATE_EMPLOYEE } from '../Emplyoee/constant';
+import { ADD_EMPLOYEE, DELETE_EMPLOYEE, UPDATE_EMPLOYEE } from '../Emplyoee/constant';
+
+
+export const addEmployee = (employeeData) => ({
+  type: ADD_EMPLOYEE,
+  payload: employeeData,
+});
+
 
 export const deleteEmployee = (index) => ({
   type: DELETE_EMPLOYEE,
