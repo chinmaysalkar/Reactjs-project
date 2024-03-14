@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRightFromBracket,faPhone,faAlignLeft, faComment, faFolder, faCalendar, faCreditCard, faSearch,faRocket,faMugHot, faSuitcase, faChevronDown, faChevronUp, faTimes} from '@fortawesome/free-solid-svg-icons'; 
+import { faArrowRightFromBracket,faPhone,faAlignLeft, faComment, faFolder, faCalendar, faCreditCard, faSearch,faRocket,faMugHot, faChevronDown, faChevronUp, faTimes} from '@fortawesome/free-solid-svg-icons'; 
 // import logo from '../assets/images/command-symbol-svgrepo-com.svg';
 import { Link } from 'react-router-dom';
 import avatar from '../assets/images/avatar1.jpg'
@@ -121,12 +121,12 @@ const Sidebar = () => {
               
               </Link>
             </li>
-            <li className="sidebar-item">
+            {/* <li className="sidebar-item">
               <Link to="/friendgroup" className="sidebar-link">
               <FontAwesomeIcon icon={faComment} className='sidebar-fixed1'/>
                 <i className="lni lni-agenda"></i>
               </Link>
-            </li>
+            </li> */}
             <li className="sidebar-item">
               <Link to="/filemanager" className="sidebar-link">
               <FontAwesomeIcon icon={faFolder} className='sidebar-fixed1'/>
@@ -200,11 +200,11 @@ const Sidebar = () => {
             Employee
           </Link>
         </li>
-        <li className="sidebar-item">
+        {/* <li className="sidebar-item">
           <Link to="/activities" className="sidebar-link">
             Activities
           </Link>
-        </li>
+        </li> */}
         <li className="sidebar-item">
           <Link to="/holidays" className="sidebar-link">
             Holidays
@@ -288,7 +288,7 @@ const Sidebar = () => {
         </ul>
         </li>
 
-        <li className="sidebar-item">
+        {/* <li className="sidebar-item">
         <a
         href="/side"
         className="sidebar-link collapsed has-dropdown"
@@ -332,7 +332,7 @@ const Sidebar = () => {
         </li>
 
         </ul>
-        </li>
+        </li> */}
 
         {/* <li className="sidebar-item">
         <a

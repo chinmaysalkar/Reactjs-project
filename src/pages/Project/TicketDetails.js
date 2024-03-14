@@ -4,19 +4,17 @@ import Footer from '../../layouts/Footer'
 import avatar1 from '../../assets/images/avatar1.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faLinkedin, faSlack } from '@fortawesome/free-brands-svg-icons';
-import { faX, faHeart, faComments } from '@fortawesome/free-solid-svg-icons';
+import { faX } from '@fortawesome/free-solid-svg-icons';
 import DropdownMenu from '../../components/DropdownMenu';
-import img1 from '../../assets/images/1.jpg'
-import img2 from '../../assets/images/2.jpg'
-import EditorComponent from '../../components/Editor';
+// import img1 from '../../assets/images/1.jpg'
+// import img2 from '../../assets/images/2.jpg'
+// import EditorComponent from '../../components/Editor';
 import { Link } from 'react-router-dom';
 import Sidebar from '../../layouts/Sidebar';
 
 
 export default function TicketDetails() {
-    
-
-    
+     
   return (
     <>
     <div className='main d-flex'>
@@ -106,7 +104,7 @@ export default function TicketDetails() {
                     </div>
 
 
-                    <div className='col-lg-8 col-md-12'>
+                    {/* <div className='col-lg-8 col-md-12'>
                         
                         <div className='card d-flex flex-column'>
                             <div className='card-body'>
@@ -328,7 +326,7 @@ export default function TicketDetails() {
                             </div>
                         
                         </div>
-                    </div>
+                    </div> */}
                 </div>               
             </div>
         </div>
