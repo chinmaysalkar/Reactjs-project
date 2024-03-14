@@ -81,15 +81,15 @@ const TodoList = () => {
                           <thead>
                             <tr>
                               <th>
-                                <button className='btn btn-info btn-sm' onClick={handleShow}>
+                                <button className='btn btn-info btn-sm text-white' onClick={handleShow}>
                                   Add New
                                 </button>
                               </th>
-                              <th className='text-right'>Due</th>
-                              <th>Priority</th>
+                              <th className='text-right'><strong>Due</strong></th>
+                              <th><strong>Priority</strong></th>
                               <th>
                                 <div className='mx-2'>
-                                  <FontAwesomeIcon icon={faUser} />
+                                  <FontAwesomeIcon icon={faUser} className='text-primary'/>
                                 </div>
                               </th>
                             </tr>

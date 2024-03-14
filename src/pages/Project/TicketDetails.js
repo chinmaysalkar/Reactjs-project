@@ -1,110 +1,151 @@
-import React from 'react'
-import Header from '../../layouts/Header'
-import Footer from '../../layouts/Footer'
-import avatar1 from '../../assets/images/avatar1.jpg'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faLinkedin, faSlack } from '@fortawesome/free-brands-svg-icons';
-import { faX } from '@fortawesome/free-solid-svg-icons';
-import DropdownMenu from '../../components/DropdownMenu';
+import React from "react";
+import Header from "../../layouts/Header";
+import Footer from "../../layouts/Footer";
+import avatar1 from "../../assets/images/avatar1.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faLinkedin,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
+import { faX } from "@fortawesome/free-solid-svg-icons";
+// import DropdownMenu from "../../components/DropdownMenu";
 // import img1 from '../../assets/images/1.jpg'
 // import img2 from '../../assets/images/2.jpg'
 // import EditorComponent from '../../components/Editor';
-import { Link } from 'react-router-dom';
-import Sidebar from '../../layouts/Sidebar';
-
+import { Link } from "react-router-dom";
+import Sidebar from "../../layouts/Sidebar";
 
 export default function TicketDetails() {
-     
   return (
     <>
-    <div className='main d-flex'>
-        <Sidebar/>
-        <div className='pagewidth px-3'>
-        <Header/>
-        <div className='section-body mt-3'>
-            <div className='container-fluid'>
-                <div className='row d-flex flex-wrap'>
-                    <div className='col-lg-4 col-md-12'>
-                        <div className='card c_grid c_yellow d-flex flex-column'>
-                            <div className="card-body text-center">
-                                <div className="circle">
-                                    <img className="rounded-circle" src={avatar1} alt="fake_url" />
-                                </div>
-                                <h6 className="mt-3 mb-0">Michelle Green</h6>
-                                <span>jason-porter@info.com</span>
-                                <ul className="mt-3 list-unstyled d-flex justify-content-center">
-                                    <li><Link className="p-3" target="_blank" to="/#"><FontAwesomeIcon icon={faFacebook} /></Link></li>
-                                    <li><Link className="p-3" target="_blank" to="/#"><FontAwesomeIcon icon={faSlack} /></Link></li>
-                                    <li><Link className="p-3" target="_blank" to="/#"><FontAwesomeIcon icon={faLinkedin} /></Link></li>
-                                </ul>
-                                <button className="btn btn-default btn-sm border">Follow</button>
-                                <button className="btn btn-default btn-sm border mx-1">Message</button>
-                            </div>
-                        </div>
+      <div className="main d-flex">
+        <Sidebar />
+        <div className="pagewidth px-3">
+          <Header />
+          <div className="section-body mt-3">
+            <div className="container-fluid">
+              <div className="row d-flex flex-wrap mt-4">
+                <div className="col-lg-12 col-md-12">
+                  <div className="card c_grid c_yellow d-flex flex-column">
+                    <div className="card-body text-center">
+                      <div className="circle">
+                        <img
+                          className="rounded-circle"
+                          src={avatar1}
+                          alt="fake_url"
+                        />
+                      </div>
+                      <h6 className="mt-3 mb-0">Michelle Green</h6>
+                      <span>jason-porter@info.com</span>
+                      <ul className="mt-3 list-unstyled d-flex justify-content-center">
+                        <li>
+                          <Link className="p-3" target="_blank" to="/#">
+                            <FontAwesomeIcon icon={faFacebook} />
+                          </Link>
+                        </li>
+                        <li>
+                          <Link className="p-3" target="_blank" to="/#">
+                            <FontAwesomeIcon icon={faInstagram} />
+                          </Link>
+                        </li>
+                        <li>
+                          <Link className="p-3" target="_blank" to="/#">
+                            <FontAwesomeIcon icon={faLinkedin} />
+                          </Link>
+                        </li>
+                      </ul>
+                      <button className="btn btn-default btn-sm border">
+                        Follow
+                      </button>
+                      <button className="btn btn-default btn-sm border mx-1">
+                        Message
+                      </button>
+                    </div>
+                  </div>
+                </div>
 
-                        <div className="card mt-3 d-flex">
-                            <div className="card-header bg-white border-0 d-flex justify-content-between p-3">
-                                <h6 className="card-title">TICKET DETAILS</h6>
-                                <div className="card-options d-flex">
-                                    <span className="card-options-remove mx-2" data-toggle="card-remove">
-                                    <FontAwesomeIcon icon={faX} />    
-                                    </span>
-                                    <DropdownMenu/>     
-                                </div>
-                            </div>
-
-                            <div className="card-body">
-                                <span>
-                                Contrary to popular belief, Lorem Ipsum is not simply random text. It
-                                has roots in a piece of classical Latin literature from 45 BC, making
-                                it over 2000 years old. Richard McClintock, a Latin professor at
-                                Hampden-Sydney College in Virginia
-                                </span>
-                            </div>
-                        </div>
-
-                        <div className="card mt-3 d-flex">
-                            <div className="card-header bg-white border-0 d-flex justify-content-between p-3">
-                                <h6 className="card-title">TICKET INFO</h6>
-                                <div className="card-options d-flex">
-                                <span className="card-options-remove mx-2" data-toggle="card-remove">
-                                <FontAwesomeIcon icon={faX} /> 
-                                </span>
-                                <DropdownMenu/>
-                                </div>
-                            </div>
-
-                            <div className="card-body">
-                                <ul className="list-group">
-                                <li className="list-group-item">
-                                    <small className="text-muted">Title: </small>
-                                    <p className="mb-0">Oculux Admin Template</p>
-                                </li>
-                                <li className="list-group-item">
-                                    <small className="text-muted">Department: </small>
-                                    <p className="mb-0">Pre-Sales</p>
-                                </li>
-                                <li className="list-group-item">
-                                    <small className="text-muted">Product: </small>
-                                    <p className="mb-0">Oculux Side Menu Open OnClick</p>
-                                </li>
-                                <li className="list-group-item">
-                                    <small className="text-muted">Date: </small>
-                                    <p className="mb-0">07 Feb 2019</p>
-                                </li>
-                                <li className="list-group-item">
-                                    <div>In Progress</div>
-                                    <div className="progress progress-xs mb-0">
-                                    <div className="progress-bar bg-info" style={{ width: '58%' }}></div>
-                                    </div>
-                                </li>
-                                </ul>
-                            </div>
-                        </div>
+                <div className="col-lg-12 col-md-12 mt-3">
+                  <div className="card d-flex">
+                    <div className="card-header bg-white border-0 d-flex justify-content-between p-3">
+                      <h6 className="card-title">TICKET DETAILS</h6>
+                      <div className="card-options d-flex">
+                        <span
+                          className="card-options-remove mx-2"
+                          data-toggle="card-remove"
+                        >
+                          <FontAwesomeIcon icon={faX} />
+                        </span>
+                        {/* <DropdownMenu /> */}
+                      </div>
                     </div>
 
+                    <div className="card-body">
+                      <p>
+                        Contrary to popular belief, Lorem Ipsum is not simply
+                        random text. It has roots in a piece of classical Latin
+                        literature from 45 BC, making it over 2000 years old.
+                        Richard McClintock, a Latin professor at Hampden-Sydney
+                        College in Virginia
+                      </p>
+                      <p className="mt-2">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Labore voluptas, quae accusamus inventore laudantium
+                        magnam fugiat officiis ea, placeat alias quibusdam at,
+                        porro voluptatem est.
+                      </p>
+                    </div>
+                  </div>
+                </div>
 
-                    {/* <div className='col-lg-8 col-md-12'>
+                <div className="col-lg-12 col-md-12">
+                  <div className="card mt-3 d-flex">
+                    <div className="card-header bg-white border-0 d-flex justify-content-between p-3">
+                      <h6 className="card-title">TICKET INFO</h6>
+                      <div className="card-options d-flex">
+                        <span
+                          className="card-options-remove mx-2"
+                          data-toggle="card-remove"
+                        >
+                          <FontAwesomeIcon icon={faX} />
+                        </span>
+                        {/* <DropdownMenu /> */}
+                      </div>
+                    </div>
+
+                    <div className="card-body">
+                      <ul className="list-group">
+                        <li className="list-group-item">
+                          <small className="text-muted">Title: </small>
+                          <p className="mb-0">Oculux Admin Template</p>
+                        </li>
+                        <li className="list-group-item">
+                          <small className="text-muted">Department: </small>
+                          <p className="mb-0">Pre-Sales</p>
+                        </li>
+                        <li className="list-group-item">
+                          <small className="text-muted">Product: </small>
+                          <p className="mb-0">Oculux Side Menu Open OnClick</p>
+                        </li>
+                        <li className="list-group-item">
+                          <small className="text-muted">Date: </small>
+                          <p className="mb-0">07 Feb 2019</p>
+                        </li>
+                        <li className="list-group-item">
+                          <div>In Progress</div>
+                          <div className="progress progress-xs mb-0">
+                            <div
+                              className="progress-bar bg-info"
+                              style={{ width: "58%" }}
+                            ></div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* <div className='col-lg-8 col-md-12'>
                         
                         <div className='card d-flex flex-column'>
                             <div className='card-body'>
@@ -327,16 +368,13 @@ export default function TicketDetails() {
                         
                         </div>
                     </div> */}
-                </div>               
+              </div>
             </div>
+          </div>
+
+          <Footer />
         </div>
-
-
-
-        <Footer/>
-        </div>
-    </div>
+      </div>
     </>
-  )
+  );
 }
-
