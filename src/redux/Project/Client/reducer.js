@@ -1,4 +1,4 @@
-import {DELETE_CLIENT} from './constant';
+import {DELETE_CLIENT, ADD_CLIENT} from './constant';
 import {clientdata} from '../../../common/data/Project/clientlist';
 
 const initialState = {
@@ -12,6 +12,7 @@ const clientReducer= (state = initialState, action) =>{
               ...state,
                 clientList: updatedClientList,
             }
+
         default:
             return state;
     }
