@@ -47,12 +47,11 @@ export default function Users() {
 
 
 
-      <div>
-      <Footer/>
-      </div>
+      
     </div>
     </div>
-
+    <div><Footer/></div>
+       
 
     </>
   )

@@ -4,40 +4,56 @@ import { Button, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteDepartment } from '../../redux/HRMS/Department/action';
+import { deleteDepartment, addDepartment, updateDepartment } from '../../redux/HRMS/Department/action';
 import DeletePopUp from '../DeletePopUp'; 
+import AddDepartment from './AddDepartment';
 
 const ListView = () => {
   const dispatch = useDispatch();
   const departmentList = useSelector(state => state.department.departmentList);
   
-  //  visibility of the delete popup
   const [showDeletePopup, setShowDeletePopup] = useState(false);
-  const [deleteIndex, setDeleteIndex] = useState(null); // State to store the index of the department to delete
-  
-  // Function to handle showing the delete popup
+  const [deleteIndex, setDeleteIndex] = useState(null);
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [editIndex, setEditIndex] = useState(null); // State to store the index of the department being edited
+
   const handleShowDeletePopup = (index) => {
     setShowDeletePopup(true);
     setDeleteIndex(index);
   };
   
-  // Function to close the delete popup
   const handleCloseDeletePopup = () => {
     setShowDeletePopup(false);
     setDeleteIndex(null);
   };
-  
-  // Function to handle deleting a department
+
   const handleDeleteDepartment = () => {
     dispatch(deleteDepartment(deleteIndex));
-    handleCloseDeletePopup(); // Close the delete popup after deletion
+    handleCloseDeletePopup();
+  };
+
+  const handleEditDepartment = (index) => {
+    setEditIndex(index); // Set the index of the department being edited
+    setShowAddModal(true); // Show the AddDepartment modal for editing
+  };
+
+  const handleAddOrUpdateDepartment = (newDepartmentData) => {
+    if (editIndex !== null) {
+      // If editIndex is not null, it means we are updating an existing department
+      dispatch(updateDepartment(departmentList[editIndex].id, newDepartmentData)); // Dispatch updateDepartment action
+    } else {
+      // Otherwise, we are adding a new department
+      dispatch(addDepartment(newDepartmentData)); // Dispatch addDepartment action
+    }
+    setShowAddModal(false); // Close the AddDepartment modal
+    setEditIndex(null); // Reset editIndex state
   };
 
   return (
     <div className='mt-4 mx-3'>
       <div className='card p-3'>
         <div className='d-flex justify-content-between mx-2 switch-top'>
-          <h6 className='mx-2 mt-3'>DEPARMENTS LIST</h6>
+          <h6 className='mx-2 mt-3'>DEPARTMENTS LIST</h6>
           <Form className='mt-2 d-flex'>
             <Form.Control
               type='search'
@@ -64,23 +80,19 @@ const ListView = () => {
                 </tr>
               </thead>
               <tbody>
-                {(departmentList || []).map((user, index) => (
-                  <tr key={user}>
-                    <td>{user.no}</td>
-                    <td>{user.departmentname}</td>
-                    <td>{user.departmenthead}</td>
-                    <td>{user.totalemployee}</td>
+                {(departmentList || []).map((department, index) => (
+                  <tr key={index}>
+                    <td>{index + 1}</td>
+                    <td>{department.departmentname}</td>
+                    <td>{department.departmenthead}</td>
+                    <td>{department.totalemployee}</td>
                     <td>
-                      {(
-                        <>
-                          <button className='btn btn-sm mx-1'>
-                            <FontAwesomeIcon icon={faEdit} className='text-success'/>
-                          </button>
-                          <button className='btn btn-sm mx-1' onClick={() => handleShowDeletePopup(index)}>
-                            <FontAwesomeIcon icon={faTrash} className='text-danger'/>
-                          </button>
-                        </>
-                      )}
+                      <button className='btn btn-sm mx-1' onClick={() => handleEditDepartment(index)}>
+                        <FontAwesomeIcon icon={faEdit} className='text-success'/>
+                      </button>
+                      <button className='btn btn-sm mx-1' onClick={() => handleShowDeletePopup(index)}>
+                        <FontAwesomeIcon icon={faTrash} className='text-danger'/>
+                      </button>
                     </td>
                   </tr>
                 ))}
@@ -96,7 +108,14 @@ const ListView = () => {
         handleClose={handleCloseDeletePopup} 
         handleDelete={handleDeleteDepartment} 
       />
-      
+
+      {/* Render the AddDepartment modal */}
+      <AddDepartment 
+        show={showAddModal} 
+        handleClose={() => setShowAddModal(false)} 
+        handleAddOrUpdate={handleAddOrUpdateDepartment} 
+        departmentData={editIndex !== null ? departmentList[editIndex] : null} 
+      />
     </div>
   );
 };

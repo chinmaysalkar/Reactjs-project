@@ -7,6 +7,7 @@ import leaveemployeelistReducer from './HRMS/Emplyoee/LeaveEmployee/reducer';
 import holidayReducer from './HRMS/Holiday/reducer';
 import clientReducer from './Project/Client/reducer';
 import todoReducer from './Project/TodoList/reducer';
+import ticketReducer from './Project/TicketList/reducer';
 
 const rootReducer = combineReducers({
     department: departmentReducer,
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
     project: projectReducer,    
     client: clientReducer,
     todo: todoReducer,
+    ticket: ticketReducer,
 });
 
 export default rootReducer;

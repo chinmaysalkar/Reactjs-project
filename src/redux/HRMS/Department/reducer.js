@@ -1,4 +1,8 @@
-import { DELETE_DEPARTMENT, UPDATE_DEPARTMENT, ADD_DEPARTMENT } from "./constant";
+import {
+  DELETE_DEPARTMENT,
+  UPDATE_DEPARTMENT,
+  ADD_DEPARTMENT,
+} from "./constant";
 import { departmentlistview } from "../../../common/data/departmentlist";
 
 const initialState = {
@@ -15,6 +19,7 @@ const departmentReducer = (state = initialState, action) => {
         ...state,
         departmentList: updatedDepartmentList,
       };
+
     case UPDATE_DEPARTMENT:
       const { index, updatedDepartment } = action.payload;
       const updatedList = state.departmentList.map((department, i) =>
@@ -24,6 +29,7 @@ const departmentReducer = (state = initialState, action) => {
         ...state,
         departmentList: updatedList,
       };
+
     case ADD_DEPARTMENT:
       return {
         ...state,
