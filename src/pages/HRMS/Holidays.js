@@ -21,8 +21,8 @@ const Holidays = () => {
   const [deleteIndex, setDeleteIndex] = useState(null);
 
   const [holidayData, setHolidayData] = useState({
-    name: '',
-    date: '',
+    holiday: '',
+    date:  new Date().toISOString().slice(0, 10),
     day: ''
   });
 
@@ -56,7 +56,7 @@ const Holidays = () => {
   const handleSubmit = () => {
     dispatch(addHoliday(holidayData));
     handleClose();
-    setHolidayData({ name: '', date: '', day: '' });
+    setHolidayData({ holiday: '', date: new Date().toISOString().slice(0, 10), day: '' });
   };
 
   return (
@@ -119,6 +119,7 @@ const Holidays = () => {
             <Form.Group className="mb-3">
               <Form.Label>Holiday Day</Form.Label>
               <Form.Select name="day" value={holidayData.day} onChange={handleChange}>
+              <option>---Please Select a Day---</option>
                 <option value="Monday">Monday</option>
                 <option value="Tuesday">Tuesday</option>
                 <option value="Wednesday">Wednesday</option>

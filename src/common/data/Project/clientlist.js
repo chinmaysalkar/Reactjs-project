@@ -10,10 +10,10 @@ const clientdata = [
         name: 'Michelle Green',
         email: 'jason-porter@info.com',
         socialLinks: [
-            { icon: faFacebook, link: '/#' },
-            { icon: faTwitter, link: '/#' },
+            { icon: faFacebook, link: 'http://www.facebook.com' },
+            { icon: faTwitter, link: 'http://www.twitter.com' },
             { icon: faLinkedin, link: '/#' },
-            { icon: faInstagram, link: '/#' }
+            { icon: faInstagram, link: 'http://www.instagram.com' }
         ],
         projects: 7,
         dealAmount: 2510,
@@ -26,10 +26,10 @@ const clientdata = [
         name: 'David Wallace',
         email: 'Michelle@info.com',
         socialLinks: [
-            { icon: faTwitter, link: '/#' },
-            { icon: faFacebook, link: '/#' },
+            { icon: faTwitter, link: 'http://www.twitter.com' },
+            { icon: faFacebook, link: 'http://www.facebook.com' },
             { icon: faLinkedin, link: '/#' },
-            { icon: faInstagram, link: '/#' }
+            { icon: faInstagram, link: 'http://www.instagram.com' }
         ],
         projects: 14,
         dealAmount: 7510,
